@@ -43,7 +43,7 @@
                 margin-bottom: 20px !important;
             }
             .mobile-header-padding {
-                padding: 40px 20px 30px !important;
+                padding: 40px 20px 0 !important;
             }
             .mobile-text-padding {
                 padding: 0 20px 30px !important;
@@ -88,16 +88,22 @@
             .mobile-footer a {
                 font-size: 13px !important;
             }
-            .dual-square-image {
-                width: 100% !important;
-                max-width: 100% !important;
+            .dual-square-crop {
                 height: auto !important;
-                aspect-ratio: 1/1 !important;
-                object-fit: cover !important;
-                object-position: center center !important;
+                aspect-ratio: 3 / 4 !important;
+                overflow: hidden !important;
+            }
+            .dual-square-image {
+                width: 175% !important;
+                max-width: none !important;
+                height: auto !important;
+                margin: -6% 0 0 -38% !important;
+                aspect-ratio: auto !important;
+                object-fit: unset !important;
+                object-position: unset !important;
             }
             .dual-square-image-right {
-                object-position: center 30% !important;
+                margin: -6% 0 0 -44% !important;
             }
         }
     </style>
@@ -111,7 +117,7 @@
                     
                     <!-- Header -->
                     <tr>
-                        <td class="mobile-header-padding" style="padding: 40px 40px 40px; text-align: left; background-color: #FFFFFF;">
+                        <td class="mobile-header-padding" style="padding: 40px 40px 0; text-align: left; background-color: #FFFFFF;">
                             <!-- Logo -->
                             <a href="http://www.osteo-touch.it" style="text-decoration: none;">
                             <img src="https://mcusercontent.com/f898096ea0c8c2ffd0420840a/_thumbs/ac88495c-ee1b-5748-bc93-490e4e46bab8.png" 
@@ -124,8 +130,8 @@
                             <p style="margin: 0 0 10px; font-size: 16px; font-weight: 400; color: #002552; font-style: italic; text-align: center;">
                                 Mobilitas - Studio Osteopatico
                             </p>
-                            <h1 class="mobile-h1" style="margin: 32px 0 16px 0; font-size: 36px; font-weight: 700; color: #002552; letter-spacing: -0.5px; line-height: 1.3; text-align: left;">
-                                Non sai cos'hai davvero.<br>E senza certezza, non hai controllo.
+                            <h1 class="mobile-h1" style="margin: 32px 0 0 0; font-size: 36px; font-weight: 700; color: #002552; letter-spacing: -0.5px; line-height: 1.3; text-align: left;">
+                                Non hai una gamba corta.<br>Hai un bacino storto.
                             </h1>
                         </td>
                     </tr>
@@ -135,10 +141,10 @@
                         <td class="mobile-text-padding" style="padding: 16px 40px 0; text-align: left; background-color: #FFFFFF;">
                             <!-- Intro text -->
                             <p class="mobile-body" style="margin: 0 0 16px; font-size: 16px; font-weight: 400; color: #002552; line-height: 1.75;">
-                                C'è una donna con il bacino in asse, il peso sulle due gambe, i pantaloni che cadono dritti, il corpo centrato. E c'è una donna con un'anca più alta, la cintura storta, una gamba che sembra corta, il mal di schiena sempre dallo stesso lato, e una lista di fastidi che non tornano.
+                                C’è una donna con il bacino in asse: peso sulle due gambe, cintura dritta, orlo dei pantaloni pari. E c’è una donna con un’anca più alta, la cintura che gira, una gamba che sembra corta, mal di schiena sempre dallo stesso lato, e una lista di fastidi che non tornano.
                             </p>
                             <p class="mobile-body" style="margin: 0 0 28px; font-size: 16px; font-weight: 400; color: #002552; line-height: 1.75;">
-                                La differenza non è solo posturale. È la differenza tra chi sa cosa ha e agisce, e chi vive nel caos di sintomi sparsi: <strong style="color: #002552; font-weight: 700;">senza una causa chiara, senza una direzione, senza controllo.</strong>
+                                Non è “sfortuna”. È meccanica. Il bacino è la base della colonna e il punto da cui partono anche e gambe. <strong style="color: #002552; font-weight: 700;">Se pende o ruota, tutto ciò che sta sopra e sotto lavora storto.</strong>
                             </p>
                             <!-- Glow statement block -->
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 28px;">
@@ -148,8 +154,8 @@
                                             <tr>
                                                 <td style="padding: 28px 32px;">
                                                     <p class="mobile-body" style="margin: 0; font-size: 17px; font-weight: 600; color: #002552; line-height: 1.75; text-align: center;">
-                                                        Schiena, ginocchio, anca, gamba "corta": li vivi come problemi separati. Hanno un'unica causa sotto: il bacino fuori asse.<br><br>
-                                                        <span style="color: #4A5A70; font-size: 15px; font-weight: 400;">E finché non lo sai, continui a rincorrere sintomi. Senza mai riprendere il controllo.</span>
+                                                        Schiena, ginocchio, anca, gamba “corta”: non sono quattro patologie separate. Sono conseguenze dello stesso asse fuori posto.<br><br>
+                                                        <span style="color: #4A5A70; font-size: 15px; font-weight: 400;">Finché tratti il segnale e non la base, i sintomi tornano. Perché la causa è ancora lì.</span>
                                                     </p>
                                                 </td>
                                             </tr>
@@ -160,7 +166,7 @@
 
                             <!-- Segnali: livella, una causa, cinque segnali -->
                             <p class="mobile-body" style="margin: 0 0 20px; font-size: 16px; font-weight: 400; color: #002552; line-height: 1.7;">
-                                Fermati un secondo. Ti riconosci in qualcuno di questi?
+                                Ecco i segnali tipici di un bacino fuori asse. Quanti ne riconosci?
                             </p>
 
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 28px; border-radius: 20px; overflow: hidden; background-color: #F7FAFC;">
@@ -297,13 +303,13 @@
                                             </tr>
                                         </table>
                                         <p style="margin: 16px 0 0; font-size: 14px; font-weight: 600; color: #4A5A70; line-height: 1.5; text-align: center;">
-                                            Cinque segnali sparsi. Un'unica radice.
+                                            Cinque segnali diversi. Una sola base fuori posto.
                                         </p>
                                     </td>
                                 </tr>
                             </table>
                             <p class="mobile-body section-end" style="margin: 0 0 12px; font-size: 16px; font-weight: 400; color: #002552; line-height: 1.7;">
-                                Non sono problemi separati. Sono pezzi dello stesso puzzle. E finché li tratti uno a uno, il caos resta.
+                                Non sono problemi separati. Sono adattamenti dello stesso squilibrio. Trattarli uno a uno lascia la causa intatta. E il corpo continua a compensare.
                             </p>
 
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" class="section-divider" style="margin: 36px 0 36px;">
@@ -337,10 +343,10 @@
                                                 </td>
                                                 <td valign="top" style="padding-left: 12px;">
                                                     <p style="margin: 0 0 6px; font-size: 11px; font-weight: 700; letter-spacing: 1.8px; color: #5E84AC; line-height: 1; text-transform: uppercase;">
-                                                        Incertezza
+                                                        Meccanica
                                                     </p>
                                                     <p class="mobile-body" style="margin: 0 0 10px; font-size: 20px; font-weight: 700; color: #002552; line-height: 1.3;">
-                                                        L'ansia di non sapere cosa hai davvero.
+                                                        Stai curando dove fa male. Non dove nasce.
                                                     </p>
                                                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="40" style="width: 40px;">
                                                         <tr>
@@ -354,31 +360,41 @@
                                 </tr>
                             </table>
                             <p class="mobile-body" style="margin: 0 0 12px; font-size: 16px; font-weight: 400; color: #002552; line-height: 1.7;">
-                                            Mal di schiena da un lato. Un ginocchio che duole. Un'anca che tira. Una gamba che sembra corta. Li vivi come problemi sparsi, e nessuno ti ha mai detto che partono dalla stessa radice. <strong style="color: #002552; font-weight: 700;">Quella confusione non è un dettaglio: è ciò che ti toglie il controllo.</strong>
+                                Quando un’anca è più alta o il bacino ruota, un lato del corpo porta più carico. La colonna si adatta. Un’anca lavora di più. Un ginocchio riceve forze che non dovrebbe. Una gamba <em>sembra</em> corta anche quando le ossa sono uguali: è il bacino a “accorciarla”.
                             </p>
                             <p class="mobile-body" style="margin: 0 0 12px; font-size: 16px; font-weight: 400; color: #002552; line-height: 1.7;">
-                                            Ti senti "storta", sbilanciata, non in bolla. Ti chiedi se la gamba corta sia vera o posturale. Se il dolore peggiorerà a catena. Se stai ignorando qualcosa di serio. E ogni giorno senza una risposta chiara alimenta quell'ansia sospesa.
+                                Da fuori sembra una lista di problemi diversi. Da sotto è un’unica livella fuori bolla. <strong style="color: #002552; font-weight: 700;">Ecco perché i fastidi tornano sempre dallo stesso lato, e perché “curare” solo schiena o solo ginocchio non chiude il cerchio.</strong>
                             </p>
                             <p class="mobile-body section-end" style="margin: 0 0 28px; font-size: 16px; font-weight: 400; color: #002552; line-height: 1.7;">
-                                Le donne pagano per prevedibilità. Per sapere cosa hanno, cosa fare, cosa aspettarsi. Tu invece stai convivendo con il caos. E il caos, sul corpo, pesa quanto il dolore.
+                                Non è che il corpo ti “tradisce”. Sta compensando. E ogni compensazione, nel tempo, consuma quelle articolazioni.
                             </p>
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 24px 0 28px;">
                                 <tr>
                                     <td width="254" style="width: 50%; padding-right: 6px; vertical-align: top;">
-                                        <img src="https://mcusercontent.com/f898096ea0c8c2ffd0420840a/images/63abe5a4-656b-d4d9-c119-eb0313f04f04.jpg"
-                                             alt="Postura - Studio Mobilitas"
-                                             width="254"
-                                             height="320"
-                                             class="dual-square-image"
-                                             style="display: block; width: 100%; max-width: 254px; height: 320px; object-fit: cover; object-position: center 8%; border: 1px solid #002552; border-radius: 12px; box-shadow: 0 16px 48px rgba(0, 37, 82, 0.22), 0 6px 14px rgba(0, 37, 82, 0.14);">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="border: 1px solid #002552; border-radius: 12px; overflow: hidden; box-shadow: 0 16px 48px rgba(0, 37, 82, 0.22), 0 6px 14px rgba(0, 37, 82, 0.14);">
+                                            <tr>
+                                                <td class="dual-square-crop" height="320" style="height: 320px; overflow: hidden; line-height: 0; font-size: 0;">
+                                                    <img src="https://mcusercontent.com/f898096ea0c8c2ffd0420840a/images/0d203bc5-7e64-ef6f-af72-e1b6e9cd5abf.jpg"
+                                                         alt="Postura - Studio Mobilitas"
+                                                         width="445"
+                                                         class="dual-square-image"
+                                                         style="display: block; width: 175%; max-width: none; height: auto; margin: -6% 0 0 -38%; border: 0;">
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </td>
                                     <td width="254" style="width: 50%; padding-left: 6px; vertical-align: top;">
-                                        <img src="https://mcusercontent.com/f898096ea0c8c2ffd0420840a/images/dc3f8f49-4c9d-2dab-2c5d-f097e1586233.jpg"
-                                             alt="Postura - Studio Mobilitas"
-                                             width="254"
-                                             height="320"
-                                             class="dual-square-image dual-square-image-right"
-                                             style="display: block; width: 100%; max-width: 254px; height: 320px; object-fit: cover; object-position: center 8%; border: 1px solid #002552; border-radius: 12px; box-shadow: 0 16px 48px rgba(0, 37, 82, 0.22), 0 6px 14px rgba(0, 37, 82, 0.14);">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="border: 1px solid #002552; border-radius: 12px; overflow: hidden; box-shadow: 0 16px 48px rgba(0, 37, 82, 0.22), 0 6px 14px rgba(0, 37, 82, 0.14);">
+                                            <tr>
+                                                <td class="dual-square-crop" height="320" style="height: 320px; overflow: hidden; line-height: 0; font-size: 0;">
+                                                    <img src="https://mcusercontent.com/f898096ea0c8c2ffd0420840a/images/e13be508-2e20-6f2d-a6ad-8691c15fb9d1.jpg"
+                                                         alt="Postura - Studio Mobilitas"
+                                                         width="445"
+                                                         class="dual-square-image dual-square-image-right"
+                                                         style="display: block; width: 175%; max-width: none; height: auto; margin: -6% 0 0 -44%; border: 0;">
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </td>
                                 </tr>
                             </table>
@@ -414,7 +430,7 @@
                                                 </td>
                                                 <td valign="top" style="padding-left: 12px;">
                                                     <p style="margin: 0 0 6px; font-size: 11px; font-weight: 700; letter-spacing: 1.8px; color: #5E84AC; line-height: 1; text-transform: uppercase;">
-                                                        Limiti
+                                                        Errori comuni
                                                     </p>
                                                     <p class="mobile-body" style="margin: 0 0 10px; font-size: 20px; font-weight: 700; color: #002552; line-height: 1.3;">
                                                         Perché quello che stai facendo non basta.
@@ -431,13 +447,13 @@
                                 </tr>
                             </table>
                             <p class="mobile-body" style="margin: 0 0 12px; font-size: 16px; font-weight: 400; color: #002552; line-height: 1.7;">
-                                Probabilmente ci hai già provato. Vai dal fisio per la schiena. Fai qualcosa per il ginocchio. Ti massaggi l'anca. Prendi un antidolorifico. Cerchi esercizi uguali per i due lati su YouTube. Magari hai messo un plantare di iniziativa, o ti sei fatta "rimettere in asse" una tantum. Ogni cosa torna.
+                                Probabilmente ci hai già provato. Fisio per la schiena. Qualcosa per il ginocchio. Massaggio all’anca. Antidolorifico. Esercizi “uguali per i due lati” da YouTube. Magari un plantare di iniziativa, o una seduta una tantum per “rimetterti in asse”. Ogni sollievo è temporaneo.
                             </p>
                             <p class="mobile-body" style="margin: 0 0 12px; font-size: 16px; font-weight: 400; color: #002552; line-height: 1.7;">
-                                Sono tamponi sulle crepe. <strong style="color: #002552; font-weight: 600;">Le fondamenta, il bacino, restano storte.</strong> Massaggi e antidolorifici spengono il segnale, non ripristinano l'asse. Esercizi bilaterali non riequilibrano uno squilibrio asimmetrico. Un rialzo improvvisato può addirittura peggiorare. E un'osteopata una tantum, senza lavoro costante sui due lati, lascia che i muscoli ritirino il bacino fuori asse.
+                                Non perché quei gesti siano inutili. Perché <strong style="color: #002552; font-weight: 600;">non correggono lo squilibrio asimmetrico del bacino.</strong> Massaggi e antidolorifici spegnono il segnale. Esercizi bilaterali allenano due lati come se fossero uguali. E non lo sono. Un rialzo improvvisato può peggiorare. Una seduta isolata, senza lavoro specifico sui due lati, lascia che i muscoli riportino il bacino fuori asse.
                             </p>
                             <p class="mobile-body section-end" style="margin: 0 0 28px; font-size: 16px; font-weight: 400; color: #002552; line-height: 1.7;">
-                                Nel frattempo la confusione resta. I sintomi si riformano. E ogni giorno senza una causa chiara e un piano preciso alimenta la paura che, col tempo, la catena (schiena, anche, ginocchia) si storca ancora di più.
+                                Nel frattempo i sintomi tornano. Non è “pazienza”. È tempo in cui schiena, anche e ginocchia continuano a lavorare storti, mentre tu tratti le conseguenze.
                             </p>
 
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" class="section-divider" style="margin: 36px 0 36px;">
@@ -471,10 +487,10 @@
                                                 </td>
                                                 <td valign="top" style="padding-left: 12px;">
                                                     <p style="margin: 0 0 6px; font-size: 11px; font-weight: 700; letter-spacing: 1.8px; color: #5E84AC; line-height: 1; text-transform: uppercase;">
-                                                        Certezza
+                                                        Quando l’asse torna
                                                     </p>
                                                     <p class="mobile-body" style="margin: 0 0 10px; font-size: 20px; font-weight: 700; color: #002552; line-height: 1.3;">
-                                                        Come meriti davvero di stare.
+                                                        Correggi la base. Non i pezzi.
                                                     </p>
                                                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="40" style="width: 40px;">
                                                         <tr>
@@ -488,13 +504,13 @@
                                 </tr>
                             </table>
                             <p class="mobile-body" style="margin: 0 0 12px; font-size: 16px; font-weight: 400; color: #002552; line-height: 1.7;">
-                                Immagina di sapere, finalmente, cosa hai: un bacino fuori asse. Non dieci problemi misteriosi. Una causa. E di avere un piano chiaro per rimetterlo in bolla.
+                                Con il bacino in bolla, il carico si ridistribuisce. Non “dieci problemi misteriosi”: una base che torna a fare da base. Schiena, anca e ginocchio smettono di dover compensare da soli.
                             </p>
                             <p class="mobile-body" style="margin: 0 0 12px; font-size: 16px; font-weight: 400; color: #002552; line-height: 1.7;">
-                                Ti senti dritta, centrata, bilanciata. Il mal di schiena da un lato molla. I pantaloni cadono dritti, la cintura sta in asse, l'orlo torna pari. Il peso sta sulle due gambe. Sparisce quella sensazione di essere "storta", e con lei l'ansia di non sapere.
+                                Il peso torna sulle due gambe. La cintura sta più dritta, l’orlo più pari. Quella sensazione di essere “storta” si alleggerisce: non perché “stai attenta”, ma perché l’asse non pende più.
                             </p>
                             <p class="mobile-body section-end" style="margin: 0 0 28px; font-size: 16px; font-weight: 400; color: #002552; line-height: 1.7;">
-                                Non un altro tampone su un sintomo. La chiarezza di una diagnosi, le fondamenta raddrizzate, e i fastidi che partivano da lì che se ne vanno insieme. Il controllo sul tuo corpo, di nuovo.
+                                Non è un altro tampone sul sintomo. È rimettere le fondamenta a posto: i fastidi che nascevano da lì spesso si alleggeriscono insieme.
                             </p>
 
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" class="section-divider" style="margin: 36px 0 36px;">
@@ -528,10 +544,10 @@
                                                 </td>
                                                 <td valign="top" style="padding-left: 12px;">
                                                     <p style="margin: 0 0 6px; font-size: 11px; font-weight: 700; letter-spacing: 1.8px; color: #5E84AC; line-height: 1; text-transform: uppercase;">
-                                                        Metodo
+                                                        Correzione
                                                     </p>
                                                     <p class="mobile-body" style="margin: 0 0 10px; font-size: 20px; font-weight: 700; color: #002552; line-height: 1.3;">
-                                                        La volontà non basta. Ecco cosa funziona.
+                                                        La volontà non basta. Serve lavoro asimmetrico.
                                                     </p>
                                                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="40" style="width: 40px;">
                                                         <tr>
@@ -545,10 +561,10 @@
                                 </tr>
                             </table>
                             <p class="mobile-body" style="margin: 0 0 12px; font-size: 16px; font-weight: 400; color: #002552; line-height: 1.7;">
-                                Un bacino ruotato non si sistema "ricordandosi" di stare dritti. Si corregge quando i due lati vengono trattati in modo diverso: si allentano le tensioni, si riequilibra la forza muscolare sullo squilibrio specifico, si rieduca la postura finché l'asse resta.
+                                Un bacino ruotato non si sistema “ricordandosi” di stare dritta. La volontà non raddrizza un asse storto. Si corregge quando i due lati vengono trattati in modo diverso: allenti le tensioni sul lato giusto, riequilibri la forza sullo squilibrio specifico, rieduchi la postura finché l’asse resta, non finché te lo ricordi.
                             </p>
                             <p class="mobile-body section-end" style="margin: 0 0 28px; font-size: 16px; font-weight: 400; color: #002552; line-height: 1.7;">
-                                È un lavoro preciso, costruito sul <strong style="color: #002552; font-weight: 600;">tuo</strong> bacino: come è inclinato o ruotato, quale lato compensa, quali muscoli riequilibrare. Non un video generico uguale per tutti. Il percorso che toglie l'incertezza e restituisce prevedibilità: sblocco, riequilibrio, accountability quotidiana.
+                                Serve precisione sul <strong style="color: #002552; font-weight: 600;">tuo</strong> bacino: come è inclinato o ruotato, quale lato compensa, quali muscoli riequilibrare. Non un video generico uguale per tutte, che ignora da che parte pendi. Sblocco, riequilibrio, lavoro quotidiano sui due lati: così la correzione tiene.
                             </p>
                         </td>
                     </tr>
@@ -588,10 +604,10 @@
                                                 </td>
                                                 <td valign="top" style="padding-left: 12px;">
                                                     <p style="margin: 0 0 6px; font-size: 11px; font-weight: 700; letter-spacing: 1.8px; color: #5E84AC; line-height: 1; text-transform: uppercase;">
-                                                        Controllo
+                                                        Effetti
                                                     </p>
                                                     <p class="mobile-body" style="margin: 0 0 10px; font-size: 20px; font-weight: 700; color: #002552; line-height: 1.3;">
-                                                        5 cose che la certezza ti restituisce.
+                                                        5 cose che cambiano quando il bacino torna in asse.
                                                     </p>
                                                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="40" style="width: 40px;">
                                                         <tr>
@@ -617,11 +633,11 @@
                                                     </table>
                                                 </td>
                                                 <td valign="middle">
-                                                    <p class="mobile-body" style="margin: 0; font-size: 15px; font-weight: 700; color: #002552; line-height: 1.4;">Finalmente sai cosa hai, e cosa fare.</p>
+                                                    <p class="mobile-body" style="margin: 0; font-size: 15px; font-weight: 700; color: #002552; line-height: 1.4;">I sintomi smettono di sembrare “sparsi”.</p>
                                                 </td>
                                             </tr>
                                         </table>
-                                        <p class="mobile-body" style="margin: 12px 0 0; font-size: 14px; font-weight: 400; color: #4A5A70; line-height: 1.65;">Via la confusione dei fastidi sparsi. Capisci che avevano un'unica causa sotto. La chiarezza che nessuno ti aveva dato, e con lei la direzione.</p>
+                                        <p class="mobile-body" style="margin: 12px 0 0; font-size: 14px; font-weight: 400; color: #4A5A70; line-height: 1.65;">Capisci il collegamento: schiena, anca, ginocchio e gamba “corta” non erano quattro enigmi. Erano adattamenti della stessa base. Sapere la causa cambia come li affronti.</p>
                                     </td>
                                 </tr>
                             </table>
@@ -638,11 +654,11 @@
                                                     </table>
                                                 </td>
                                                 <td valign="middle">
-                                                    <p class="mobile-body" style="margin: 0; font-size: 15px; font-weight: 700; color: #002552; line-height: 1.4;">Risolvi più fastidi insieme, alla radice.</p>
+                                                    <p class="mobile-body" style="margin: 0; font-size: 15px; font-weight: 700; color: #002552; line-height: 1.4;">Più fastidi si alleggeriscono dalla stessa correzione.</p>
                                                 </td>
                                             </tr>
                                         </table>
-                                        <p class="mobile-body" style="margin: 12px 0 0; font-size: 14px; font-weight: 400; color: #4A5A70; line-height: 1.65;">Rimetti in asse il bacino e affronti in un colpo solo schiena da un lato, anca, ginocchio, gamba "corta". Non le crepe una a una: le fondamenta. E i pantaloni, finalmente, cadono come devono.</p>
+                                        <p class="mobile-body" style="margin: 12px 0 0; font-size: 14px; font-weight: 400; color: #4A5A70; line-height: 1.65;">Rimettere in asse il bacino riduce il carico storto su schiena, anca e ginocchio. Non rincorri le crepe una a una: lavori sulla base. Spesso anche cintura e orlo tornano più dritti.</p>
                                     </td>
                                 </tr>
                             </table>
@@ -659,11 +675,11 @@
                                                     </table>
                                                 </td>
                                                 <td valign="middle">
-                                                    <p class="mobile-body" style="margin: 0; font-size: 15px; font-weight: 700; color: #002552; line-height: 1.4;">Ti senti dritta, in bolla, bilanciata.</p>
+                                                    <p class="mobile-body" style="margin: 0; font-size: 15px; font-weight: 700; color: #002552; line-height: 1.4;">Il corpo torna più bilanciato, non “forzato dritto”.</p>
                                                 </td>
                                             </tr>
                                         </table>
-                                        <p class="mobile-body" style="margin: 12px 0 0; font-size: 14px; font-weight: 400; color: #4A5A70; line-height: 1.65;">Sparisce la sensazione di essere "storta". Il peso torna sulle due gambe. Il corpo è centrato, e con lui la sicurezza di stare a posto.</p>
+                                        <p class="mobile-body" style="margin: 12px 0 0; font-size: 14px; font-weight: 400; color: #4A5A70; line-height: 1.65;">Il peso si distribuisce meglio sulle due gambe. La sensazione di essere “storta” cala perché l’asse non pende più, non perché ti ricordi di stare attenta tutto il giorno.</p>
                                     </td>
                                 </tr>
                             </table>
@@ -680,11 +696,11 @@
                                                     </table>
                                                 </td>
                                                 <td valign="middle">
-                                                    <p class="mobile-body" style="margin: 0; font-size: 15px; font-weight: 700; color: #002552; line-height: 1.4;">Fermi la catena prima che peggiori.</p>
+                                                    <p class="mobile-body" style="margin: 0; font-size: 15px; font-weight: 700; color: #002552; line-height: 1.4;">Interrompi la catena di compensazioni.</p>
                                                 </td>
                                             </tr>
                                         </table>
-                                        <p class="mobile-body" style="margin: 12px 0 0; font-size: 14px; font-weight: 400; color: #4A5A70; line-height: 1.65;">Raddrizzare il bacino adesso interrompe il meccanismo che storcerebbe schiena, anche e ginocchia. Agisci sulla causa mentre è correggibile, non rincorri sintomi che si moltiplicano.</p>
+                                        <p class="mobile-body" style="margin: 12px 0 0; font-size: 14px; font-weight: 400; color: #4A5A70; line-height: 1.65;">Finché il bacino pende, schiena, anche e ginocchia continuano a lavorare storti. Correggere la base ora riduce il consumo articololare che nasce dalle compensazioni ripetute.</p>
                                     </td>
                                 </tr>
                             </table>
@@ -701,11 +717,11 @@
                                                     </table>
                                                 </td>
                                                 <td valign="middle">
-                                                    <p class="mobile-body" style="margin: 0; font-size: 15px; font-weight: 700; color: #002552; line-height: 1.4;">Un piano sul TUO squilibrio, non sul caso.</p>
+                                                    <p class="mobile-body" style="margin: 0; font-size: 15px; font-weight: 700; color: #002552; line-height: 1.4;">Il lavoro deve essere specifico sul tuo squilibrio.</p>
                                                 </td>
                                             </tr>
                                         </table>
-                                        <p class="mobile-body" style="margin: 12px 0 0; font-size: 14px; font-weight: 400; color: #4A5A70; line-height: 1.65;">Sblocco osteopatico, percorso in app sui due lati, supporto quotidiano. Precisione e costanza, non un video generico che rischia di peggiorarti. Prevedibilità, non improvvisazione.</p>
+                                        <p class="mobile-body" style="margin: 12px 0 0; font-size: 14px; font-weight: 400; color: #4A5A70; line-height: 1.65;">Inclinazione, rotazione e lato che compensa non sono uguali per tutte. Serve valutazione, sblocco e lavoro differenziato sui due lati, non un video generico che allena come se fossi simmetrica.</p>
                                     </td>
                                 </tr>
                             </table>
