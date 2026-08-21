@@ -43,7 +43,7 @@
                 margin-bottom: 20px !important;
             }
             .mobile-header-padding {
-                padding: 40px 20px 30px !important;
+                padding: 40px 20px 0 !important;
             }
             .mobile-text-padding {
                 padding: 0 20px 30px !important;
@@ -88,16 +88,22 @@
             .mobile-footer a {
                 font-size: 13px !important;
             }
-            .dual-square-image {
-                width: 100% !important;
-                max-width: 100% !important;
+            .dual-square-crop {
                 height: auto !important;
-                aspect-ratio: 1/1 !important;
-                object-fit: cover !important;
-                object-position: center center !important;
+                aspect-ratio: 3 / 4 !important;
+                overflow: hidden !important;
+            }
+            .dual-square-image {
+                width: 175% !important;
+                max-width: none !important;
+                height: auto !important;
+                margin: -6% 0 0 -38% !important;
+                aspect-ratio: auto !important;
+                object-fit: unset !important;
+                object-position: unset !important;
             }
             .dual-square-image-right {
-                object-position: center 30% !important;
+                margin: -6% 0 0 -44% !important;
             }
             .timeline-title {
                 font-size: 18px !important;
@@ -114,20 +120,20 @@
                     
                     <!-- Header -->
                     <tr>
-                        <td class="mobile-header-padding" style="padding: 40px 40px 40px; text-align: left; background-color: #FFFFFF;">
+                        <td class="mobile-header-padding" style="padding: 40px 40px 0; text-align: left; background-color: #FFFFFF;">
                             <!-- Logo -->
                             <a href="http://www.osteo-touch.it" style="text-decoration: none;">
-                            <img src="https://mcusercontent.com/f898096ea0c8c2ffd0420840a/_thumbs/ac88495c-ee1b-5748-bc93-490e4e46bab8.png" 
-                                 alt="Studio Mobilitas Logo" 
-                                 width="150" 
-                                 height="auto" 
+                            <img src="https://mcusercontent.com/f898096ea0c8c2ffd0420840a/_thumbs/ac88495c-ee1b-5748-bc93-490e4e46bab8.png"
+                                 alt="Studio Mobilitas Logo"
+                                 width="150"
+                                 height="auto"
                                  class="logo-image"
                                  style="display: block; margin: 0 auto 20px auto; max-width: 150px; height: auto; border: 0;">
                             </a>
                             <p style="margin: 0 0 10px; font-size: 16px; font-weight: 400; color: #002552; font-style: italic; text-align: center;">
                                 Mobilitas - Studio Osteopatico
                             </p>
-                            <h1 class="mobile-h1" style="margin: 32px 0 16px 0; font-size: 36px; font-weight: 700; color: #002552; letter-spacing: -0.5px; line-height: 1.3; text-align: left;">
+                            <h1 class="mobile-h1" style="margin: 32px 0 0 0; font-size: 36px; font-weight: 700; color: #002552; letter-spacing: -0.5px; line-height: 1.3; text-align: left;">
                                 A parità di valore, viene inclusa chi sta dritta. E tu non lo sei.
                             </h1>
                         </td>
@@ -138,7 +144,7 @@
                         <td class="mobile-text-padding" style="padding: 16px 40px 0; text-align: left; background-color: #FFFFFF;">
                             <!-- Intro text -->
                             <p class="mobile-body" style="margin: 0 0 16px; font-size: 16px; font-weight: 400; color: #002552; line-height: 1.75;">
-                                Una donna eretta si allunga verso l'alto: testa alta, schiena lunga, presenza che occupa lo spazio. Una donna crollata si ripiega in avanti e forma una "C": testa avanti, spalle giù, petto chiuso, figura che cede verso terra.
+                                C'è una donna che si allunga verso l'alto: testa alta, schiena lunga, presenza che occupa lo spazio. E c'è una donna che si ripiega in avanti e forma una "C": testa avanti, spalle giù, petto chiuso, figura che cede verso terra.
                             </p>
                             <p class="mobile-body" style="margin: 0 0 28px; font-size: 16px; font-weight: 400; color: #002552; line-height: 1.75;">
                                 Due letture opposte. Stesso silenzio. E in quel silenzio gli altri hanno già deciso chi includere e chi lasciare passare. Perché la postura crollata non è un dettaglio: è il segnale più immediato di resa, e <strong style="color: #002552; font-weight: 700;">lo leggono in un istante.</strong>
@@ -400,20 +406,30 @@
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 24px 0 28px;">
                                 <tr>
                                     <td width="254" style="width: 50%; padding-right: 6px; vertical-align: top;">
-                                        <img src="https://mcusercontent.com/f898096ea0c8c2ffd0420840a/images/63abe5a4-656b-d4d9-c119-eb0313f04f04.jpg"
-                                             alt="Postura - Studio Mobilitas"
-                                             width="254"
-                                             height="320"
-                                             class="dual-square-image"
-                                             style="display: block; width: 100%; max-width: 254px; height: 320px; object-fit: cover; object-position: center 8%; border: 1px solid #002552; border-radius: 12px; box-shadow: 0 16px 48px rgba(0, 37, 82, 0.22), 0 6px 14px rgba(0, 37, 82, 0.14);">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="border: 1px solid #002552; border-radius: 12px; overflow: hidden; box-shadow: 0 16px 48px rgba(0, 37, 82, 0.22), 0 6px 14px rgba(0, 37, 82, 0.14);">
+                                            <tr>
+                                                <td class="dual-square-crop" height="320" style="height: 320px; overflow: hidden; line-height: 0; font-size: 0;">
+                                                    <img src="https://mcusercontent.com/f898096ea0c8c2ffd0420840a/images/0d203bc5-7e64-ef6f-af72-e1b6e9cd5abf.jpg"
+                                                         alt="Postura - Studio Mobilitas"
+                                                         width="445"
+                                                         class="dual-square-image"
+                                                         style="display: block; width: 175%; max-width: none; height: auto; margin: -6% 0 0 -38%; border: 0;">
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </td>
                                     <td width="254" style="width: 50%; padding-left: 6px; vertical-align: top;">
-                                        <img src="https://mcusercontent.com/f898096ea0c8c2ffd0420840a/images/dc3f8f49-4c9d-2dab-2c5d-f097e1586233.jpg"
-                                             alt="Postura - Studio Mobilitas"
-                                             width="254"
-                                             height="320"
-                                             class="dual-square-image dual-square-image-right"
-                                             style="display: block; width: 100%; max-width: 254px; height: 320px; object-fit: cover; object-position: center 8%; border: 1px solid #002552; border-radius: 12px; box-shadow: 0 16px 48px rgba(0, 37, 82, 0.22), 0 6px 14px rgba(0, 37, 82, 0.14);">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="border: 1px solid #002552; border-radius: 12px; overflow: hidden; box-shadow: 0 16px 48px rgba(0, 37, 82, 0.22), 0 6px 14px rgba(0, 37, 82, 0.14);">
+                                            <tr>
+                                                <td class="dual-square-crop" height="320" style="height: 320px; overflow: hidden; line-height: 0; font-size: 0;">
+                                                    <img src="https://mcusercontent.com/f898096ea0c8c2ffd0420840a/images/e13be508-2e20-6f2d-a6ad-8691c15fb9d1.jpg"
+                                                         alt="Postura - Studio Mobilitas"
+                                                         width="445"
+                                                         class="dual-square-image dual-square-image-right"
+                                                         style="display: block; width: 175%; max-width: none; height: auto; margin: -6% 0 0 -44%; border: 0;">
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </td>
                                 </tr>
                             </table>
