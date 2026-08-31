@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="color-scheme" content="light only">
+    <meta name="supported-color-schemes" content="light only">
     <title>Bacino ruotato / inclinato - Studio Osteopatico Mobilitas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +17,41 @@
     </style>
     <![endif]-->
     <style type="text/css">
+        :root { color-scheme: light only; }
+        .dm-navy { color: #002552 !important; -webkit-text-fill-color: #002552 !important; }
+        .dm-muted { color: #4A5A70 !important; -webkit-text-fill-color: #4A5A70 !important; }
+        @media (prefers-color-scheme: dark) {
+            .dm-navy, .dm-navy span {
+                color: #002552 !important;
+                -webkit-text-fill-color: #002552 !important;
+            }
+            .dm-muted {
+                color: #4A5A70 !important;
+                -webkit-text-fill-color: #4A5A70 !important;
+            }
+            .dm-pill {
+                background-color: #EEF4FA !important;
+                background-image: none !important;
+            }
+            .dm-glow-inner {
+                background-color: #eaf1f8 !important;
+                background-image: none !important;
+            }
+        }
+        [data-ogsc] .dm-navy, [data-ogsb] .dm-navy {
+            color: #002552 !important;
+            -webkit-text-fill-color: #002552 !important;
+        }
+        [data-ogsc] .dm-muted, [data-ogsb] .dm-muted {
+            color: #4A5A70 !important;
+            -webkit-text-fill-color: #4A5A70 !important;
+        }
+        [data-ogsc] .dm-pill, [data-ogsb] .dm-pill { background-color: #EEF4FA !important; }
+        [data-ogsc] .dm-glow-inner, [data-ogsb] .dm-glow-inner { background-color: #eaf1f8 !important; }
+
+        .video-link { position: relative; display: block; max-width: 520px; line-height: 0; }
+        .play-overlay { position: absolute; top: 50%; left: 50%; width: 76px; height: 76px; margin-top: -38px; margin-left: -38px; }
+
         .section-divider {
             margin: 36px 0 36px;
         }
@@ -36,6 +73,19 @@
             .hero-image {
                 width: 100% !important;
                 height: auto !important;
+            }
+            .video-link {
+                position: relative !important;
+                display: block !important;
+            }
+            .play-overlay {
+                position: absolute !important;
+                top: 50% !important;
+                left: 50% !important;
+                width: 76px !important;
+                height: 76px !important;
+                margin-top: -38px !important;
+                margin-left: -38px !important;
             }
             .logo-image {
                 max-width: 120px !important;
@@ -136,13 +186,22 @@
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 24px 0 0;">
                                 <tr>
                                     <td align="left">
-                                        <a href="https://youtu.be/UYtAkSpIQrg" style="text-decoration: none; display: block;">
+                                        <a href="https://youtu.be/UYtAkSpIQrg" class="video-link" style="text-decoration: none; display: block; position: relative; max-width: 520px; line-height: 0;">
                                             <img src="https://img.youtube.com/vi/UYtAkSpIQrg/maxresdefault.jpg"
-                                                 alt="Video - Studio Mobilitas"
+                                                 alt="Guarda il video - Studio Mobilitas"
                                                  width="520"
                                                  height="293"
                                                  class="hero-image"
                                                  style="display: block; width: 100%; max-width: 520px; height: auto; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #002552; border-radius: 12px; box-shadow: 0 16px 48px rgba(0, 37, 82, 0.22), 0 6px 14px rgba(0, 37, 82, 0.14);">
+                                            <!--[if !mso]><!-->
+                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="76" height="76" class="play-overlay" style="position: absolute; top: 50%; left: 50%; width: 76px; height: 76px; margin-top: -38px; margin-left: -38px;">
+                                                <tr>
+                                                    <td align="center" valign="middle" width="76" height="76" style="width: 76px; height: 76px; border-radius: 38px; background-color: #002552; background-image: linear-gradient(135deg, #002552 0%, #3D6A96 48%, #5E84AC 100%); box-shadow: 0 12px 32px rgba(0, 37, 82, 0.48), 0 0 0 3px rgba(255,255,255,0.65);">
+                                                        <span style="display: inline-block; color: #FFFFFF; -webkit-text-fill-color: #FFFFFF; font-size: 28px; line-height: 76px; height: 76px; padding-left: 6px; font-family: Arial, Helvetica, sans-serif;">&#9658;</span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <!--<![endif]-->
                                         </a>
                                     </td>
                                 </tr>
@@ -172,12 +231,12 @@
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 28px;">
                                 <tr>
                                     <td style="padding: 1px; background-color: #002552; border-radius: 12px; box-shadow: 0 16px 48px rgba(0, 37, 82, 0.22), 0 6px 14px rgba(0, 37, 82, 0.14);">
-                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background: linear-gradient(135deg, #eaf1f8 0%, #ccdded 50%, #eaf1f8 100%); border-radius: 12px; overflow: hidden;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" class="dm-glow-inner" bgcolor="#eaf1f8" style="background-color: #eaf1f8; background-image: linear-gradient(135deg, #eaf1f8 0%, #ccdded 50%, #eaf1f8 100%); border-radius: 12px; overflow: hidden;">
                                             <tr>
                                                 <td style="padding: 28px 32px;">
-                                                    <p class="mobile-body" style="margin: 0; font-size: 17px; font-weight: 600; color: #002552; line-height: 1.75; text-align: center;">
+                                                    <p class="mobile-body dm-navy" style="margin: 0; font-size: 17px; font-weight: 600; color: #002552 !important; -webkit-text-fill-color: #002552; line-height: 1.75; text-align: center;">
                                                         Schiena, ginocchio, anca, gamba "corta": si vivono come problemi separati. Hanno un'unica causa sotto:<br>il bacino fuori asse.<br><br>
-                                                        <span style="color: #4A5A70; font-size: 15px; font-weight: 400;">E finché manca la causa, si continua a rincorrere sintomi, senza mai riprendere il filo.</span>
+                                                        <span class="dm-muted" style="color: #4A5A70 !important; -webkit-text-fill-color: #4A5A70; font-size: 15px; font-weight: 400;">E finché manca la causa, si continua a rincorrere sintomi, senza mai riprendere il filo.</span>
                                                     </p>
                                                 </td>
                                             </tr>
