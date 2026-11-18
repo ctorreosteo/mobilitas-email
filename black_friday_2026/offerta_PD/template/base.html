@@ -6,8 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="x-apple-disable-message-reformatting">
 <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
-<meta name="color-scheme" content="light dark">
-<meta name="supported-color-schemes" content="light dark">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light">
 <title>{{TITOLO}}</title>
 <!--[if !mso]><!-->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&amp;display=swap" rel="stylesheet">
@@ -19,6 +19,8 @@
 </style>
 <![endif]-->
 <style>
+  /* Sempre chiara: nessun adattamento al dark mode del dispositivo. */
+  :root { color-scheme: light only; }
   /* Reset dei client email */
   body { margin: 0 !important; padding: 0 !important; width: 100% !important; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
   table, td { border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
@@ -58,42 +60,6 @@
     .btn-txt { padding-right: 10px !important; }
   }
 </style>
-<style>
-  /* Dark mode (adattamento della versione chiara) */
-  @media (prefers-color-scheme: dark) {
-    .bg-page { background-color: {{D_PAGINA}} !important; }
-    .bg-card { background-color: {{D_CARD}} !important; border-color: {{D_BORDO}} !important; }
-    .t-main { color: {{D_TESTO}} !important; }
-    .t-sec { color: {{D_SECONDARIO}} !important; }
-    .link { color: {{D_TESTO}} !important; }
-    .cp-top { background-image: linear-gradient(160deg, #123F78 0%, {{D_RIQUADRO}} 100%) !important; }
-    .card-motivi { background-color: {{D_RIQUADRO}} !important; border-color: {{D_BORDO}} !important; }
-    .card-passi { background-color: {{D_RIQUADRO}} !important; }
-    .sep { border-top-color: {{D_BORDO}} !important; }
-    .card-box { background-color: {{D_RIQUADRO}} !important; border-color: {{D_BORDO}} !important; }
-    .cp-chiaro { background-color: {{D_RIQUADRO}} !important; }
-    .pall-pag { border-color: {{D_TESTO}} !important; }
-    .num-ghost { color: {{D_BORDO}} !important; }
-    .ps-box { background-color: {{D_RIQUADRO}} !important; background-image: none !important; border-color: {{D_BORDO}} !important; }
-    .ps-sigla { background-color: {{D_CARD}} !important; }
-    .btn-td { background-color: {{C_VERDE}} !important; }
-    .btn-a { color: {{C_NOTTE}} !important; }
-    .logo-light { display: none !important; }
-    .logo-dark { display: block !important; max-height: none !important; overflow: visible !important; }
-  }
-  /* Outlook.com */
-  [data-ogsb] .bg-page { background-color: {{D_PAGINA}} !important; }
-  [data-ogsb] .bg-card { background-color: {{D_CARD}} !important; }
-  [data-ogsb] .card-box, [data-ogsb] .cp-chiaro, [data-ogsb] .card-motivi, [data-ogsb] .card-passi { background-color: {{D_RIQUADRO}} !important; }
-  [data-ogsb] .ps-box { background-color: {{D_RIQUADRO}} !important; }
-  [data-ogsb] .btn-td { background-color: {{C_VERDE}} !important; }
-  [data-ogsc] .t-main { color: {{D_TESTO}} !important; }
-  [data-ogsc] .t-sec { color: {{D_SECONDARIO}} !important; }
-  [data-ogsc] .link { color: {{D_TESTO}} !important; }
-  [data-ogsc] .btn-a { color: {{C_NOTTE}} !important; }
-  [data-ogsc] .logo-light { display: none !important; }
-  [data-ogsc] .logo-dark { display: block !important; max-height: none !important; overflow: visible !important; }
-</style>
 </head>
 <body class="bg-page" style="margin:0; padding:0; width:100%; background-color:{{C_PAGINA}};">
 <div class="preheader" style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; mso-hide:all; color:{{C_PAGINA}};">{{PREHEADER}}{{RIEMPIMENTO}}</div>
@@ -108,7 +74,6 @@
         <tr>
           <td class="px" align="center" style="padding:30px 36px 22px 36px;">
             <img class="logo-light" src="{{LOGO_URL}}" width="{{LOGO_LARGHEZZA}}" alt="Studio Mobilitas" style="display:block; margin:0 auto; width:{{LOGO_LARGHEZZA}}px; max-width:100%; height:auto; border:0; outline:none; text-decoration:none; font-family:{{FONT}}; font-size:18px; font-weight:700; line-height:1.3; color:{{C_NOTTE}};">
-            {{LOGO_DARK}}
           </td>
         </tr>
         <!-- Testata Black Friday -->

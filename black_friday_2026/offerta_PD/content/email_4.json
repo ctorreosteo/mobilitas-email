@@ -5,7 +5,7 @@
   "tema": "bianco",
   "oggetto": "Oggi, per una volta, vieni prima tu",
   "oggetto_alternativo": "Quante volte hai pensato: il mese prossimo?",
-  "preheader": "Il dolore non aspetta il mese giusto. Dieci visite a 450€ invece di 900€, fino a domenica.",
+  "preheader": "Il dolore non aspetta il mese giusto. Oggi dieci visite costano la metà: 450€, pagati una volta sola.",
   "testata": {
     "variante": "banner",
     "banner": "calendario",
@@ -51,7 +51,7 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "Solo che **il dolore non aspetta il mese giusto**.\nPuò tornare. E spesso torna più forte di prima."
+      "testo": "Solo che **il dolore non aspetta il mese giusto**.\nE ogni volta che rimandi, gli lasci più spazio."
     },
     {
       "tipo": "immagine",
@@ -60,11 +60,11 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "Oggi è il Black Friday.\nPer una volta, **metti al primo posto te**:\ndieci visite, ma ne paghi solo cinque. Le altre cinque sono in omaggio."
+      "testo": "Oggi è il Black Friday.\nPer una volta, **metti al primo posto te**,\nsenza far saltare i conti del mese."
     },
     {
       "tipo": "paragrafo",
-      "testo": "Di solito, dieci visite costano 900€.\nPer il Black Friday, le paghi **450€. La metà.**"
+      "testo": "Di solito, dieci visite costano 900€.\nOggi ne paghi cinque, le altre cinque sono in omaggio: **450€. La metà.**\nFanno 45€ a visita, invece di 90€."
     },
     {
       "tipo": "box",
@@ -82,17 +82,17 @@
         [
           "Il mese prossimo",
           "Oggi.",
-          "Il dolore non aspetta il mese giusto. Neanche tu dovresti."
+          "Il mese prossimo arriverà con le sue spese, come sempre. Questo prezzo, invece, non torna."
         ],
         [
           "Dopo tutto il resto",
           "Prima di tutto il resto.",
-          "Per una volta, al primo posto ci sei tu."
+          "Bollette, spesa, affitto: ci saranno sempre. Per una volta, al primo posto ci sei tu."
         ],
         [
-          "900€",
-          "450€, pagati una volta sola.",
-          "Paghi una volta e per dieci visite non devi più trovare i soldi ogni mese."
+          "Trovare 90€ ogni volta",
+          "Pagare una volta sola.",
+          "450€ e non ci pensi più: per dieci visite non devi far quadrare i conti ogni mese."
         ]
       ]
     },
@@ -126,7 +126,7 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "Tocca il pulsante qui sotto e **riserva le tue dieci visite a metà prezzo**."
+      "testo": "Lo fai adesso, in pochi minuti.\n**Le visite, poi, le prenoti con calma.**"
     },
     {
       "tipo": "pulsante",
@@ -136,11 +136,11 @@
     {
       "tipo": "nota",
       "stile": "passi",
-      "testo": "Paghi online. Poi scegli tu: prenoti le visite da solo, oppure ci chiami al +39 351 819 8457."
+      "testo": "Paghi online\nPrenoti le visite quando vuoi\nOppure ci chiami al +39 351 819 8457"
     },
     {
       "tipo": "chiusura",
-      "testo": "Ci vediamo in studio da Mobilitas!"
+      "testo": "Ci vediamo in studio."
     },
     {
       "tipo": "firma",
@@ -148,7 +148,7 @@
     },
     {
       "tipo": "ps",
-      "testo": "P.S. Da qui a domenica restano due giorni. Poi le dieci visite a 450€ non ci saranno più."
+      "testo": "P.S. Il mese prossimo ci saranno di nuovo le bollette, la spesa, l’affitto. Le dieci visite a 450€, invece, finiscono domenica 29 novembre, ore 23:59."
     }
   ],
   "solo_testo": null,

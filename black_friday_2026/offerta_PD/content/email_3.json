@@ -5,7 +5,7 @@
   "tema": "centro",
   "oggetto": "Stai meglio. Ma non del tutto.",
   "oggetto_alternativo": "Il dolore è sceso. Ma c'è ancora.",
-  "preheader": "Se ti fermi a metà, il corpo riprende l'abitudine di prima. Dieci visite a 450€ invece di 900€, fino a domenica 29 novembre.",
+  "preheader": "Se ti fermi a metà, il corpo riprende l'abitudine di prima. Fino a domenica 29 novembre puoi arrivare in fondo, a metà prezzo.",
   "testata": {
     "variante": "banner",
     "banner": "verde",
@@ -26,20 +26,20 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "il dolore è sceso. Non è più quello di prima.\n**Ma c’è ancora.**"
+      "testo": "il dolore è sceso.\nNon è più quello di prima.\n**Ma c’è ancora.**"
     },
     {
       "tipo": "paragrafo",
-      "testo": "Te ne accorgi la mattina, quando ti alzi dal letto.\nO la sera, dopo una giornata lunga.\nNon ti blocca più, **ma è lì**."
+      "testo": "Te ne accorgi la mattina,\nquando ti alzi dal letto.\nO la sera, dopo una giornata lunga.\nNon ti blocca più, **ma è lì**."
     },
     {
       "tipo": "paragrafo",
       "stile": "evidenza",
-      "testo": "E magari hai pensato: per adesso va bene così."
+      "testo": "E magari hai pensato:\nper adesso va bene così."
     },
     {
       "tipo": "paragrafo",
-      "testo": "Non hai sbagliato tu.\n**Ma c’è una cosa che forse nessuno ti ha mai spiegato.**"
+      "testo": "Non hai sbagliato tu.\nMa c’è una cosa che forse\n**nessuno ti ha mai spiegato.**"
     },
     {
       "tipo": "immagine",
@@ -50,42 +50,42 @@
       "tipo": "box",
       "stile": "spiegazione",
       "etichetta": "PERCHÉ IL DOLORE TORNA",
-      "testo": "Se hai avuto male per tanto tempo, **il corpo impara a stare teso**.\nDiventa un’abitudine. E non la cambi in un giorno.\n\nSe ti fermi a metà, il corpo riprende l’abitudine di prima. E con lei, il dolore."
+      "testo": "Se hai avuto male a lungo,\n**il corpo impara a stare teso.**\nDiventa un’abitudine.\nE non la cambi in un giorno.\n\nSe ti fermi a metà,\nil corpo torna\nall’abitudine di prima.\nE con lei, il dolore."
     },
     {
       "tipo": "box",
       "stile": "bastone",
       "etichetta": "PENSA A UNA PIANTA",
-      "testo": "Una pianta storta si lega a un bastone.\nSe togli il bastone troppo presto, si piega di nuovo.\nSe aspetti, impara a stare dritta da sola.\nIl tuo corpo funziona allo stesso modo."
+      "testo": "Una pianta storta\nsi lega a un bastone.\n\nSe lo togli troppo presto,\nsi piega di nuovo.\n\nSe aspetti,\nimpara a stare dritta da sola.\n\nIl tuo corpo\nfunziona allo stesso modo."
     },
     {
       "tipo": "benefici",
-      "etichetta": "COSA CAMBIA CON DIECI VISITE",
+      "etichetta": "COSA TI DANNO DIECI VISITE",
       "voci": [
         [
           "Fermarti a metà",
           "Arrivare in fondo.",
-          "Dieci visite per finire il lavoro iniziato insieme."
+          "Dieci visite per dare al corpo il tempo\ndi lasciare l’abitudine di stare teso."
         ],
         [
-          "Lasciare che il corpo torni alle vecchie abitudini",
-          "Dargli il tempo di impararne di nuove.",
-          "Come la pianta con il bastone: il tempo giusto per stare dritta da sola."
+          "Decidere con il portafoglio",
+          "Decidere ascoltando il corpo.",
+          "Le visite sono già pagate:\nil prezzo non decide più al posto tuo."
         ],
         [
           "«Per adesso va bene così»",
-          "Puntare a stare bene davvero.",
-          "Non accontentarti di un dolore che non ti blocca più, ma è ancora lì."
+          "Puntare a stare bene, non solo meglio.",
+          "«Meglio» non vuol dire «bene».\nUn dolore che non ti blocca più\nè sempre un dolore."
         ]
       ]
     },
     {
       "tipo": "paragrafo",
-      "testo": "Il Black Friday è l’occasione per **finire il lavoro iniziato insieme**:\ndieci visite, ma ne paghi solo cinque.\nLe altre cinque sono in omaggio."
+      "testo": "Il Black Friday è l’occasione\nper **finire il lavoro iniziato**.\nNe paghi cinque, e ne fai dieci."
     },
     {
       "tipo": "paragrafo",
-      "testo": "L’obiettivo è **arrivare in fondo**.\nE fare in modo che il risultato duri."
+      "testo": "**L’obiettivo è arrivare in fondo.**\nE far sì che il risultato duri."
     },
     {
       "tipo": "riquadro",
@@ -107,7 +107,7 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "Tocca il pulsante qui sotto e **riserva le tue dieci visite a metà prezzo**."
+      "testo": "Le dieci visite le prenoti quando vuoi.\n**Basta deciderlo entro domenica.**"
     },
     {
       "tipo": "pulsante",
@@ -116,12 +116,12 @@
     },
     {
       "tipo": "nota",
-      "testo": "Paghi online. Poi scegli tu: prenoti le visite da solo, oppure ci chiami al +39 351 819 8457.",
+      "testo": "Paghi online\nPrenoti le visite quando vuoi\nOppure ci chiami al +39 351 819 8457",
       "stile": "passi"
     },
     {
       "tipo": "chiusura",
-      "testo": "Ci vediamo in studio da Mobilitas!"
+      "testo": "Ci vediamo in studio.\nQuesta volta, fino in fondo."
     },
     {
       "tipo": "firma",
@@ -129,7 +129,7 @@
     },
     {
       "tipo": "ps",
-      "testo": "P.S. L’offerta finisce domenica 29 novembre alle 23:59. Dopo, non c’è più."
+      "testo": "P.S. Fermarsi a metà\nè la scelta più facile.\nL’offerta, invece, finisce\ndomenica 29 novembre alle 23:59."
     }
   ],
   "solo_testo": null,

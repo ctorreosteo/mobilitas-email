@@ -52,14 +52,14 @@
       "stile": "motivi",
       "etichetta": "TRE MOTIVI, UNO È IL TUO",
       "voci": [
-        "**Se oggi stai bene:**\ndieci visite servono a non perdere il lavoro fatto insieme.",
-        "**Se stai meglio, ma non del tutto:**\nservono ad arrivare in fondo.",
-        "**Se hai sempre rimandato:**\noggi, per una volta, vieni prima tu."
+        "**Se oggi stai bene:**\ndieci visite servono a giocare d’anticipo, senza ricominciare da capo.",
+        "**Se stai meglio, ma non del tutto:**\nservono ad arrivare in fondo, senza fermarti a metà per il prezzo.",
+        "**Se hai sempre rimandato:**\nstasera, per una volta, vieni prima tu."
       ]
     },
     {
       "tipo": "paragrafo",
-      "testo": "**Dieci visite, ma ne paghi solo cinque.** Le altre cinque sono in omaggio.\nAncora per qualche ora."
+      "testo": "**Dieci visite, ma ne paghi solo cinque.**\nLe riservi stasera, e le usi con calma, quando ti servono.\nDa domani, le stesse dieci visite costano il doppio."
     },
     {
       "tipo": "riquadro",
@@ -80,7 +80,7 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "Tocca il pulsante qui sotto e **riserva le tue dieci visite a metà prezzo**."
+      "testo": "Se ci stavi pensando,\n**è il momento di decidere.**"
     },
     {
       "tipo": "pulsante",
@@ -90,7 +90,7 @@
     {
       "tipo": "nota",
       "stile": "passi",
-      "testo": "Paghi online e prenoti le visite da solo, anche stasera."
+      "testo": "Paghi online\nPrenoti le visite da solo, anche stasera"
     },
     {
       "tipo": "chiusura",

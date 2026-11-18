@@ -278,7 +278,32 @@ def inline(s, ctx):
         out.append(ancora(ctx.risolvi(m.group(2)), testo_link, ctx.cfg))
         pos = m.end()
     out.append(segmento(s[pos:]))
-    return "".join(out).replace("\n", "<br>")
+    return "<br>".join(senza_orfane(r) for r in "".join(out).split("\n"))
+
+
+def senza_orfane(riga):
+    """Niente parole orfane: se la riga va a capo da sola (telefono), la chiusura scende tutta insieme.
+    Lega con &nbsp; le ultime parole finché la coda visibile ha almeno 12 caratteri (al massimo 3 parole).
+    Solo righe di almeno 4 parole; mai spazi dentro i tag."""
+    if len(re.sub(r"<[^>]*>", "", riga).split()) < 4:
+        return riga
+    in_tag, spazi = False, []
+    for i, ch in enumerate(riga):
+        if ch == "<":
+            in_tag = True
+        elif ch == ">":
+            in_tag = False
+        elif ch == " " and not in_tag:
+            spazi.append(i)
+    legati = []
+    while spazi and len(legati) < 2:
+        legati.append(spazi.pop())
+        coda = html.unescape(re.sub(r"<[^>]*>", "", riga[legati[-1] + 1:]))
+        if len(coda) >= 12 or len(spazi) < 2:
+            break
+    for i in sorted(legati, reverse=True):
+        riga = riga[:i] + "&nbsp;" + riga[i + 1:]
+    return riga
 
 
 def inline_txt(s, ctx):
@@ -740,9 +765,24 @@ def b_pulsante(b, ctx):
 
 
 def nota_passi(b, ctx):
-    """Nota sotto il pulsante, discreta: una riga piccola e centrata, la prima frase in grassetto.
-    Il testo resta identico: la prima frase viene solo evidenziata."""
+    """Nota sotto il pulsante, discreta e centrata.
+    Con voci separate da "\n": ogni voce ha un punto verde davanti e non si spezza mai (va a capo solo tra una voce
+    e l'altra); la prima voce in grassetto blu notte. Senza "\n": una riga sola, prima frase in grassetto."""
     t = b["testo"]
+    if "\n" in t:
+        voci = t.split("\n")
+        punto = ('<span style="display:inline-block; width:7px; height:7px; border-radius:50%%; background-color:%s; '
+                 'box-shadow:0 0 0 3px rgba(114,250,147,0.28); vertical-align:middle; margin:0 9px 2px 0;"></span>' % C["C_VERDE"])
+        pezzi = []
+        for i, v in enumerate(voci):
+            testo = inline(v, ctx)
+            if i == 0:
+                testo = '<strong style="font-weight:800; color:%s;">%s</strong>' % (C["C_NOTTE"], testo)
+            pezzi.append('<span style="display:inline-block; white-space:nowrap; margin:3px 9px;">%s%s</span>' % (punto, testo))
+        h = ('<p class="t-sec" style="%s">%s</p>'
+             % (stile(13, "1.6", C["C_SECONDARIO"], "text-align:center; max-width:480px; margin-left:auto; margin-right:auto;"),
+                " ".join(pezzi)))
+        return h, inline_txt(t, ctx), [testo_puro(v) for v in voci]
     frasi = re.split(r"(?<=[.!?])\s+", t, maxsplit=1)
     corpo = '<strong style="font-weight:800; color:%s;">%s</strong>' % (C["C_NOTTE"], inline(frasi[0], ctx))
     if len(frasi) > 1:
@@ -1116,8 +1156,8 @@ def n_box_variante(b, ctx):
              % (TABELLA, n, "".join(parti)))
         txt = b["etichetta"] + "\n" + "\n\n".join(inline_txt(x, ctx) for x in paragrafi)
         return h, txt, [b["etichetta"]] + [testo_puro(x) for x in paragrafi]
-    # bastone
-    righe = b["testo"].split("\n")
+    # bastone: una frase per riga ("\n"); se il testo usa "\n\n", le frasi sono separate da "\n\n" e "\n" va a capo dentro la frase
+    righe = b["testo"].split("\n\n") if "\n\n" in b["testo"] else b["testo"].split("\n")
     parti = []
     for i, r in enumerate(righe):
         ultima = i == len(righe) - 1

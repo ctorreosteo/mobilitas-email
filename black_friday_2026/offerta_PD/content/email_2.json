@@ -4,7 +4,7 @@
   "ora_invio": "19:30",
   "oggetto": "Stai bene. Ed è proprio questo il problema.",
   "oggetto_alternativo": "Ti ricordi com'era prima?",
-  "preheader": "Quando si sta bene, si smette. Dieci visite a 450€ invece di 900€, fino a domenica 29 novembre.",
+  "preheader": "Quando si sta bene, si smette. Dieci visite per non ricominciare da capo, a metà prezzo fino a domenica 29 novembre.",
   "testata": {
     "variante": "banner",
     "banner": "nero",
@@ -24,7 +24,7 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "se oggi stai bene, è perché insieme abbiamo fatto **un ottimo lavoro**.\nO lo stiamo ancora facendo."
+      "testo": "se oggi stai bene,\nè perché insieme abbiamo fatto\n**un ottimo lavoro.**\nO lo stiamo ancora facendo."
     },
     {
       "tipo": "paragrafo",
@@ -37,7 +37,7 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "Quando ti svegliavi al mattino, e **il dolore era già lì**.\nQuando decideva lui al posto tuo:\nno alla cena con gli amici, no alla passeggiata, no al weekend fuori."
+      "testo": "Quando ti svegliavi al mattino\ne **il dolore era già lì**.\nQuando decideva lui al posto tuo:\nno alla cena con gli amici,\nno alla passeggiata,\nno al weekend fuori."
     },
     {
       "tipo": "paragrafo",
@@ -45,7 +45,7 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "Ma c'è un modo semplice per **non ricominciare da capo**.\nPer il Black Friday abbiamo pensato proprio a te:\n**dieci visite, ma ne paghi solo cinque.** Le altre cinque sono in omaggio."
+      "testo": "Ma c'è un modo semplice\nper **non ricominciare da capo**.\nPer il Black Friday,\nabbiamo pensato proprio a te:\n**dieci visite al prezzo di cinque.**"
     },
     {
       "tipo": "immagine",
@@ -55,30 +55,34 @@
     {
       "tipo": "box",
       "etichetta": "PENSA AL TAGLIANDO",
-      "testo": "Lo so: quando stai bene, dieci visite possono sembrare tante.\n\nMa pensa al **tagliando della macchina**.\nNon lo fai perché è rotta.\nLo fai proprio perché va bene, e vuoi che continui così per tanti chilometri.\n\n**Con il tuo corpo è lo stesso.**"
+      "testo": "Lo so: quando stai bene,\ndieci visite possono sembrare tante.\n\nMa pensa al **tagliando della macchina**.\nNon lo fai perché è rotta.\nLo fai proprio perché va bene,\ne vuoi che continui così\nper tanti chilometri.\n\n**Con il tuo corpo è lo stesso.**"
     },
     {
       "tipo": "paragrafo",
-      "testo": "Con queste dieci visite, **il lavoro fatto insieme non va perso**: l'obiettivo è farlo durare nel tempo.\nCosì puoi continuare a dire di sì, senza avere paura che il dolore ritorni."
+      "testo": "Con dieci visite già pagate,\n**il lavoro fatto non va perso.**"
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Non aspetti più di stare male:\nal primo segnale, la visita è già lì.\nE intanto continui a dire di sì."
     },
     {
       "tipo": "benefici",
-      "etichetta": "COSA CAMBIA CON DIECI VISITE",
+      "etichetta": "COSA CAMBIA, SE GIOCHI D'ANTICIPO",
       "voci": [
         [
           "Aspettare che il dolore torni",
-          "Anticiparlo.",
-          "Ci lavori quando stai bene, invece di correre ai ripari quando fa male."
+          "Giocare d'anticipo.",
+          "Ci lavori quando stai bene,\nnon quando fa già male."
         ],
         [
           "Ricominciare da capo",
           "Ripartire da dove siamo arrivati.",
-          "Non si torna indietro: si parte da quello che abbiamo già fatto insieme."
+          "Non si torna indietro:\nsi parte dal lavoro fatto insieme."
         ],
         [
           "Tornare a dire di no",
           "Continuare a dire di sì.",
-          "Alla cena con gli amici, alla passeggiata, al weekend fuori."
+          "Alla cena con gli amici, alla passeggiata,\nal weekend fuori.\nA decidere sei tu, non il dolore."
         ]
       ]
     },
@@ -102,7 +106,7 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "Tocca il pulsante qui sotto e **riserva le tue dieci visite a metà prezzo**."
+      "testo": "Vuoi che il lavoro fatto insieme duri?\n**Farlo adesso costa la metà.**"
     },
     {
       "tipo": "pulsante",
@@ -111,12 +115,12 @@
     },
     {
       "tipo": "nota",
-      "testo": "Paghi online. Poi scegli tu: prenoti le visite da solo, oppure ci chiami al +39 351 819 8457.",
+      "testo": "Paghi online\nPrenoti le visite quando vuoi\nOppure ci chiami al +39 351 819 8457",
       "stile": "passi"
     },
     {
       "tipo": "chiusura",
-      "testo": "Ci vediamo in studio da Mobilitas!"
+      "testo": "Ti aspettiamo in studio!"
     },
     {
       "tipo": "firma",
@@ -124,7 +128,7 @@
     },
     {
       "tipo": "ps",
-      "testo": "P.S. Se hai già riservato le tue dieci visite, grazie. Questa email puoi ignorarla."
+      "testo": "P.S. Il tagliando si fa quando\nla macchina va bene.\nQuesto pacchetto, invece,\nfinisce domenica 29 novembre."
     }
   ],
   "solo_testo": null,
