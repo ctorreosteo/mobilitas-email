@@ -32,14 +32,25 @@
       "testo": "Di solito, dieci visite costano 900€.\nPer il Black Friday, le paghi **450€. La metà.**"
     },
     {
-      "tipo": "elenco",
-      "stile": "motivi",
-      "etichetta": "PERCHÉ DIECI VISITE",
-      "titolo": "Il lavoro fatto insieme non deve andare perso.",
+      "tipo": "benefici",
+      "etichetta": "COSA TI PORTI A CASA",
+      "titolo": "Non l’ennesimo oggetto.\nDieci ore dedicate a te.",
       "voci": [
-        "**Il corpo ha la memoria lunga.**\nSe hai avuto male per tanto tempo, ha imparato a stare teso. È un'abitudine, e non la cambi in un giorno.",
-        "**Il dolore può tornare.**\nAnche se oggi stai bene, la vita di tutti i giorni può farlo tornare. E spesso più forte di prima.",
-        "**Hai già fatto la parte più difficile.**\nOra si tratta di non perderla. Dieci visite servono a questo: a non ricominciare da capo."
+        [
+          "Dieci minuti di fretta",
+          "Un’ora intera, ogni volta.",
+          "Ogni visita è un trattamento di un’ora. Tutto per te."
+        ],
+        [
+          "Pastiglie e cuscini miracolosi",
+          "Solo le mani.",
+          "Niente pastiglie, niente punture, niente cuscini miracolosi."
+        ],
+        [
+          "Un osteopata qualunque",
+          "Lo specialista del tuo dolore.",
+          "Da noi ogni dolore ha il suo osteopata specializzato."
+        ]
       ]
     },
     {

@@ -76,6 +76,27 @@
       "chiusura": "Con il dolore è lo stesso. Più aspetti, più si attacca."
     },
     {
+      "tipo": "benefici",
+      "etichetta": "COSA CAMBIA, DA OGGI",
+      "voci": [
+        [
+          "Il mese prossimo",
+          "Oggi.",
+          "Il dolore non aspetta il mese giusto. Neanche tu dovresti."
+        ],
+        [
+          "Dopo tutto il resto",
+          "Prima di tutto il resto.",
+          "Per una volta, al primo posto ci sei tu."
+        ],
+        [
+          "900€",
+          "450€, pagati una volta sola.",
+          "Paghi una volta e per dieci visite non devi più trovare i soldi ogni mese."
+        ]
+      ]
+    },
+    {
       "tipo": "riquadro",
       "stile": "prezzi",
       "etichetta": "L’OFFERTA BLACK FRIDAY",

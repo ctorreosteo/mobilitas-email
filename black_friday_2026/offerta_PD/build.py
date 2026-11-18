@@ -158,7 +158,7 @@ FOOTER_DISISCRIZIONE = ("Non vuoi più ricevere le nostre email? ", "Disiscrivit
 SPAZI = {
     "saluto": (0, 18), "paragrafo": (0, 18), "evidenza": (14, 28), "chiusura": (0, 18),
     "firma": (8, 18), "nota": (0, 18), "nota_passi": (14, 24), "riquadro": (30, 30), "pulsante": (30, 14), "ps": (30, 0),
-    "elenco": (30, 30), "confronto": (24, 30), "box": (30, 30), "immagine": (28, 28),
+    "elenco": (30, 30), "confronto": (24, 30), "box": (30, 30), "immagine": (28, 28), "benefici": (30, 30),
 }
 
 MARCA_INIZIO = "<!-- BLOCCHI:INIZIO -->"
@@ -1380,7 +1380,8 @@ def banner_verde_html(t):
 def testata_banner_html(t):
     """Banner Black Friday + titolo dell'email subito sotto, sul bianco."""
     banner = (banner_verde_html(t) if t.get("banner") == "verde" else
-              banner_calendario_html(t) if t.get("banner") == "calendario" else banner_nero_html(t))
+              banner_calendario_html(t) if t.get("banner") == "calendario" else
+              banner_orologio_html(t) if t.get("banner") == "orologio" else banner_nero_html(t))
     centrata = t.get("allinea") == "centro"
     n = C["C_NOTTE"]
     righe = t["titolo"].split("|")
@@ -1627,6 +1628,86 @@ def n_riquadro_prezzi(b, ctx):
 
 _riq_prec2 = BLOCCHI_NOTTE["riquadro"]
 BLOCCHI_NOTTE["riquadro"] = lambda b, ctx: n_riquadro_prezzi(b, ctx) if b.get("stile") == "prezzi" else _riq_prec2(b, ctx)
+
+
+# --------------------------------------------------------------------------
+# Benefici a contrasto (tutte le email) e banner "orologio" (email 5)
+# --------------------------------------------------------------------------
+def b_benefici(b, ctx):
+    """Benefici polarizzanti: per ogni voce [no, si, spiegazione] -> "no" barrato in grigio, "si" in grassetto
+    con evidenziatore verde, spiegazione sotto. Card bianca con bordo sottile."""
+    n, v = C["C_NOTTE"], C["C_VERDE"]
+    parti = [occhiello(b["etichetta"], n, v, "t-main")]
+    attesi = [b["etichetta"]]
+    txt = [b["etichetta"]]
+    if b.get("titolo"):
+        parti.append('<p class="t-main" style="%s">%s</p>' % (
+            stile(20, "1.35", n, "font-weight:800; letter-spacing:-0.3px; margin-top:12px;"), inline(b["titolo"], ctx)))
+        attesi.append(testo_puro(b["titolo"]))
+        txt.append(testo_puro(b["titolo"]))
+    righe = []
+    for k, (no, si, spieg) in enumerate(b["voci"]):
+        sep = "" if k == 0 else " border-top:1px solid %s;" % C["C_BORDO"]
+        righe.append(
+            '<tr><td class="sep" style="padding:16px 0;%s">'
+            '<p class="t-sec" style="%s">%s</p>'
+            '<p class="t-main" style="%s"><span style="%s">%s</span></p>'
+            '<p class="t-main" style="%s">%s</p></td></tr>'
+            % (sep,
+               stile(13, "1.4", "#8FA3BD", "font-weight:700; text-decoration:line-through;"), inline(no, ctx),
+               stile(19, "1.35", n, "font-weight:900; letter-spacing:-0.4px; margin-top:4px;"), EVIDENZIATORE, inline(si, ctx),
+               stile(15, "1.55", n, "margin-top:6px;"), inline(spieg, ctx)))
+        attesi += [testo_puro(no), testo_puro(si), testo_puro(spieg)]
+        txt += ["", testo_puro(no) + " → " + testo_puro(si), inline_txt(spieg, ctx)]
+    parti.append('<table %s style="margin-top:6px;">%s</table>' % (TABELLA.replace(' style="width:100%;"', ""), "".join(righe)))
+    h = ('<table %s><tr><td class="card-motivi" bgcolor="#FFFFFF" style="padding:24px 26px 10px 26px; background-color:#FFFFFF; '
+         'border:1px solid %s; border-radius:22px; box-shadow:0 18px 40px -28px rgba(0,37,82,0.45);">%s</td></tr></table>'
+         % (TABELLA, C["C_BORDO"], "".join(parti)))
+    return h, "\n".join(txt), attesi
+
+
+def banner_orologio_html(t):
+    """Banner nero con un orologio a cifre in rilievo (23:59): l'ultima email, la scadenza vera."""
+    v = C["C_VERDE"]
+    ore, minuti = t["orologio"]
+    def tessera(cifre):
+        return ('<td class="ck-t" align="center" valign="middle" bgcolor="#0B1220" style="padding:10px 16px; border-radius:16px; '
+                'background-color:#0B1220; background-image:linear-gradient(180deg, #24344D 0%%, #0B1424 49%%, #000611 50%%, #0B1424 51%%, #05080F 100%%); '
+                'box-shadow:0 18px 32px -10px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -3px 0 rgba(0,0,0,0.6); '
+                'font-family:%s; font-size:78px; line-height:80px; font-weight:900; letter-spacing:-2px; color:#FFFFFF; '
+                'text-shadow:0 3px 0 rgba(0,0,0,0.6), 0 0 24px rgba(255,255,255,0.15);">%s</td>' % (FONT, esc(cifre)))
+    due_punti = ('<td class="ck-p" align="center" valign="middle" style="padding:0 10px; font-family:%s; font-size:64px; line-height:64px; '
+                 'font-weight:900; color:%s; text-shadow:0 0 18px rgba(114,250,147,0.9);">:</td>' % (FONT, v))
+    pillola = ('<span style="display:inline-block; padding:8px 16px; border-radius:999px; background-color:%s; '
+               'background-image:linear-gradient(180deg, #A6FFBE 0%%, %s 100%%); font-family:%s; font-size:11px; line-height:13px; '
+               'font-weight:900; letter-spacing:2.6px; color:%s; box-shadow:0 8px 18px -6px rgba(114,250,147,0.8), '
+               'inset 0 2px 0 rgba(255,255,255,0.7);">%s</span>' % (v, v, FONT, NERO_BF, esc(t["pillola_bf"])))
+    sep = ('<span style="display:inline-block; width:5px; height:5px; border-radius:50%%; background-color:%s; '
+           'vertical-align:middle; margin:0 14px;"></span>' % NERO_BF)
+    pezzo = sep.join(esc(x) for x in t["fascia"])
+    return (
+        '<table %s style="border-radius:22px; %s">'
+        '<tr><td class="bn-in" align="center" bgcolor="%s" style="padding:30px 24px 30px 24px; border-radius:22px 22px 0 0; '
+        'background-color:%s; text-align:center;%s">'
+        '%s'
+        '<p style="margin:14px 0 0 0; font-family:%s; font-size:12px; line-height:16px; font-weight:800; letter-spacing:2.4px; '
+        'color:#FFFFFF; text-align:center;">%s</p>'
+        '<table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:20px auto 0 auto;"><tr>%s%s%s</tr></table>'
+        '<p style="margin:20px 0 0 0; font-family:%s; font-size:14px; line-height:20px; font-weight:700; color:%s; text-align:center;">%s</p>'
+        '</td></tr>'
+        '<tr><td align="center" bgcolor="%s" style="padding:12px 12px; border-radius:0 0 22px 22px; background-color:%s; '
+        'box-shadow:inset 0 4px 8px -4px rgba(0,0,0,0.35); font-family:%s; font-size:10px; line-height:14px; font-weight:900; '
+        'letter-spacing:3px; color:%s; white-space:nowrap;">%s</td></tr>'
+        '</table>'
+    ) % (TABELLA.replace(' style="width:100%;"', ' width="100%"'), OMBRA_BANNER, NERO_BF, NERO_BF,
+         con_foto(t, "radial-gradient(circle at 50% 55%, rgba(114,250,147,0.22) 0%, rgba(114,250,147,0) 45%), "
+                     "linear-gradient(180deg, rgba(0,6,17,0.86) 0%, rgba(0,6,17,0.80) 50%, rgba(0,6,17,0.90) 100%)"),
+         pillola, FONT, esc(t["data_bf"]), tessera(ore), due_punti, tessera(minuti),
+         FONT, C["C_SU_SCURO"], esc(t["sotto_bf"]),
+         v, v, FONT, NERO_BF, pezzo)
+
+
+BLOCCHI["benefici"] = b_benefici
 
 
 # --------------------------------------------------------------------------

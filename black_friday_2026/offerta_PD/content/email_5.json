@@ -1,0 +1,120 @@
+{
+  "numero": 5,
+  "data_invio": "2026-11-29",
+  "ora_invio": "19:30",
+  "tema": "centro",
+  "oggetto": "Ultime ore per le tue dieci visite a 450€",
+  "oggetto_alternativo": "È l’ultima email del nostro Black Friday",
+  "preheader": "Dopo stasera alle 23:59, le dieci visite a 450€ invece di 900€ non ci sono più.",
+  "testata": {
+    "variante": "banner",
+    "banner": "orologio",
+    "allinea": "centro",
+    "sfondo_foto": "https://www.studiomobilitas.it/trattamenti/og/pancia_addome-supino_14_orizzontale.jpg",
+    "pillola_bf": "ULTIMO GIORNO",
+    "data_bf": "DOMENICA 29 NOVEMBRE",
+    "orologio": [
+      "23",
+      "59"
+    ],
+    "sotto_bf": "Black Friday −50% · fino alle 23:59",
+    "fascia": [
+      "ULTIME ORE",
+      "BLACK FRIDAY",
+      "−50%"
+    ],
+    "titolo": "Ultime ore.|Stasera alle 23:59 finisce."
+  },
+  "blocchi": [
+    {
+      "tipo": "saluto"
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "questa è l’ultima email che ti scriviamo per il Black Friday."
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "**Stasera alle 23:59 l’offerta finisce.**\nE le dieci visite a metà prezzo non tornano: durante l’anno questo pacchetto non esiste."
+    },
+    {
+      "tipo": "immagine",
+      "url": "https://www.studiomobilitas.it/trattamenti/og/collo_cervicale-e-spalle-supino_02_orizzontale.jpg",
+      "alt": "Un'osteopata dello Studio Mobilitas durante un trattamento al collo e alle spalle"
+    },
+    {
+      "tipo": "paragrafo",
+      "stile": "evidenza",
+      "testo": "In questi giorni ti abbiamo scritto per tre motivi. Forse uno è il tuo."
+    },
+    {
+      "tipo": "elenco",
+      "stile": "motivi",
+      "etichetta": "TRE MOTIVI, UNO È IL TUO",
+      "voci": [
+        "**Se oggi stai bene:**\ndieci visite servono a non perdere il lavoro fatto insieme.",
+        "**Se stai meglio, ma non del tutto:**\nservono ad arrivare in fondo.",
+        "**Se hai sempre rimandato:**\noggi, per una volta, vieni prima tu."
+      ]
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "**Dieci visite, ma ne paghi solo cinque.** Le altre cinque sono in omaggio.\nAncora per qualche ora."
+    },
+    {
+      "tipo": "riquadro",
+      "etichetta": "L’OFFERTA BLACK FRIDAY",
+      "visite": [
+        5,
+        5
+      ],
+      "legenda": [
+        "PAGHI",
+        "IN OMAGGIO"
+      ],
+      "righe": [
+        "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
+        "450€ invece di 900€",
+        "Fino a stasera, domenica 29 novembre, ore 23:59"
+      ]
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Tocca il pulsante qui sotto e **riserva le tue dieci visite a metà prezzo**."
+    },
+    {
+      "tipo": "pulsante",
+      "testo": "Riserva le tue 10 visite a metà prezzo",
+      "link": "lp"
+    },
+    {
+      "tipo": "nota",
+      "stile": "passi",
+      "testo": "Paghi online e prenoti le visite da solo, anche stasera."
+    },
+    {
+      "tipo": "chiusura",
+      "testo": "Ci vediamo in studio da Mobilitas!"
+    },
+    {
+      "tipo": "firma",
+      "testo": "Studio Mobilitas"
+    },
+    {
+      "tipo": "ps",
+      "testo": "P.S. Se hai già riservato le tue dieci visite, grazie. Questa email puoi ignorarla."
+    }
+  ],
+  "solo_testo": null,
+  "testi_obbligatori": [
+    "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
+    "450€",
+    "900€",
+    "domenica 29 novembre",
+    "23:59",
+    "utm_content=email_5",
+    "Riserva le tue 10 visite a metà prezzo",
+    "Studio Mobilitas",
+    "Stasera alle 23:59 l’offerta finisce."
+  ]
+}
