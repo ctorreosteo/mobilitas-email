@@ -7,7 +7,7 @@ Qui si costruiscono le 5 email HTML della campagna. I testi arrivano già approv
 - Non correggere, non accorciare, non aggiungere titoli, etichette, frasi di raccordo o emoji.
 - Le indicazioni tra parentesi quadre nei prompt ([RIQUADRO], [PULSANTE]...) servono per l'impaginazione: non vanno nel testo.
 - Se un testo ti sembra sbagliato, fermati e chiedimelo. Non sistemarlo da solo.
-- Gli unici testi fissi che non arrivano dal prompt sono il footer e il testo alternativo del logo, scritti qui sotto.
+- Gli unici testi fissi che non arrivano dal prompt sono il footer, il testo alternativo del logo e le scritte grafiche della testata Black Friday (config.json → "testata": EDIZIONE UNICA 2026 · OSTEOPATIA · TORINO · Black Friday · timbro "A METÀ −50% PREZZO" · VISITE 10, ne paghi 5 · PREZZO 450€ invece di 900€ · SCADENZA 29.11 · ore 23:59 · striscia BLACK FRIDAY · −50%). Sono uguali in tutte le email; si cambiano solo in config.json, o per una singola email con "testata" nel file di contenuto.
 
 ## Lo studio
 - Studio Mobilitas, studio di osteopatia a Torino. Due sedi: Via Peyron 54 e Via Lamarmora 35. Sito: www.studiomobilitas.it
@@ -45,39 +45,69 @@ Pazienti ed ex pazienti. Ci conoscono già: ogni email è una lettera dello stud
 - emails/: output finale. Nomi: emails/BF2026_email_<numero>_<AAAA-MM-GG>.html e .txt (es. emails/BF2026_email_1_2026-11-19.html).
 
 ## Blocchi disponibili
-saluto · paragrafo · riquadro (offerta) · pulsante · nota (riga piccola sotto il pulsante) · chiusura · firma · ps.
-Il file di contenuto li elenca nell'ordine in cui compaiono. Al massimo 2 pulsanti per email (di solito 1).
+saluto · paragrafo (anche "stile": "evidenza") · elenco ("motivi" o "passi") · confronto (PRIMA / OGGI) · box (metafora, verde chiaro) · riquadro (offerta, scuro o "stile": "chiaro") · pulsante · nota (riga piccola sotto il pulsante) · chiusura · firma · ps.
+Il file di contenuto li elenca nell'ordine in cui compaiono. Al massimo 2 pulsanti per email (di solito 1). Le 5 email devono essere tutte DIVERSE tra loro, dentro lo stesso stile del sito: cambia la variante della testata, la combinazione dei blocchi e la versione del biglietto (scuro / chiaro). Restano uguali colori, font, pulsante verde con freccia, P.S. corto e footer, così la campagna si riconosce. Le metafore e gli angoli delle ads non si ripetono da un'email all'altra.
+- Email 1: testata "Black Friday" grande · motivi (01-03) · biglietto scuro · passi · nota con scadenza.
+REGOLA DI CHIAREZZA: chi apre l'email deve capire SUBITO che è l'offerta Black Friday, come nell'email 1. Ogni email apre con un BANNER BLACK FRIDAY grande (scritta "Black Friday", −50%, dati essenziali dell'offerta, striscia "BLACK FRIDAY • −50%"), poi il titolo dell'email sul bianco, poi la lettera. Grafiche semplici ed efficaci: un banner, una o due card, il biglietto dell'offerta, un solo pulsante. Niente elementi che vanno spiegati (numeri senza contesto, barre "SEI QUI", troppe pillole/etichette). Ogni banner ha una sua versione, così le email restano diverse ma della stessa famiglia.
+- Email 1: tema "chiaro", testata "Black Friday" scura con timbro −50% e riga dati · motivi 01-03 · biglietto scuro · passi.
+- Email 2: tema "bianco", testata "variante": "banner", "banner": "nero" (−50% enorme verde a sinistra, "Black Friday" e i dati a destra, striscia verde) · titolo a sinistra con evidenziatore · lettera · box del tagliando · biglietto chiaro.
+- Email 3: tema "centro", testata "variante": "banner", "banner": "verde", "allinea": "centro" (banner verde del sito con "Black Friday" blu notte, bollino blu notte "A METÀ −50% PREZZO", dati su una riga, striscia blu notte) · titolo centrato con evidenziatore · lettera · box "spiegazione" e "bastone" · offerta "intestata".
+Banner: effetto RILIEVO e NERO Black Friday, sempre. Costanti in build.py: NERO_BF #000611 (il nero del sito) per fondi, strisce e bollini; RILIEVO_BIANCO / RILIEVO_VERDE / RILIEVO_NERO per le scritte grandi (ombre a strati, effetto estruso; il verde ha anche il bagliore come i prezzi del sito); OMBRA_BANNER per far staccare il banner dalla pagina; BOLLINO_BIANCO_3D / BOLLINO_NERO_3D per timbri e bollini. Ogni banner ha almeno un elemento nero ben visibile (fondo, striscia o bollino). I titoli sotto il banner hanno l'EVIDENZIATORE con la sfumatura verde → azzurro cielo #38BDF8 dei titoli del sito. Niente testo sfumato o contornato (background-clip:text, text-stroke): in Gmail il testo sparirebbe.
+- Email 4 (venerdì 27, il giorno del Black Friday): offerta con riquadro "stile": "prezzi" (due tessere affiancate: DI SOLITO 900€ barrato in crema → freccia → BLACK FRIDAY 450€ su tessera nera; campi "prima" e "dopo" [etichetta, prezzo, sotto]) al posto dello scontrino. tema "bianco", "banner": "calendario" (banner nero con foto, foglio di calendario in rilievo "NOVEMBRE / 27 / VENERDÌ", "OGGI È IL / Black Friday", pillola verde −50%, striscia bianca bordata di nero) · titolo "Oggi, per una volta, / vieni prima tu." · foto nella lettera · box "stile": "macchia" (campi intro, subito, aspetti, chiusura: punto verde "se la lavi subito", macchia nera "se aspetti", chiusura su fascia nera) · riquadro "stile": "scontrino" (il conto: "conto" [[voce, importo] ×2], "totale", poi totale 450€ enorme, "450€ invece di 900€", cerchi delle visite, scadenza su fascia nera). È l'unica email che rifà il conto 900 → 450.
+NOTA COPY: nell'email 4 «una rata ancora da pagare» è una spesa del paziente (come nel video già approvato) e NON va tolta. Il controllo blocca solo la parola intera "rate", non "rata".
+Con il banner la fascia in alto e la pillola "BLACK FRIDAY 2026" del template spariscono da sole (sarebbero ripetizioni). Campi del banner in "testata": banner, titolo_bf ("Black Friday"), dati_bf [3 righe brevi], titolo (righe con "|"), allinea; sconto e striscia arrivano da config.json.
+FOTO DI TRATTAMENTO: in ogni email una foto come sfondo del banner ("testata": "sfondo_foto" = URL, "sfondo_posizione" = es. "70% center") e una foto dentro la lettera (blocco {"tipo": "immagine", "url": ..., "alt": ..., "didascalia" facoltativa}). Usare SOLO le foto già ottimizzate del sito, sul dominio dello studio (60–130 KB): https://www.studiomobilitas.it/trattamenti/og/*.jpg (1200×630), /trattamenti/web/*-1600.jpg, /home/web/home2-1600.jpg, /home/web/home5-1600.jpg. Mai le foto originali su mcusercontent.com (6–7 MB l'una, e dipendono dal vecchio account Mailchimp). Foto diverse in ogni email. Sotto la foto del banner c'è sempre un velo di colore (nero nei banner scuri, verde nel banner verde) che tiene leggibili le scritte; se il client non carica le immagini di sfondo resta il colore pieno. Ogni immagine ha un testo alternativo descrittivo.
+Foto usate: email 1 banner /home/web/home2-1600.jpg, lettera /trattamenti/og/collo_presa-cervicale-supino_18_orizzontale.jpg · email 2 banner /trattamenti/web/schiena_lombare-prono_14_orizzontale-1600.jpg, lettera /trattamenti/og/collo_presa-cervicale-supino_26_orizzontale.jpg · email 3 banner /trattamenti/web/schiena_lombare-supino_01_orizzontale-1600.jpg, lettera /trattamenti/og/anca_flessa-supino_07_orizzontale.jpg.
+
+SFONDO SEMPRE BIANCO: tutte le email hanno fondo bianco (richiesta esplicita dello studio). Il blu notte si usa solo dentro card e blocchi, mai come fondo dell'email.
+
+Temi ("tema" nel file di contenuto):
+- "chiaro" (predefinito, template/base.html): card bianca su fondo grigio-azzurro, testata scura in un riquadro, adattamento dark mode.
+- "bianco" (template/bianco.html): fondo bianco pieno, testata editoriale direttamente sulla pagina, resta chiara anche in dark mode (color-scheme: light). Testata: "testata" con etichetta, titolo (righe separate da "|": la prima blu notte, le altre blu notte con evidenziatore verde), numeri [[valore, etichetta], ...].
+- Varianti della testata nei temi "bianco" e "centro": "sintesi" (campi: etichetta, titolo, sintesi [[etichetta, valore, sotto, ("barrato")], ...], pulsante) e "traguardo" (campi: etichetta, titolo, tappe [[etichetta, testo] ×3], pulsante, sintesi_riga). Il pulsante della testata conta nei 2 pulsanti ammessi.
+- "centro" (template/centro.html): come "bianco" ma tutto centrato, fascia scura in alto, logo centrato. "testata": fascia [voci], pillola, etichetta, titolo (righe con "|"), avanzamento (percentuale della barra), barra_qui / barra_inizio / barra_fine, numeri. Blocchi in più: box con "stile": "spiegazione" o "bastone" (righe separate da "\n"), riquadro con "stile": "intestato".
+- "notte" (template/notte.html): versione tutta scura. NON usarla: lo studio vuole lo sfondo bianco.
+Titoli e oggetti devono essere polarizzanti e creare curiosità, senza promettere risultati.
+Copy: partire sempre dagli angoli e dalle frasi delle ads Meta dello studio (tagliando della macchina, macchia sul vestito, il corpo che impara a stare teso, «ti ricordi com'era prima?», il dolore che torna più forte, non ricominciare da capo, dire di sì a cena/passeggiata/weekend). Chi riceve ha già fatto visite da noi: mai parlargli come a chi non ci conosce.
 
 ## Estetica
-Riferimento: il sito www.studiomobilitas.it (Montserrat, blu notte, pulsanti a pillola). L'email però resta CHIARA: sfondo bianco di default, perché Gmail e Poste gestiscono male gli sfondi scuri. Niente fasce blu notte a tutta larghezza. Deve sembrare una lettera dello studio, non un volantino: pochi elementi, tanto spazio, testo grande.
+Riferimento: il sito www.studiomobilitas.it (colori e branding) e le email precedenti dello studio (black_friday_2026/Donna e Uomo). Dal sito: Montserrat, fondo inchiostro/blu notte, verde menta come colore d'azione, etichette maiuscole con trattino verde davanti, pulsanti a pillola verdi con testo blu notte e cerchio con la freccia, bagliori verdi sulle card scure. Dalle email: card bianca arrotondata su fondo grigio-azzurro, card con ombre morbide, numeri grandi chiari. L'impronta Black Friday è forte, ma il testo resta una lettera dello studio: niente toni da televendita.
 
-Ordine fisso dall'alto: preheader nascosto → logo a sinistra → linea sottile azzurra → blocchi dell'email → footer su fascia grigio chiaro.
+Ordine fisso dall'alto: preheader nascosto → pagina grigio-azzurra con card bianca arrotondata (600px) → logo centrato → testata Black Friday → blocchi dell'email → footer centrato sotto la card.
 
-Colori del brand (tienili tutti in un solo punto del template o dello script):
-- bianco #FFFFFF: sfondo dell'email;
-- blu notte #002552: testo, link, testo del pulsante;
-- grigio chiaro #F4F4F4: sfondo del riquadro e della fascia del footer, linea sopra il P.S.;
-- corallo #FA7272: SOLO sfondo del pulsante (è l'unica azione);
-- azzurro #72B1FA: linea sotto il logo e bordo sinistro del riquadro;
-- grigio-blu #4A5F7A (tinta ricavata dal blu notte): testo secondario e prezzo barrato.
-Corallo e azzurro non si usano mai per scrivere su bianco: si leggono male.
+Testata Black Friday (stessa struttura in tutte le email; il file di contenuto può cambiarne i testi con "testata", e "variante": "frase" sostituisce "Black Friday" con una frase su due righe separate da "|", bianca e verde, 46px, con il timbro nascosto su telefono; generata dallo script con i testi di config.json → "testata"): fondo dall'inchiostro #000F2B al blu notte con bagliori; in alto etichetta a pillola "EDIZIONE UNICA 2026" e, a destra, "OSTEOPATIA · TORINO"; "Black" bianco e "Friday" verde in Montserrat 900 (76px, 50px su telefono) con due trattini sotto; timbro ruotato (anello tratteggiato verde, cerchio bianco "A METÀ / −50% / PREZZO"); riga dati VISITE · PREZZO · SCADENZA (PREZZO nascosto su telefono: in config un dato con "solo_computer" sparisce sotto i 480px); striscia verde "BLACK FRIDAY • −50%" in fondo.
 
-Dark mode (solo un adattamento; la versione di riferimento è quella chiara): con prefers-color-scheme: dark → sfondo #002552, testo #F4F4F4, testo secondario #B8C4D4, riquadro #0B3366 con bordo #72B1FA, fascia footer #0B3366, pulsante invariato (corallo con testo blu notte), logo da logo_url_dark. Nei client che invertono i colori da soli (Gmail app) non forzare nulla.
+Colori: tutti in COLORI dentro build.py (unico punto), presi dal sito.
+- pagina #EEF2F7; card #FFFFFF con bordo #E3EAF2, angoli 22px, ombra leggera;
+- blu notte #002552: testo, link, testo del pulsante; inchiostro #000F2B e #0B3366 per le sfumature scure;
+- verde menta #72FA93 (il verde del sito e del logo): sfondo del pulsante e accenti (Friday, timbro, striscia, trattini delle etichette, barra della frase in evidenza, trattino della firma, cerchi "in omaggio", scadenza nel biglietto). Come testo SOLO su fondo scuro: su bianco non si legge;
+- crema #F4F4F4: card "cosa fare adesso";
+- grigio-blu #4A5F7A: testo secondario su chiaro; #B8C4D4: testo secondario su scuro e prezzo barrato;
+- #F4F8FC: box del P.S.
+Corallo e azzurro non si usano più.
 
-Caratteri: Montserrat da Google Fonts (un <link> con i pesi 400, 700, 800, 900), con riserva Arial, Helvetica, sans-serif. In Outlook desktop forza Arial con un blocco condizionale mso. Dove Montserrat non carica (Gmail), l'email deve restare bella con Arial.
+Dark mode (adattamento; la versione di riferimento è quella chiara): pagina #00142F, card #002552, testo #F4F4F4, secondario #B8C4D4, card interne #0B3366, logo da logo_url_dark. Testata, biglietto e pulsante restano come sono. Nei client che invertono i colori da soli (Gmail app) non forzare nulla.
+
+Caratteri: Montserrat da Google Fonts (un <link> con i pesi 400, 700, 800, 900), con riserva Arial, Helvetica, sans-serif. In Outlook desktop forza Arial con un blocco condizionale mso. Dove Montserrat non carica (Gmail), l'email deve restare bella con Arial. Sfumature, ombre e angoli arrotondati sono un miglioramento: sotto c'è sempre un colore pieno di riserva (Outlook desktop li ignora).
 
 Blocchi:
-- saluto e paragrafo: 16px, interlinea 1.65, 18px di spazio sotto. Mai più piccoli su telefono.
-- riquadro: sfondo #F4F4F4, bordo sinistro 4px #72B1FA, padding 20px 22px, angoli 8px, 24px di spazio sopra e sotto. Riga 1: grassetto 700, 17px. Riga 2: il primo prezzo in Montserrat 900, 32px; "invece di" 16px normale; il secondo prezzo 16px barrato in #4A5F7A (il testo resta identico). Riga 3: 14px, #4A5F7A.
-- pulsante: fatto in HTML (tabella + link), mai un'immagine. A pillola come sul sito: sfondo #FA7272, testo #002552, Montserrat 800, 16px, padding 16px 28px, angoli 30px, area di tocco di almeno 48px. Centrato su computer, a larghezza piena su telefono (se va a capo su due righe va bene). Versione VML per Outlook desktop. 24px di spazio sopra e sotto.
-- nota: 14px, #4A5F7A, centrata. Il telefono è un link tel: in blu notte, sottolineato.
+- saluto e paragrafo: 16px, interlinea 1.7, 18px di spazio sotto. Mai più piccoli su telefono.
+- FORMATTAZIONE DEL CORPO (vale per tutte le email): niente muri di testo. Si va a capo ("\n") dove la frase respira, un pensiero per riga; pensieri diversi in paragrafi separati. Grassetto (**...**) solo sulle parole davvero chiave (l'offerta «dieci visite, ma ne paghi solo cinque», il prezzo «450€. La metà.», la frase-chiave del paragrafo), al massimo una o due per paragrafo. Le parole restano identiche: cambiano solo a capo e grassetti.
+- paragrafo con "stile": "evidenza": la frase chiave dell'email, 20px, peso 800, barra sinistra verde di 4px. Al massimo una per email.
+- elenco: card con etichetta (trattino verde), titolo 20px 800 e voci numerate. "stile": "motivi" = card bianca con bordo e numeri grandi chiari 01, 02, 03 (per il perché dell'offerta); "stile": "passi" = card crema con numeri in cerchi blu notte e cifra verde (per dire cosa fare). Campi: etichetta, titolo (facoltativo), voci.
+- confronto: due card affiancate (una sotto l'altra su telefono). "sinistra" = PRIMA, crema con testo spento; "destra" = OGGI, scura con bagliore verde e testo bianco. Campi: etichetta, testo.
+- box: card verde chiaro #EAFEF0 con bordo #BDF5CE, etichetta e paragrafi separati da una riga vuota (\n\n). Per la metafora dell'email.
+- riquadro con "stile": "chiaro": stesso biglietto ma bianco con bordo verde 2px e alone verde, testo blu notte.
+- riquadro = biglietto dell'offerta: fondo inchiostro → blu notte con bagliore verde, bordo verde sottile, angoli 22px. In alto etichetta ("etichetta"); riga 1 bianca 800 18px; riga 2 con il primo prezzo in Montserrat 900 66px (44px su telefono), "invece di" e il secondo prezzo barrato in #B8C4D4, sempre sulla stessa riga; schema delle visite ("visite": [pagate, omaggio], "legenda": [..., ...]): cerchi vuoti numerati = paghi, cerchi verdi = in omaggio; linea tratteggiata come uno strappo; riga 3 verde 700 14px con punto luminoso (la scadenza).
+- pulsante: fatto in HTML (tabella + link), mai un'immagine. Come i pulsanti del sito: pillola verde in rilievo (sfumatura #A6FFBE → #72FA93 → #58E57F, luce in alto, ombra sotto, alone verde), etichetta piccola sopra il testo ("BLACK FRIDAY · −50%", da "sopra" o da striscia + sconto di config) e testo principale blu notte 800 17px; a destra cerchio 48px blu notte → nero con freccia verde piena DISEGNATA con le forme (asta 13×4px + punta a triangolo fatta con i bordi CSS), mai con un carattere: così è identica in ogni client. Testo del pulsante in tutte le email: «Riserva le tue 10 visite a metà prezzo» (10 in cifre). Su telefono a tutta larghezza (se va a capo su due righe va bene). Versione VML per Outlook desktop (solo testo).
+- nota: centrata, subito sotto il pulsante. Con "stile": "passi" («Paghi online. Poi scegli tu: …») è una riga DISCRETA: 13px, grigio-blu, prima frase in grassetto blu notte, niente box. Non deve rubare l'attenzione al pulsante.
 - chiusura: come un paragrafo.
-- firma: "Studio Mobilitas" in grassetto 700.
-- ps: 15px, "P.S." in grassetto, separato da una linea #F4F4F4 di 2px con 24px di spazio sopra.
-- footer: fascia #F4F4F4 a tutta larghezza sotto il contenuto, padding 24px, testo 12px #4A5F7A centrato, interlinea 1.6.
+- firma: trattino verde 32×3px, poi "Studio Mobilitas" 800 17px.
+- ps: card con sfumatura chiara (#EEF4FA → #DCE8F3 → #F6F9FC), bordo #D7E2EE, angoli 20px; "P.S." dentro un cerchio blu notte con scritta verde, a sinistra (sopra il testo su telefono); testo 15px; con "scadenza" aggiunge sotto una pillola blu notte con punto verde (es. "SCADE IL 29.11 · ORE 23:59"). È l'ultima cosa che si legge: una frase netta, che metta davanti a una scelta.
+- footer: centrato sotto la card, 12px #4A5F7A, interlinea 1.6, prima riga in grassetto.
+Spazi tra i blocchi: tabella SPAZI in build.py.
 
-Layout: larghezza massima 600px, fluida al 100% sotto i 600px. Padding laterale 32px (20px sotto i 480px). 32px di spazio sopra il logo.
-Logo: logo_url, larghezza logo_larghezza_px, altezza automatica. alt="Studio Mobilitas", con stile (blu notte, grassetto, 18px), così si legge anche con le immagini bloccate.
+Layout: card larga al massimo 600px, fluida sotto i 600px. Padding interno 40px (22px sotto i 480px). Logo: logo_url, larghezza logo_larghezza_px, centrato, altezza automatica, alt="Studio Mobilitas" con stile (blu notte, grassetto, 18px), così si legge anche con le immagini bloccate.
 
 ## Regole tecniche
 - Layout solo con tabelle (role="presentation") e CSS in linea su ogni elemento. Nel <head> solo il link del font, il CSS delle media query (telefono e dark mode) e i reset dei client email.

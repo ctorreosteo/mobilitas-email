@@ -1,27 +1,48 @@
-Ciao,
+Ciao*|IF:FNAME|* *|FNAME|**|END:IF|*,
 
-torni a casa dopo il lavoro, apri la posta, ed è piena di sconti del Black Friday. Telefoni, vestiti, l'ennesima friggitrice ad aria.
+torni a casa dopo il lavoro, apri le email, ed è piena di sconti del Black Friday.
+Telefoni, vestiti, l'ennesima friggitrice ad aria.
 
 Al Black Friday, di solito, ti vendono cose che non ti servono. Noi, invece, vogliamo darti qualcosa che ti fa stare bene.
 
-Per questo abbiamo pensato a te, che sei già un nostro paziente: dieci visite, ma ne paghi solo cinque. Le altre cinque sono in omaggio.
+Per questo abbiamo pensato a te, che sei già un nostro paziente:
+dieci visite, ma ne paghi solo cinque.
+Le altre cinque sono in omaggio.
 
-Di solito, dieci visite costano 900€. Per il Black Friday, le paghi 450€. La metà.
+Di solito, dieci visite costano 900€.
+Per il Black Friday, le paghi 450€. La metà.
+
+PERCHÉ DIECI VISITE
+Il lavoro fatto insieme non deve andare perso.
+
+1. Il corpo ha la memoria lunga.
+Se hai avuto male per tanto tempo, ha imparato a stare teso. È un'abitudine, e non la cambi in un giorno.
+2. Il dolore può tornare.
+Anche se oggi stai bene, la vita di tutti i giorni può farlo tornare. E spesso più forte di prima.
+3. Hai già fatto la parte più difficile.
+Ora si tratta di non perderla. Dieci visite servono a questo: a non ricominciare da capo.
 
 10 visite: ne paghi 5, le altre 5 sono in omaggio.
 450€ invece di 900€
 Fino a domenica 29 novembre, ore 23:59
 
-Riserva le tue dieci visite a metà prezzo:
+COSA FARE ADESSO
+Ci vogliono tre passi.
+
+1. Clicca sul pulsante qui sotto.
+2. Paghi online 450€ invece di 900€.
+3. Prenoti le tue visite quando vuoi, da solo, oppure ci chiami al +39 351 819 8457.
+
+Riserva le tue 10 visite a metà prezzo
 https://www.studiomobilitas.it/black-friday-2026?utm_source=email&utm_medium=email&utm_campaign=bf2026&utm_content=email_1
 
-Paghi online. Poi scegli tu: prenoti le visite da solo, oppure ci chiami al +39 351 819 8457.
+Hai tempo fino a domenica 29 novembre, ore 23:59.
 
 Ci vediamo in studio da Mobilitas!
 
 Studio Mobilitas
 
-P.S. Questo pacchetto esiste solo per il Black Friday. Dopo domenica 29 novembre non c'è più.
+P.S. Dopo domenica 29 novembre questa offerta non c'è più.
 
 ---
 
@@ -31,4 +52,4 @@ Tel. +39 351 819 8457 · studio@studiomobilitas.it
 P.IVA 13020400019
 
 Ricevi questa email perché ti abbiamo seguito in studio.
-Non vuoi più ricevere le nostre email? Disiscriviti qui: [[DA_COMPILARE: tag di disiscrizione della piattaforma]]
+Non vuoi più ricevere le nostre email? Disiscriviti qui: *|UNSUB|*

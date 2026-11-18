@@ -1,9 +1,9 @@
 {
-  "piattaforma": "aziendale, codici da chiedere",
+  "piattaforma": "interna, tag stile Mailchimp (da verificare con un invio di prova)",
   "mittente_nome": "Studio Mobilitas",
   "mittente_email": "[[DA_COMPILARE: indirizzo del mittente, es. studio@studiomobilitas.it]]",
-  "saluto": "Ciao,",
-  "link_disiscrizione": "[[DA_COMPILARE: tag di disiscrizione della piattaforma]]",
+  "saluto": "Ciao*|IF:FNAME|* *|FNAME|**|END:IF|*,",
+  "link_disiscrizione": "*|UNSUB|*",
   "link_lp": "https://www.studiomobilitas.it/black-friday-2026",
   "logo_url": "https://www.studiomobilitas.it/logo_blu.png",
   "logo_url_dark": "https://www.studiomobilitas.it/logo_verde.png",
@@ -15,5 +15,29 @@
   "piva": "13020400019",
   "utm_source": "email",
   "utm_medium": "email",
-  "utm_campaign": "bf2026"
+  "utm_campaign": "bf2026",
+  "testata": {
+    "etichetta": "EDIZIONE UNICA 2026",
+    "sigla": "OSTEOPATIA · TORINO",
+    "titolo": "Black Friday",
+    "sconto": "−50%",
+    "sconto_sopra": "A METÀ",
+    "sconto_sotto": "PREZZO",
+    "dati": [
+      [
+        "VISITE",
+        "10, ne paghi 5"
+      ],
+      [
+        "PREZZO",
+        "450€ invece di 900€",
+        "solo_computer"
+      ],
+      [
+        "SCADENZA",
+        "29.11 · ore 23:59"
+      ]
+    ],
+    "striscia": "BLACK FRIDAY"
+  }
 }

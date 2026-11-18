@@ -1,0 +1,122 @@
+{
+  "numero": 2,
+  "data_invio": "2026-11-23",
+  "ora_invio": "19:30",
+  "oggetto": "Stai bene. Ed è proprio questo il problema.",
+  "oggetto_alternativo": "Ti ricordi com'era prima?",
+  "preheader": "Quando si sta bene, si smette. Dieci visite a 450€ invece di 900€, fino a domenica 29 novembre.",
+  "testata": {
+    "variante": "banner",
+    "banner": "nero",
+    "titolo_bf": "Black Friday",
+    "dati_bf": [
+      "10 visite, ne paghi 5",
+      "450€ invece di 900€",
+      "Fino al 29.11, ore 23:59"
+    ],
+    "titolo": "Stai bene.|Ed è proprio questo il problema.",
+    "sfondo_foto": "https://www.studiomobilitas.it/trattamenti/web/schiena_lombare-prono_14_orizzontale-1600.jpg",
+    "sfondo_posizione": "65% center"
+  },
+  "blocchi": [
+    {
+      "tipo": "saluto"
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "se oggi stai bene, è perché insieme abbiamo fatto **un ottimo lavoro**.\nO lo stiamo ancora facendo."
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Il problema è proprio questo:\n**quando si sta bene, si smette.**\nE ci si dimentica di com'era prima."
+    },
+    {
+      "tipo": "paragrafo",
+      "stile": "evidenza",
+      "testo": "Ma ti ricordi com'era prima?"
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Quando ti svegliavi al mattino, e **il dolore era già lì**.\nQuando decideva lui al posto tuo:\nno alla cena con gli amici, no alla passeggiata, no al weekend fuori."
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Ecco: quel dolore può tornare.\n**E spesso torna più forte di prima.**"
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Ma c'è un modo semplice per **non ricominciare da capo**.\nPer il Black Friday abbiamo pensato proprio a te:\n**dieci visite, ma ne paghi solo cinque.** Le altre cinque sono in omaggio."
+    },
+    {
+      "tipo": "immagine",
+      "url": "https://www.studiomobilitas.it/trattamenti/og/collo_presa-cervicale-supino_26_orizzontale.jpg",
+      "alt": "Trattamento osteopatico al collo nello Studio Mobilitas"
+    },
+    {
+      "tipo": "box",
+      "etichetta": "PENSA AL TAGLIANDO",
+      "testo": "Lo so: quando stai bene, dieci visite possono sembrare tante.\n\nMa pensa al **tagliando della macchina**.\nNon lo fai perché è rotta.\nLo fai proprio perché va bene, e vuoi che continui così per tanti chilometri.\n\n**Con il tuo corpo è lo stesso.**"
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Con queste dieci visite, **il lavoro fatto insieme non va perso**: l'obiettivo è farlo durare nel tempo.\nCosì puoi continuare a dire di sì, senza avere paura che il dolore ritorni."
+    },
+    {
+      "tipo": "riquadro",
+      "etichetta": "L'OFFERTA BLACK FRIDAY",
+      "visite": [
+        5,
+        5
+      ],
+      "legenda": [
+        "PAGHI",
+        "IN OMAGGIO"
+      ],
+      "righe": [
+        "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
+        "450€ invece di 900€",
+        "Fino a domenica 29 novembre, ore 23:59"
+      ],
+      "stile": "chiaro"
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Tocca il pulsante qui sotto e **riserva le tue dieci visite a metà prezzo**."
+    },
+    {
+      "tipo": "pulsante",
+      "testo": "Riserva le tue 10 visite a metà prezzo",
+      "link": "lp"
+    },
+    {
+      "tipo": "nota",
+      "testo": "Paghi online. Poi scegli tu: prenoti le visite da solo, oppure ci chiami al +39 351 819 8457.",
+      "stile": "passi"
+    },
+    {
+      "tipo": "chiusura",
+      "testo": "Ci vediamo in studio da Mobilitas!"
+    },
+    {
+      "tipo": "firma",
+      "testo": "Studio Mobilitas"
+    },
+    {
+      "tipo": "ps",
+      "testo": "P.S. Se hai già riservato le tue dieci visite, grazie. Questa email puoi ignorarla."
+    }
+  ],
+  "solo_testo": null,
+  "testi_obbligatori": [
+    "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
+    "450€",
+    "900€",
+    "domenica 29 novembre",
+    "23:59",
+    "+39 351 819 8457",
+    "utm_content=email_2",
+    "Riserva le tue 10 visite a metà prezzo",
+    "Studio Mobilitas"
+  ],
+  "tema": "bianco"
+}

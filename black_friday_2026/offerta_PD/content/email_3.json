@@ -1,0 +1,126 @@
+{
+  "numero": 3,
+  "data_invio": "2026-11-25",
+  "ora_invio": "19:30",
+  "tema": "centro",
+  "oggetto": "Stai meglio. Ma non del tutto.",
+  "oggetto_alternativo": "Il dolore è sceso. Ma c'è ancora.",
+  "preheader": "Se ti fermi a metà, il corpo riprende l'abitudine di prima. Dieci visite a 450€ invece di 900€, fino a domenica 29 novembre.",
+  "testata": {
+    "variante": "banner",
+    "banner": "verde",
+    "allinea": "centro",
+    "titolo_bf": "Black Friday",
+    "dati_bf": [
+      "10 visite, ne paghi 5",
+      "450€ invece di 900€",
+      "Fino al 29.11, ore 23:59"
+    ],
+    "titolo": "Stai meglio.|Ma non del tutto.",
+    "sfondo_foto": "https://www.studiomobilitas.it/trattamenti/web/schiena_lombare-supino_01_orizzontale-1600.jpg",
+    "sfondo_posizione": "center center"
+  },
+  "blocchi": [
+    {
+      "tipo": "saluto"
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "il dolore è sceso. Non è più quello di prima.\n**Ma c’è ancora.**"
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Te ne accorgi la mattina, quando ti alzi dal letto.\nO la sera, dopo una giornata lunga.\nNon ti blocca più, **ma è lì**."
+    },
+    {
+      "tipo": "paragrafo",
+      "stile": "evidenza",
+      "testo": "E magari hai pensato: per adesso va bene così."
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Non hai sbagliato tu.\n**Ma c’è una cosa che forse nessuno ti ha mai spiegato.**"
+    },
+    {
+      "tipo": "immagine",
+      "url": "https://www.studiomobilitas.it/trattamenti/og/anca_flessa-supino_07_orizzontale.jpg",
+      "alt": "Un'osteopata dello Studio Mobilitas durante un trattamento all'anca"
+    },
+    {
+      "tipo": "box",
+      "stile": "spiegazione",
+      "etichetta": "PERCHÉ IL DOLORE TORNA",
+      "testo": "Se hai avuto male per tanto tempo, **il corpo impara a stare teso**.\nDiventa un’abitudine. E non la cambi in un giorno.\n\nSe ti fermi a metà, il corpo riprende l’abitudine di prima. E con lei, il dolore."
+    },
+    {
+      "tipo": "box",
+      "stile": "bastone",
+      "etichetta": "PENSA A UNA PIANTA",
+      "testo": "Una pianta storta si lega a un bastone.\nSe togli il bastone troppo presto, si piega di nuovo.\nSe aspetti, impara a stare dritta da sola.\nIl tuo corpo funziona allo stesso modo."
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Il Black Friday è l’occasione per **finire il lavoro iniziato insieme**:\ndieci visite, ma ne paghi solo cinque.\nLe altre cinque sono in omaggio."
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "L’obiettivo è **arrivare in fondo**.\nE fare in modo che il risultato duri."
+    },
+    {
+      "tipo": "riquadro",
+      "stile": "intestato",
+      "etichetta": "L’OFFERTA BLACK FRIDAY",
+      "visite": [
+        5,
+        5
+      ],
+      "legenda": [
+        "PAGHI",
+        "IN OMAGGIO"
+      ],
+      "righe": [
+        "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
+        "450€ invece di 900€",
+        "Fino a domenica 29 novembre, ore 23:59"
+      ]
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Tocca il pulsante qui sotto e **riserva le tue dieci visite a metà prezzo**."
+    },
+    {
+      "tipo": "pulsante",
+      "testo": "Riserva le tue 10 visite a metà prezzo",
+      "link": "lp"
+    },
+    {
+      "tipo": "nota",
+      "testo": "Paghi online. Poi scegli tu: prenoti le visite da solo, oppure ci chiami al +39 351 819 8457.",
+      "stile": "passi"
+    },
+    {
+      "tipo": "chiusura",
+      "testo": "Ci vediamo in studio da Mobilitas!"
+    },
+    {
+      "tipo": "firma",
+      "testo": "Studio Mobilitas"
+    },
+    {
+      "tipo": "ps",
+      "testo": "P.S. L’offerta finisce domenica 29 novembre alle 23:59. Dopo, non c’è più."
+    }
+  ],
+  "solo_testo": null,
+  "testi_obbligatori": [
+    "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
+    "450€",
+    "900€",
+    "domenica 29 novembre",
+    "23:59",
+    "+39 351 819 8457",
+    "utm_content=email_3",
+    "Riserva le tue 10 visite a metà prezzo",
+    "Studio Mobilitas"
+  ]
+}

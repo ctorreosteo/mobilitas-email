@@ -1,0 +1,146 @@
+{
+  "numero": 4,
+  "data_invio": "2026-11-27",
+  "ora_invio": "19:30",
+  "tema": "bianco",
+  "oggetto": "Oggi, per una volta, vieni prima tu",
+  "oggetto_alternativo": "Quante volte hai pensato: il mese prossimo?",
+  "preheader": "Il dolore non aspetta il mese giusto. Dieci visite a 450€ invece di 900€, fino a domenica.",
+  "testata": {
+    "variante": "banner",
+    "banner": "calendario",
+    "sfondo_foto": "https://www.studiomobilitas.it/home/web/home5-1600.jpg",
+    "sfondo_posizione": "center center",
+    "calendario": [
+      "NOVEMBRE",
+      "27",
+      "VENERDÌ"
+    ],
+    "sopra_bf": "OGGI È IL",
+    "titolo_bf": "Black Friday",
+    "dati_bf": [
+      "10 visite, ne paghi 5",
+      "Fino a domenica, ore 23:59"
+    ],
+    "fascia": [
+      "OGGI È IL BLACK FRIDAY",
+      "−50%"
+    ],
+    "titolo": "Oggi, per una volta,|vieni prima tu."
+  },
+  "blocchi": [
+    {
+      "tipo": "saluto"
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "quante volte hai pensato:\n**«Il mese prossimo prenoto un’altra visita»?**"
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "E poi il mese prossimo arrivava.\nCon una rata ancora da pagare, le bollette, la spesa, l’affitto.\nE metterci sopra anche le visite **era troppo**."
+    },
+    {
+      "tipo": "paragrafo",
+      "stile": "evidenza",
+      "testo": "E tu, come sempre, venivi dopo tutto il resto."
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Non perché non ci tenevi.\nMa perché c’era sempre qualcosa che **sembrava più importante**."
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Solo che **il dolore non aspetta il mese giusto**.\nPuò tornare. E spesso torna più forte di prima."
+    },
+    {
+      "tipo": "immagine",
+      "url": "https://www.studiomobilitas.it/trattamenti/og/spalla_scapola-decubito-laterale_05_orizzontale.jpg",
+      "alt": "Un'osteopata dello Studio Mobilitas durante un trattamento alla spalla"
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Oggi è il Black Friday.\nPer una volta, **metti al primo posto te**:\ndieci visite, ma ne paghi solo cinque. Le altre cinque sono in omaggio."
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Di solito, dieci visite costano 900€.\nPer il Black Friday, le paghi **450€. La metà.**"
+    },
+    {
+      "tipo": "box",
+      "stile": "macchia",
+      "etichetta": "PENSA A UNA MACCHIA",
+      "intro": "Lo so: dieci visite possono sembrare tante.\nMa rimandare è peggio. Pensa a una macchia sul vestito.",
+      "subito": "Se la lavi subito, va via.",
+      "aspetti": "Se aspetti, si attacca. E dopo, toglierla è molto più difficile.",
+      "chiusura": "Con il dolore è lo stesso. Più aspetti, più si attacca."
+    },
+    {
+      "tipo": "riquadro",
+      "stile": "prezzi",
+      "etichetta": "L’OFFERTA BLACK FRIDAY",
+      "visite": [
+        5,
+        5
+      ],
+      "legenda": [
+        "PAGHI",
+        "IN OMAGGIO"
+      ],
+      "righe": [
+        "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
+        "450€ invece di 900€",
+        "Fino a domenica 29 novembre, ore 23:59"
+      ],
+      "prima": [
+        "DI SOLITO",
+        "900€",
+        "10 visite"
+      ],
+      "dopo": [
+        "BLACK FRIDAY",
+        "450€",
+        "10 visite"
+      ]
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Tocca il pulsante qui sotto e **riserva le tue dieci visite a metà prezzo**."
+    },
+    {
+      "tipo": "pulsante",
+      "testo": "Riserva le tue 10 visite a metà prezzo",
+      "link": "lp"
+    },
+    {
+      "tipo": "nota",
+      "stile": "passi",
+      "testo": "Paghi online. Poi scegli tu: prenoti le visite da solo, oppure ci chiami al +39 351 819 8457."
+    },
+    {
+      "tipo": "chiusura",
+      "testo": "Ci vediamo in studio da Mobilitas!"
+    },
+    {
+      "tipo": "firma",
+      "testo": "Studio Mobilitas"
+    },
+    {
+      "tipo": "ps",
+      "testo": "P.S. Da qui a domenica restano due giorni. Poi le dieci visite a 450€ non ci saranno più."
+    }
+  ],
+  "solo_testo": null,
+  "testi_obbligatori": [
+    "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
+    "450€",
+    "900€",
+    "domenica 29 novembre",
+    "23:59",
+    "+39 351 819 8457",
+    "utm_content=email_4",
+    "Riserva le tue 10 visite a metà prezzo",
+    "Studio Mobilitas",
+    "una rata ancora da pagare"
+  ]
+}
