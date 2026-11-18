@@ -56,7 +56,7 @@
       "tipo": "box",
       "stile": "bastone",
       "etichetta": "PENSA A UNA PIANTA",
-      "testo": "Una pianta storta\nsi lega a un bastone.\n\nSe lo togli troppo presto,\nsi piega di nuovo.\n\nSe aspetti,\nimpara a stare dritta da sola.\n\nIl tuo corpo\nfunziona allo stesso modo."
+      "testo": "Una pianta storta\nsi lega a un bastone.\n\nSe lo togli troppo presto,\nsi piega di nuovo.\n\nSe aspetti,\nimpara a stare\ndritta da sola.\n\nIl tuo corpo\nfa la stessa cosa."
     },
     {
       "tipo": "benefici",
@@ -65,16 +65,16 @@
         [
           "Fermarti a metà",
           "Arrivare in fondo.",
-          "Dieci visite per dare al corpo il tempo\ndi lasciare l’abitudine di stare teso."
+          "Dieci visite per dare al corpo\nil tempo di cambiare abitudine."
         ],
         [
           "Decidere con il portafoglio",
-          "Decidere ascoltando il corpo.",
+          "Decidere con il corpo.",
           "Le visite sono già pagate:\nil prezzo non decide più al posto tuo."
         ],
         [
           "«Per adesso va bene così»",
-          "Puntare a stare bene, non solo meglio.",
+          "Puntare a stare bene,\nnon solo meglio.",
           "«Meglio» non vuol dire «bene».\nUn dolore che non ti blocca più\nè sempre un dolore."
         ]
       ]

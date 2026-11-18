@@ -3,9 +3,9 @@
   "data_invio": "2026-11-27",
   "ora_invio": "19:30",
   "tema": "bianco",
-  "oggetto": "Oggi, per una volta, vieni prima tu",
+  "oggetto": "Ogni mese paghi tutto. Tranne te.",
   "oggetto_alternativo": "Quante volte hai pensato: il mese prossimo?",
-  "preheader": "Il dolore non aspetta il mese giusto. Oggi dieci visite costano la metà: 450€, pagati una volta sola.",
+  "preheader": "Bollette, affitto, spesa. E tu, sempre in fondo alla lista. Oggi dieci visite costano la metà: 450€ invece di 900€.",
   "testata": {
     "variante": "banner",
     "banner": "calendario",
@@ -26,7 +26,7 @@
       "OGGI È IL BLACK FRIDAY",
       "−50%"
     ],
-    "titolo": "Oggi, per una volta,|vieni prima tu."
+    "titolo": "Ogni mese paghi tutto.|Tranne te."
   },
   "blocchi": [
     {
@@ -34,24 +34,24 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "quante volte hai pensato:\n**«Il mese prossimo prenoto un’altra visita»?**"
+      "testo": "quante volte hai pensato:\n**«Il mese prossimo**\n**prenoto un’altra visita»?**"
     },
     {
       "tipo": "paragrafo",
-      "testo": "E poi il mese prossimo arrivava.\nCon una rata ancora da pagare, le bollette, la spesa, l’affitto.\nE metterci sopra anche le visite **era troppo**."
+      "testo": "E poi il mese prossimo arrivava.\nCon una rata ancora da pagare,\nle bollette, la spesa, l’affitto.\nE per te, alla fine,\n**non restava niente.**"
     },
     {
       "tipo": "paragrafo",
       "stile": "evidenza",
-      "testo": "E tu, come sempre, venivi dopo tutto il resto."
+      "testo": "E tu, come sempre,\nvenivi dopo\ntutto il resto."
     },
     {
       "tipo": "paragrafo",
-      "testo": "Non perché non ci tenevi.\nMa perché c’era sempre qualcosa che **sembrava più importante**."
+      "testo": "Non perché non ci tenevi.\nMa perché c’era sempre qualcosa\nche **sembrava più importante**."
     },
     {
       "tipo": "paragrafo",
-      "testo": "Solo che **il dolore non aspetta il mese giusto**.\nE ogni volta che rimandi, gli lasci più spazio."
+      "testo": "Solo che **il dolore**\n**non aspetta il mese giusto.**\nE ogni volta che rimandi,\ngli lasci più spazio."
     },
     {
       "tipo": "immagine",
@@ -60,20 +60,27 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "Oggi è il Black Friday.\nPer una volta, **metti al primo posto te**,\nsenza far saltare i conti del mese."
+      "testo": "Oggi è il Black Friday.\nE per una volta,\n**puoi pagare anche te**,\nsenza far saltare i conti del mese."
     },
     {
-      "tipo": "paragrafo",
-      "testo": "Di solito, dieci visite costano 900€.\nOggi ne paghi cinque, le altre cinque sono in omaggio: **450€. La metà.**\nFanno 45€ a visita, invece di 90€."
-    },
-    {
-      "tipo": "box",
-      "stile": "macchia",
-      "etichetta": "PENSA A UNA MACCHIA",
-      "intro": "Lo so: dieci visite possono sembrare tante.\nMa rimandare è peggio. Pensa a una macchia sul vestito.",
-      "subito": "Se la lavi subito, va via.",
-      "aspetti": "Se aspetti, si attacca. E dopo, toglierla è molto più difficile.",
-      "chiusura": "Con il dolore è lo stesso. Più aspetti, più si attacca."
+      "tipo": "conto",
+      "etichetta": "IL CONTO DEL BLACK FRIDAY",
+      "prima": [
+        "DI SOLITO",
+        "900€",
+        "10 visite",
+        "90€ a visita"
+      ],
+      "dopo": [
+        "BLACK FRIDAY",
+        "450€",
+        "10 visite",
+        "45€ a visita"
+      ],
+      "striscia": [
+        "STESSE 10 VISITE",
+        "METÀ PREZZO"
+      ]
     },
     {
       "tipo": "benefici",
@@ -82,23 +89,22 @@
         [
           "Il mese prossimo",
           "Oggi.",
-          "Il mese prossimo arriverà con le sue spese, come sempre. Questo prezzo, invece, non torna."
+          "Il mese prossimo arriverà\ncon le sue spese, come sempre.\nQuesto prezzo, invece, non torna."
         ],
         [
           "Dopo tutto il resto",
           "Prima di tutto il resto.",
-          "Bollette, spesa, affitto: ci saranno sempre. Per una volta, al primo posto ci sei tu."
+          "Bollette, spesa, affitto:\nci saranno sempre.\nPer una volta, il primo sei tu."
         ],
         [
           "Trovare 90€ ogni volta",
           "Pagare una volta sola.",
-          "450€ e non ci pensi più: per dieci visite non devi far quadrare i conti ogni mese."
+          "450€ e non ci pensi più:\nper dieci visite, niente conti\nda far quadrare ogni mese."
         ]
       ]
     },
     {
       "tipo": "riquadro",
-      "stile": "prezzi",
       "etichetta": "L’OFFERTA BLACK FRIDAY",
       "visite": [
         5,
@@ -112,16 +118,6 @@
         "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
         "450€ invece di 900€",
         "Fino a domenica 29 novembre, ore 23:59"
-      ],
-      "prima": [
-        "DI SOLITO",
-        "900€",
-        "10 visite"
-      ],
-      "dopo": [
-        "BLACK FRIDAY",
-        "450€",
-        "10 visite"
       ]
     },
     {
@@ -148,7 +144,7 @@
     },
     {
       "tipo": "ps",
-      "testo": "P.S. Il mese prossimo ci saranno di nuovo le bollette, la spesa, l’affitto. Le dieci visite a 450€, invece, finiscono domenica 29 novembre, ore 23:59."
+      "testo": "P.S. Il mese prossimo ci saranno\ndi nuovo bollette, spesa e affitto.\nLe dieci visite a 450€, no:\nfiniscono domenica 29 novembre."
     }
   ],
   "solo_testo": null,

@@ -159,6 +159,7 @@ SPAZI = {
     "saluto": (0, 18), "paragrafo": (0, 18), "evidenza": (14, 28), "chiusura": (0, 18),
     "firma": (8, 18), "nota": (0, 18), "nota_passi": (14, 24), "riquadro": (30, 30), "pulsante": (30, 14), "ps": (30, 0),
     "elenco": (30, 30), "confronto": (24, 30), "box": (30, 30), "immagine": (28, 28), "benefici": (30, 30),
+    "conto": (24, 30),
 }
 
 MARCA_INIZIO = "<!-- BLOCCHI:INIZIO -->"
@@ -281,7 +282,7 @@ def inline(s, ctx):
     return "<br>".join(senza_orfane(r) for r in "".join(out).split("\n"))
 
 
-def senza_orfane(riga):
+def senza_orfane(riga, max_legati=2):
     """Niente parole orfane: se la riga va a capo da sola (telefono), la chiusura scende tutta insieme.
     Lega con &nbsp; le ultime parole finché la coda visibile ha almeno 12 caratteri (al massimo 3 parole).
     Solo righe di almeno 4 parole; mai spazi dentro i tag."""
@@ -296,7 +297,9 @@ def senza_orfane(riga):
         elif ch == " " and not in_tag:
             spazi.append(i)
     legati = []
-    while spazi and len(legati) < 2:
+    while spazi and len(legati) < max_legati:
+        if legati and riga[:spazi[-1]].rstrip().endswith((",", ":", ";", ".")):
+            break  # dopo la punteggiatura si può andare a capo: è una pausa naturale
         legati.append(spazi.pop())
         coda = html.unescape(re.sub(r"<[^>]*>", "", riga[legati[-1] + 1:]))
         if len(coda) >= 12 or len(spazi) < 2:
@@ -887,10 +890,10 @@ def testata_notte_html(t):
             "rgba(114,250,147,0.75) 92%, rgba(114,250,147,0) 92%);")
     def riga_titolo(i, r):
         if i == 0:
-            return '<span class="h1n" style="%s color:%s;">%s</span>' % (h1, T["titolo"], esc(r))
+            return '<span class="h1n" style="%s color:%s;">%s</span>' % (h1, T["titolo"], senza_orfane(esc(r), 1))
         if T.get("scuro"):
-            return '<span class="h1n" style="%s color:%s;">%s</span>' % (h1, v, esc(r))
-        return '<span class="h1n" style="%s color:%s; %s">%s</span>' % (h1, T["titolo"], evid, esc(r))
+            return '<span class="h1n" style="%s color:%s;">%s</span>' % (h1, v, senza_orfane(esc(r), 1))
+        return '<span class="h1n" style="%s color:%s; %s">%s</span>' % (h1, T["titolo"], evid, senza_orfane(esc(r), 1))
     titolo = "<br>".join(riga_titolo(i, r) for i, r in enumerate(righe))
     celle = []
     for k, (val, lab) in enumerate(t["numeri"]):
@@ -1090,7 +1093,7 @@ def testata_centro_html(t):
     righe = t["titolo"].split("|")
     h1 = "font-family:%s; font-size:56px; line-height:58px; font-weight:900; letter-spacing:-2.2px;" % FONT
     titolo = "<br>".join(
-        '<span class="h1c" style="%s color:%s;">%s</span>' % (h1, n if i == 0 else C["C_SECONDARIO"], esc(r))
+        '<span class="h1c" style="%s color:%s;">%s</span>' % (h1, n if i == 0 else C["C_SECONDARIO"], senza_orfane(esc(r), 1))
         for i, r in enumerate(righe))
     pill = ('<span style="display:inline-block; padding:8px 16px; border-radius:999px; background-color:%s; '
             'font-family:%s; font-size:10px; line-height:12px; font-weight:900; letter-spacing:2.6px; color:%s; '
@@ -1257,7 +1260,7 @@ def _testata_intestazione(t, centrata):
     evid = ("background-image:linear-gradient(180deg, rgba(114,250,147,0) 60%, rgba(114,250,147,0.8) 60%, "
             "rgba(114,250,147,0.8) 92%, rgba(114,250,147,0) 92%);")
     titolo = "<br>".join(
-        '<span class="h1f" style="%s color:%s;%s">%s</span>' % (h1, n, "" if i == 0 else " " + evid, esc(r))
+        '<span class="h1f" style="%s color:%s;%s">%s</span>' % (h1, n, "" if i == 0 else " " + evid, senza_orfane(esc(r), 1))
         for i, r in enumerate(righe))
     allinea = "center" if centrata else "left"
     occ = ('<p style="margin:0; font-family:%s; font-size:10px; line-height:14px; font-weight:800; letter-spacing:2.6px; '
@@ -1427,7 +1430,7 @@ def testata_banner_html(t):
     righe = t["titolo"].split("|")
     h1 = "font-family:%s; font-size:38px; line-height:44px; font-weight:900; letter-spacing:-1.3px;" % FONT
     evid = EVIDENZIATORE
-    titolo = "<br>".join('<span class="h1b" style="%s color:%s;%s">%s</span>' % (h1, n, "" if i == 0 else " " + evid, esc(r))
+    titolo = "<br>".join('<span class="h1b" style="%s color:%s;%s">%s</span>' % (h1, n, "" if i == 0 else " " + evid, senza_orfane(esc(r), 1))
                          for i, r in enumerate(righe))
     return '%s<p style="margin:36px 0 0 0; text-align:%s;">%s</p>' % (banner, "center" if centrata else "left", titolo)
 
@@ -1748,6 +1751,80 @@ def banner_orologio_html(t):
 
 
 BLOCCHI["benefici"] = b_benefici
+
+
+def b_conto(b, ctx):
+    """Banner del conto (email 4): fondo nero Black Friday, due tessere DI SOLITO -> BLACK FRIDAY con il totale
+    e il prezzo a visita, freccia verde in mezzo, striscia verde in fondo.
+    Campi: etichetta, prima [etichetta, totale, visite, a_visita], dopo [idem], striscia [voci]."""
+    v = C["C_VERDE"]
+    prima, dopo = b["prima"], b["dopo"]
+    piccola = ("display:block; font-family:%s; font-size:10px; line-height:12px; font-weight:900; letter-spacing:2.2px; color:%s;")
+    def tessera(dati, attiva):
+        if attiva:
+            fondo = ('bgcolor="#06142B" style="padding:18px 8px 16px 8px; border-radius:18px; background-color:#06142B; '
+                     'background-image:radial-gradient(circle at 50%% 0%%, rgba(114,250,147,0.30) 0%%, rgba(114,250,147,0) 65%%); '
+                     'border:1.5px solid %s; box-shadow:0 0 0 4px rgba(114,250,147,0.10), 0 18px 34px -14px rgba(114,250,147,0.45); text-align:center;"' % v)
+            prezzo = ('font-size:46px; line-height:48px; letter-spacing:-2px; color:#FFFFFF; %s' % RILIEVO_BIANCO)
+            col_et, col_vis, col_av = v, "#FFFFFF", v
+            peso_av, sz_av = 900, 15
+        else:
+            fondo = ('bgcolor="#0E1A2E" style="padding:18px 8px 16px 8px; border-radius:18px; background-color:#0E1A2E; '
+                     'border:1px solid #22324A; text-align:center;"')
+            prezzo = 'font-size:34px; line-height:48px; letter-spacing:-1.2px; color:#8FA3BD; text-decoration:line-through;'
+            col_et, col_vis, col_av = "#8FA3BD", "#B8C4D4", "#B8C4D4"
+            peso_av, sz_av = 700, 13
+        return (
+            '<td class="ct-t" valign="top" align="center" width="44%%" %s>'
+            '<span style="%s">%s</span>'
+            '<span style="display:block; margin-top:8px; font-family:%s; font-weight:900; white-space:nowrap; %s">%s</span>'
+            '<span style="display:block; margin-top:4px; font-family:%s; font-size:12px; line-height:16px; font-weight:700; color:%s;">%s</span>'
+            '<span style="display:block; width:36px; height:1px; margin:10px auto; background-color:%s; font-size:0; line-height:0;">&nbsp;</span>'
+            '<span style="display:block; font-family:%s; font-size:%dpx; line-height:18px; font-weight:%d; color:%s; white-space:nowrap;">%s</span>'
+            '</td>'
+        ) % (fondo, piccola % (FONT, col_et), esc(dati[0]), FONT, prezzo, esc(dati[1]),
+             FONT, col_vis, esc(dati[2]), "#22324A" if not attiva else "rgba(114,250,147,0.45)",
+             FONT, sz_av, peso_av, col_av, esc(dati[3]))
+    freccia = (
+        '<td valign="middle" align="center" width="12%%" style="text-align:center;">'
+        '<table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;"><tr>'
+        '<td align="center" valign="middle" width="32" height="32" bgcolor="%s" style="width:32px; height:32px; border-radius:50%%; '
+        'background-color:%s; box-shadow:0 0 18px rgba(114,250,147,0.55); font-size:0; line-height:0;">'
+        '<table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;"><tr>'
+        '<td valign="middle" style="font-size:0; line-height:0;"><div style="width:8px; height:3px; background-color:%s; font-size:0; line-height:0;">&nbsp;</div></td>'
+        '<td valign="middle" style="font-size:0; line-height:0;"><div style="width:0; height:0; border-top:6px solid transparent; '
+        'border-bottom:6px solid transparent; border-left:8px solid %s; font-size:0; line-height:0;"></div></td>'
+        '</tr></table></td></tr></table></td>'
+    ) % (v, v, NERO_BF, NERO_BF)
+    sep = ('<span style="display:inline-block; width:5px; height:5px; border-radius:50%%; background-color:%s; '
+           'vertical-align:middle; margin:0 12px;"></span>' % NERO_BF)
+    striscia = sep.join(esc(x) for x in b["striscia"])
+    h = (
+        '<table %s style="border-radius:22px; %s">'
+        '<tr><td bgcolor="%s" style="padding:24px 18px 24px 18px; border-radius:22px 22px 0 0; background-color:%s; '
+        'background-image:radial-gradient(circle at 75%% 30%%, rgba(114,250,147,0.20) 0%%, rgba(114,250,147,0) 50%%), '
+        'linear-gradient(160deg, #0B1A33 0%%, %s 70%%); text-align:center;">'
+        '<p style="margin:0 0 18px 0; font-family:%s; font-size:11px; line-height:14px; font-weight:900; letter-spacing:2.6px; '
+        'color:%s; text-align:center;"><span style="display:inline-block; width:18px; height:2px; background-color:%s; '
+        'vertical-align:middle; margin-right:10px;"></span>%s<span style="display:inline-block; width:18px; height:2px; '
+        'background-color:%s; vertical-align:middle; margin-left:10px;"></span></p>'
+        '<table %s><tr>%s%s%s</tr></table>'
+        '</td></tr>'
+        '<tr><td align="center" bgcolor="%s" style="padding:12px 12px; border-radius:0 0 22px 22px; background-color:%s; '
+        'font-family:%s; font-size:10px; line-height:14px; font-weight:900; letter-spacing:2.6px; color:%s; white-space:nowrap;">%s</td></tr>'
+        '</table>'
+    ) % (TABELLA.replace(' style="width:100%;"', ' width="100%"'), OMBRA_BANNER, NERO_BF, NERO_BF, NERO_BF,
+         FONT, "#FFFFFF", v, esc(b["etichetta"]), v,
+         TABELLA, tessera(prima, False), freccia, tessera(dopo, True),
+         v, v, FONT, NERO_BF, striscia)
+    txt = "\n".join([b["etichetta"], ": ".join([prima[0], ", ".join(prima[1:])]),
+                     ": ".join([dopo[0], ", ".join(dopo[1:])]), " · ".join(b["striscia"])])
+    attesi = [b["etichetta"]] + list(prima) + list(dopo) + list(b["striscia"])
+    return h, txt, attesi
+
+
+BLOCCHI["conto"] = b_conto
+BLOCCHI_NOTTE["conto"] = b_conto
 
 
 # --------------------------------------------------------------------------

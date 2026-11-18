@@ -11,12 +11,16 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "torni a casa dopo il lavoro, apri la posta, ed è piena di **sconti del Black Friday**.\nTelefoni, vestiti, l'ennesima friggitrice ad aria.\nCose che tra un mese finiscono in un cassetto."
+      "testo": "torni a casa dopo il lavoro,\napri la posta, ed è piena\ndi **sconti del Black Friday**."
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Telefoni, vestiti,\nl'ennesima friggitrice ad aria.\nCose che tra un mese\nfiniscono in un cassetto."
     },
     {
       "tipo": "paragrafo",
       "stile": "evidenza",
-      "testo": "Al Black Friday, di solito, ti vendono cose che non ti servono. Noi, invece, vogliamo darti tempo per prenderti cura di te."
+      "testo": "Al Black Friday, di solito,\nti vendono cose inutili.\nNoi vogliamo darti tempo\nper prenderti cura di te."
     },
     {
       "tipo": "immagine",
@@ -25,31 +29,31 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "Per questo abbiamo pensato a te, che ci conosci già:\n**dieci visite, ma ne paghi solo cinque.**\nLe altre cinque te le regaliamo noi."
+      "testo": "Per questo abbiamo pensato a te,\nche ci conosci già:\n**dieci visite,**\n**ma ne paghi solo cinque.**\nLe altre cinque te le regaliamo noi."
     },
     {
       "tipo": "paragrafo",
-      "testo": "Di solito, dieci visite costano 900€.\nPer il Black Friday, le paghi **450€. La metà.**\nGli altri 450€ restano a te."
+      "testo": "Di solito, dieci visite costano 900€.\nPer il Black Friday,\nle paghi **450€. La metà.**\nGli altri 450€ restano a te."
     },
     {
       "tipo": "benefici",
       "etichetta": "COSA TI PORTI A CASA",
-      "titolo": "Non l’ennesimo oggetto.\nUn regalo che ti fai dieci volte.",
+      "titolo": "Non l’ennesimo oggetto.\nUn regalo che ti fai\ndieci volte.",
       "voci": [
         [
           "Un oggetto che finisce in un cassetto",
           "Qualcosa che usi davvero.",
-          "Dieci visite da usare quando ne hai bisogno. Non restano lì a prendere polvere."
+          "Dieci visite da usare\nquando ne hai bisogno.\nNon restano lì a prendere polvere."
         ],
         [
           "Ricominciare con chi non ti conosce",
-          "Continuare con l’osteopata che ti conosce già.",
-          "Conosce già la tua storia e il lavoro fatto insieme. Si va avanti da lì."
+          "Continuare con chi\nti conosce già.",
+          "Il tuo osteopata sa già\nda dove siamo partiti.\nSi va avanti da lì."
         ],
         [
           "Lo sconto su cose che non ti servono",
-          "La metà su qualcosa che ti fa stare bene.",
-          "Le stesse visite di sempre, a 450€ invece di 900€."
+          "La metà su qualcosa\nche ti fa stare bene.",
+          "Le stesse visite di sempre,\na 450€ invece di 900€."
         ]
       ]
     },
@@ -74,11 +78,11 @@
       "tipo": "elenco",
       "stile": "passi",
       "etichetta": "COSA FARE ADESSO",
-      "titolo": "Tre passi, e le tue dieci visite sono riservate.",
+      "titolo": "Tre passi, e sono tue.",
       "voci": [
         "Clicca sul pulsante qui sotto.",
-        "Paghi online 450€ invece di 900€, una volta sola.",
-        "Prenoti le visite quando ti è più comodo: da solo, oppure ci chiami al +39 351 819 8457."
+        "Paghi 450€ online,\nuna volta sola.",
+        "Prenoti quando vuoi:\nda solo, oppure chiamando\nil +39 351 819 8457."
       ]
     },
     {
@@ -88,7 +92,7 @@
     },
     {
       "tipo": "nota",
-      "testo": "Hai tempo fino a domenica 29 novembre, ore 23:59."
+      "testo": "Hai tempo fino a domenica 29 novembre,\nore 23:59."
     },
     {
       "tipo": "chiusura",
@@ -100,7 +104,7 @@
     },
     {
       "tipo": "ps",
-      "testo": "P.S. Durante l'anno, dieci visite costano 900€. Questo pacchetto esiste solo fino a domenica 29 novembre."
+      "testo": "P.S. Durante l'anno,\ndieci visite costano 900€.\nQuesto pacchetto esiste solo\nfino a domenica 29 novembre."
     }
   ],
   "solo_testo": null,

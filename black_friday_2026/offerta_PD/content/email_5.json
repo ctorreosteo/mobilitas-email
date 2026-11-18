@@ -23,7 +23,7 @@
       "BLACK FRIDAY",
       "−50%"
     ],
-    "titolo": "Ultime ore.|Stasera alle 23:59 finisce."
+    "titolo": "Ultime ore.|Alle 23:59 finisce."
   },
   "blocchi": [
     {
@@ -31,11 +31,11 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "questa è l’ultima email che ti scriviamo per il Black Friday."
+      "testo": "questa è l’ultima email\nche ti scriviamo per il Black Friday."
     },
     {
       "tipo": "paragrafo",
-      "testo": "**Stasera alle 23:59 l’offerta finisce.**\nE le dieci visite a metà prezzo non tornano: durante l’anno questo pacchetto non esiste."
+      "testo": "**Stasera alle 23:59 l’offerta finisce.**\nE non torna.\nDurante l’anno\nquesto pacchetto non esiste."
     },
     {
       "tipo": "immagine",
@@ -45,21 +45,21 @@
     {
       "tipo": "paragrafo",
       "stile": "evidenza",
-      "testo": "In questi giorni ti abbiamo scritto per tre motivi. Forse uno è il tuo."
+      "testo": "Ti abbiamo scritto\nper tre motivi.\nForse uno è il tuo."
     },
     {
       "tipo": "elenco",
       "stile": "motivi",
       "etichetta": "TRE MOTIVI, UNO È IL TUO",
       "voci": [
-        "**Se oggi stai bene:**\ndieci visite servono a giocare d’anticipo, senza ricominciare da capo.",
-        "**Se stai meglio, ma non del tutto:**\nservono ad arrivare in fondo, senza fermarti a metà per il prezzo.",
-        "**Se hai sempre rimandato:**\nstasera, per una volta, vieni prima tu."
+        "**Se oggi stai bene:**\nper giocare d’anticipo\ne non ricominciare da capo.",
+        "**Se stai meglio,**\n**ma non del tutto:**\nper arrivare in fondo,\nsenza fermarti a metà.",
+        "**Se rimandi sempre:**\nper una volta,\npensa prima a te."
       ]
     },
     {
       "tipo": "paragrafo",
-      "testo": "**Dieci visite, ma ne paghi solo cinque.**\nLe riservi stasera, e le usi con calma, quando ti servono.\nDa domani, le stesse dieci visite costano il doppio."
+      "testo": "**Dieci visite. Ne paghi cinque.**\nLe riservi stasera,\nle usi con calma, quando ti servono.\nDa domani, le stesse dieci visite\ncostano il doppio."
     },
     {
       "tipo": "riquadro",
@@ -75,7 +75,7 @@
       "righe": [
         "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
         "450€ invece di 900€",
-        "Fino a stasera, domenica 29 novembre, ore 23:59"
+        "Fino a stasera alle 23:59\ndomenica 29 novembre"
       ]
     },
     {
@@ -102,7 +102,7 @@
     },
     {
       "tipo": "ps",
-      "testo": "P.S. Se hai già riservato le tue dieci visite, grazie. Questa email puoi ignorarla."
+      "testo": "P.S. Domani mattina\nquesta offerta non c’è più.\nLa scelta è tua.\nMa va fatta stasera."
     }
   ],
   "solo_testo": null,
