@@ -1,0 +1,37 @@
+{
+  "numero": 1,
+  "data_invio": "2026-11-19",
+  "ora_invio": "19:30",
+  "oggetto": "Per il Black Friday abbiamo pensato a te",
+  "oggetto_alternativo": "Dieci visite, ma ne paghi solo cinque",
+  "preheader": "Dieci visite, ma ne paghi solo cinque. 450€ invece di 900€, fino a domenica 29 novembre.",
+  "blocchi": [
+    {"tipo": "saluto"},
+    {"tipo": "paragrafo", "testo": "torni a casa dopo il lavoro, apri la posta, ed è piena di sconti del Black Friday. Telefoni, vestiti, l'ennesima friggitrice ad aria."},
+    {"tipo": "paragrafo", "testo": "Al Black Friday, di solito, ti vendono cose che non ti servono. Noi, invece, vogliamo darti qualcosa che ti fa stare bene."},
+    {"tipo": "paragrafo", "testo": "Per questo abbiamo pensato a te, che sei già un nostro paziente: dieci visite, ma ne paghi solo cinque. Le altre cinque sono in omaggio."},
+    {"tipo": "paragrafo", "testo": "Di solito, dieci visite costano 900€. Per il Black Friday, le paghi 450€. La metà."},
+    {"tipo": "riquadro", "righe": [
+      "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
+      "450€ invece di 900€",
+      "Fino a domenica 29 novembre, ore 23:59"
+    ]},
+    {"tipo": "pulsante", "testo": "Riserva le tue dieci visite a metà prezzo", "link": "lp"},
+    {"tipo": "nota", "testo": "Paghi online. Poi scegli tu: prenoti le visite da solo, oppure ci chiami al +39 351 819 8457."},
+    {"tipo": "chiusura", "testo": "Ci vediamo in studio da Mobilitas!"},
+    {"tipo": "firma", "testo": "Studio Mobilitas"},
+    {"tipo": "ps", "testo": "P.S. Questo pacchetto esiste solo per il Black Friday. Dopo domenica 29 novembre non c'è più."}
+  ],
+  "solo_testo": "{saluto}\n\ntorni a casa dopo il lavoro, apri la posta, ed è piena di sconti del Black Friday. Telefoni, vestiti, l'ennesima friggitrice ad aria.\n\nAl Black Friday, di solito, ti vendono cose che non ti servono. Noi, invece, vogliamo darti qualcosa che ti fa stare bene.\n\nPer questo abbiamo pensato a te, che sei già un nostro paziente: dieci visite, ma ne paghi solo cinque. Le altre cinque sono in omaggio.\n\nDi solito, dieci visite costano 900€. Per il Black Friday, le paghi 450€. La metà.\n\n10 visite: ne paghi 5, le altre 5 sono in omaggio.\n450€ invece di 900€\nFino a domenica 29 novembre, ore 23:59\n\nRiserva le tue dieci visite a metà prezzo:\n{link_lp}\n\nPaghi online. Poi scegli tu: prenoti le visite da solo, oppure ci chiami al +39 351 819 8457.\n\nCi vediamo in studio da Mobilitas!\n\nStudio Mobilitas\n\nP.S. Questo pacchetto esiste solo per il Black Friday. Dopo domenica 29 novembre non c'è più.",
+  "testi_obbligatori": [
+    "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
+    "450€",
+    "900€",
+    "domenica 29 novembre",
+    "23:59",
+    "+39 351 819 8457",
+    "utm_content=email_1",
+    "Riserva le tue dieci visite a metà prezzo",
+    "Studio Mobilitas"
+  ]
+}

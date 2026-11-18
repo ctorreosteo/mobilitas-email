@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="x-apple-disable-message-reformatting">
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+<title>{{TITOLO}}</title>
+<!--[if !mso]><!-->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&amp;display=swap" rel="stylesheet">
+<!--<![endif]-->
+<!--[if mso]>
+<noscript><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
+<style>
+  body, table, td, p, a, span, strong, div, center { font-family: Arial, Helvetica, sans-serif !important; }
+</style>
+<![endif]-->
+<style>
+  /* Reset dei client email */
+  body { margin: 0 !important; padding: 0 !important; width: 100% !important; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+  table, td { border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+  img { border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
+  #outlook a { padding: 0; }
+  a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; font-size: inherit !important; font-family: inherit !important; font-weight: inherit !important; line-height: inherit !important; }
+
+  /* Telefono */
+  @media screen and (max-width: 600px) {
+    .container { width: 100% !important; max-width: 100% !important; }
+  }
+  @media screen and (max-width: 480px) {
+    .px { padding-left: 20px !important; padding-right: 20px !important; }
+    .btn-table { width: 100% !important; }
+    .btn-td { width: 100% !important; }
+    .btn-a { display: block !important; text-align: center !important; }
+  }
+</style>
+<style>
+  /* Dark mode (adattamento della versione chiara) */
+  @media (prefers-color-scheme: dark) {
+    .bg-body { background-color: {{D_SFONDO}} !important; }
+    .t-main { color: {{D_TESTO}} !important; }
+    .t-sec { color: {{D_SECONDARIO}} !important; }
+    .link { color: {{D_TESTO}} !important; }
+    .bg-box { background-color: {{D_RIQUADRO}} !important; border-left-color: {{D_BORDO}} !important; }
+    .bg-footer { background-color: {{D_FOOTER}} !important; }
+    .ps-line { border-top-color: {{D_RIQUADRO}} !important; }
+    .btn-td { background-color: {{C_CORALLO}} !important; }
+    .btn-a { color: {{C_NOTTE}} !important; }
+    .logo-light { display: none !important; }
+    .logo-dark { display: block !important; max-height: none !important; overflow: visible !important; }
+  }
+  /* Outlook.com */
+  [data-ogsb] .bg-body { background-color: {{D_SFONDO}} !important; }
+  [data-ogsb] .bg-box { background-color: {{D_RIQUADRO}} !important; }
+  [data-ogsb] .bg-footer { background-color: {{D_FOOTER}} !important; }
+  [data-ogsb] .btn-td { background-color: {{C_CORALLO}} !important; }
+  [data-ogsc] .t-main { color: {{D_TESTO}} !important; }
+  [data-ogsc] .t-sec { color: {{D_SECONDARIO}} !important; }
+  [data-ogsc] .link { color: {{D_TESTO}} !important; }
+  [data-ogsc] .btn-a { color: {{C_NOTTE}} !important; }
+  [data-ogsc] .logo-light { display: none !important; }
+  [data-ogsc] .logo-dark { display: block !important; max-height: none !important; overflow: visible !important; }
+</style>
+</head>
+<body class="bg-body" style="margin:0; padding:0; width:100%; background-color:{{C_BIANCO}};">
+<div class="preheader" style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; mso-hide:all; color:{{C_BIANCO}};">{{PREHEADER}}{{RIEMPIMENTO}}</div>
+<div role="article" aria-roledescription="email" lang="it" class="bg-body" style="background-color:{{C_BIANCO}};">
+<table role="presentation" class="bg-body" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%; background-color:{{C_BIANCO}};">
+  <tr>
+    <td align="center" style="padding:0;">
+      <!--[if mso]><table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
+      <table role="presentation" class="container bg-body" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%; max-width:600px; background-color:{{C_BIANCO}};">
+        <!-- Logo -->
+        <tr>
+          <td class="px" align="left" style="padding:32px 32px 0 32px;">
+            <img class="logo-light" src="{{LOGO_URL}}" width="{{LOGO_LARGHEZZA}}" alt="Studio Mobilitas" style="display:block; width:{{LOGO_LARGHEZZA}}px; max-width:100%; height:auto; border:0; outline:none; text-decoration:none; font-family:{{FONT}}; font-size:18px; font-weight:700; line-height:1.3; color:{{C_NOTTE}};">
+            {{LOGO_DARK}}
+          </td>
+        </tr>
+        <!-- Linea sottile azzurra -->
+        <tr>
+          <td class="px" style="padding:20px 32px 0 32px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;">
+              <tr><td height="2" bgcolor="{{C_AZZURRO}}" style="height:2px; line-height:2px; font-size:0; mso-line-height-rule:exactly; background-color:{{C_AZZURRO}};">&nbsp;</td></tr>
+            </table>
+          </td>
+        </tr>
+        <!-- Blocchi dell'email -->
+        <tr>
+          <td class="px" align="left" style="padding:32px 32px 40px 32px;">
+<!-- BLOCCHI:INIZIO -->
+{{BLOCCHI}}
+<!-- BLOCCHI:FINE -->
+          </td>
+        </tr>
+      </table>
+      <!--[if mso]></td></tr></table><![endif]-->
+    </td>
+  </tr>
+  <!-- Footer su fascia grigio chiaro -->
+  <tr>
+    <td class="bg-footer" align="center" bgcolor="{{C_GRIGIO}}" style="padding:24px; background-color:{{C_GRIGIO}};">
+      <!--[if mso]><table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
+      <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%; max-width:600px;">
+        <tr>
+          <td align="center" style="padding:0;">
+{{FOOTER}}
+          </td>
+        </tr>
+      </table>
+      <!--[if mso]></td></tr></table><![endif]-->
+    </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

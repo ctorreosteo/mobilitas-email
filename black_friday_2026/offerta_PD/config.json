@@ -1,0 +1,19 @@
+{
+  "piattaforma": "aziendale, codici da chiedere",
+  "mittente_nome": "Studio Mobilitas",
+  "mittente_email": "[[DA_COMPILARE: indirizzo del mittente, es. studio@studiomobilitas.it]]",
+  "saluto": "Ciao,",
+  "link_disiscrizione": "[[DA_COMPILARE: tag di disiscrizione della piattaforma]]",
+  "link_lp": "https://www.studiomobilitas.it/black-friday-2026",
+  "logo_url": "https://www.studiomobilitas.it/logo_blu.png",
+  "logo_url_dark": "https://www.studiomobilitas.it/logo_verde.png",
+  "logo_larghezza_px": 180,
+  "telefono_testo": "+39 351 819 8457",
+  "telefono_link": "tel:+393518198457",
+  "email_studio": "studio@studiomobilitas.it",
+  "sedi": "Via Peyron 54 · Via Lamarmora 35",
+  "piva": "13020400019",
+  "utm_source": "email",
+  "utm_medium": "email",
+  "utm_campaign": "bf2026"
+}
