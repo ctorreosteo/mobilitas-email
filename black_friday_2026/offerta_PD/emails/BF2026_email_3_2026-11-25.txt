@@ -1,4 +1,4 @@
-Ciao*|IF:FNAME|* *|FNAME|**|END:IF|*,
+{{nome|Ciao}},
 
 il dolore è sceso.
 Non è più quello di prima.

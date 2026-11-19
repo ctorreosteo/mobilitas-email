@@ -1,4 +1,4 @@
-Ciao*|IF:FNAME|* *|FNAME|**|END:IF|*,
+{{nome|Ciao}},
 
 torni a casa dopo il lavoro,
 apri la posta, ed è piena

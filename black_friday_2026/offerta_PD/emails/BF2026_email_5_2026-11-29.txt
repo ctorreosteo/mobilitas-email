@@ -1,4 +1,4 @@
-Ciao*|IF:FNAME|* *|FNAME|**|END:IF|*,
+{{nome|Ciao}},
 
 questa è l’ultima email
 che ti scriviamo per il Black Friday.

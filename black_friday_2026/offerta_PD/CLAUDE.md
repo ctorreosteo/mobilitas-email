@@ -136,7 +136,8 @@ Tag delle piattaforme più comuni (verifica sempre nella documentazione, anche c
 - Brevo: nome {{ contact.FIRSTNAME }} · disiscrizione {{ unsubscribe }}
 - Mailchimp: nome *|FNAME|* · disiscrizione *|UNSUB|*
 - ActiveCampaign: nome %FIRSTNAME% · disiscrizione %UNSUBSCRIBELINK%
-Se il nome manca, il saluto deve diventare "Ciao," e mai "Ciao ,".
+- Piattaforma interna dello studio (in uso): nome {{nome|Ciao}} (scrive il nome, oppure "Ciao" se il nome manca) · disiscrizione da verificare con un invio di prova.
+Se il nome manca, il saluto deve diventare "Ciao," e mai "Ciao ,". Per questo il saluto è "{{nome|Ciao}}," → «Marco,» oppure «Ciao,».
 
 ## Footer (testo fisso, uguale in tutte le email)
 Studio Mobilitas · Osteopatia a Torino

@@ -1,4 +1,4 @@
-Ciao*|IF:FNAME|* *|FNAME|**|END:IF|*,
+{{nome|Ciao}},
 
 quante volte hai pensato:
 «Il mese prossimo
