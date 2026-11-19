@@ -11,11 +11,7 @@
     "banner": "verde",
     "allinea": "centro",
     "titolo_bf": "Black Friday",
-    "dati_bf": [
-      "10 visite, ne paghi 5",
-      "450€ invece di 900€",
-      "Fino al 29.11, ore 23:59"
-    ],
+    "dati_bf": [],
     "titolo": "Stai meglio.|Ma non del tutto.",
     "sfondo_foto": "https://www.studiomobilitas.it/trattamenti/web/schiena_lombare-supino_01_orizzontale-1600.jpg",
     "sfondo_posizione": "center center"
@@ -42,11 +38,6 @@
       "testo": "Non hai sbagliato tu.\nMa c’è una cosa che forse\n**nessuno ti ha mai spiegato.**"
     },
     {
-      "tipo": "immagine",
-      "url": "https://www.studiomobilitas.it/trattamenti/og/anca_flessa-supino_07_orizzontale.jpg",
-      "alt": "Un'osteopata dello Studio Mobilitas durante un trattamento all'anca"
-    },
-    {
       "tipo": "box",
       "stile": "spiegazione",
       "etichetta": "PERCHÉ IL DOLORE TORNA",
@@ -60,22 +51,22 @@
     },
     {
       "tipo": "benefici",
-      "etichetta": "COSA TI DANNO DIECI VISITE",
+      "etichetta": "COSA CAMBIA, FINO IN FONDO",
       "voci": [
         [
-          "Fermarti a metà",
-          "Arrivare in fondo.",
-          "Dieci visite per dare al corpo\nil tempo di cambiare abitudine."
+          "",
+          "Arrivi in fondo.",
+          "Dieci trattamenti per dare\nal corpo il tempo\ndi cambiare abitudine."
         ],
         [
-          "Decidere con il portafoglio",
-          "Decidere con il corpo.",
-          "Le visite sono già pagate:\nil prezzo non decide più al posto tuo."
+          "",
+          "Vieni quando il corpo\nte lo chiede.",
+          "I trattamenti sono già pagati:\nogni volta che serve,\nsono lì per te."
         ],
         [
-          "«Per adesso va bene così»",
-          "Puntare a stare bene,\nnon solo meglio.",
-          "«Meglio» non vuol dire «bene».\nUn dolore che non ti blocca più\nè sempre un dolore."
+          "",
+          "Punti a stare bene davvero.",
+          "«Meglio» è un buon inizio.\nAdesso puntiamo a «bene»."
         ]
       ]
     },
@@ -89,7 +80,6 @@
     },
     {
       "tipo": "riquadro",
-      "stile": "intestato",
       "etichetta": "L’OFFERTA BLACK FRIDAY",
       "visite": [
         5,
@@ -100,48 +90,41 @@
         "IN OMAGGIO"
       ],
       "righe": [
-        "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
+        "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
         "450€ invece di 900€",
         "Fino a domenica 29 novembre, ore 23:59"
-      ]
+      ],
+      "sfondo_foto": "https://www.studiomobilitas.it/trattamenti/og/anca_flessa-supino_07_orizzontale.jpg"
     },
     {
       "tipo": "paragrafo",
-      "testo": "Le dieci visite le prenoti quando vuoi.\n**Basta deciderlo entro domenica.**"
+      "testo": "Per prenotare, ti contattiamo noi.\n**Basta deciderlo entro domenica.**"
     },
     {
       "tipo": "pulsante",
-      "testo": "Riserva le tue 10 visite a metà prezzo",
+      "testo": "Riserva i tuoi 10 trattamenti a metà prezzo",
       "link": "lp"
     },
     {
       "tipo": "nota",
-      "testo": "Paghi online\nPrenoti le visite quando vuoi\nOppure ci chiami al +39 351 819 8457",
+      "testo": "Paghi sul nostro sito\nTi contattiamo noi per prenotare",
       "stile": "passi"
     },
     {
       "tipo": "chiusura",
       "testo": "Ci vediamo in studio.\nQuesta volta, fino in fondo."
-    },
-    {
-      "tipo": "firma",
-      "testo": "Studio Mobilitas"
-    },
-    {
-      "tipo": "ps",
-      "testo": "P.S. Fermarsi a metà\nè la scelta più facile.\nL’offerta, invece, finisce\ndomenica 29 novembre alle 23:59."
     }
   ],
   "solo_testo": null,
   "testi_obbligatori": [
-    "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
+    "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
     "450€",
     "900€",
     "domenica 29 novembre",
     "23:59",
     "+39 351 819 8457",
     "utm_content=email_3",
-    "Riserva le tue 10 visite a metà prezzo",
+    "Riserva i tuoi 10 trattamenti a metà prezzo",
     "Studio Mobilitas"
   ]
 }

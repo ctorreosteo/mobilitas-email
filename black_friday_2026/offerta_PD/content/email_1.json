@@ -2,21 +2,16 @@
   "numero": 1,
   "data_invio": "2026-11-19",
   "ora_invio": "19:30",
-  "oggetto": "10 visite al prezzo di 5. Fino a domenica.",
-  "oggetto_alternativo": "Per chi ci conosce già: 10 visite, ne paghi 5",
-  "preheader": "Per chi è già stato da noi: 10 visite a 450€ invece di 900€. Le altre cinque te le regaliamo noi. Fino a domenica 29 novembre.",
+  "oggetto": "{{nome|Ciao}}, 10 trattamenti al prezzo di 5",
+  "oggetto_alternativo": "Il Black Friday è arrivato anche da Mobilitas",
+  "preheader": "10 trattamenti, ne paghi 5: 450€ invece di 900€. Il regalo più utile che ti fai quest’anno, solo fino a domenica 29 novembre.",
   "blocchi": [
     {
       "tipo": "saluto"
     },
     {
       "tipo": "paragrafo",
-      "testo": "questa è l’offerta Black Friday\nche abbiamo pensato per te.\nPer chi ci conosce già,\n**dieci visite a metà prezzo.**"
-    },
-    {
-      "tipo": "immagine",
-      "url": "https://www.studiomobilitas.it/trattamenti/og/collo_presa-cervicale-supino_18_orizzontale.jpg",
-      "alt": "Un'osteopata dello Studio Mobilitas durante un trattamento"
+      "testo": "il Black Friday è arrivato\nanche da Mobilitas.\nE questa è l’offerta\nche abbiamo pensato per te:"
     },
     {
       "tipo": "riquadro",
@@ -30,35 +25,31 @@
         "IN OMAGGIO"
       ],
       "righe": [
-        "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
+        "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
         "450€ invece di 900€",
         "Fino a domenica 29 novembre, ore 23:59"
-      ]
+      ],
+      "sfondo_foto": "https://www.studiomobilitas.it/trattamenti/og/collo_presa-cervicale-supino_18_orizzontale.jpg"
     },
     {
       "tipo": "benefici",
       "etichetta": "COSA TI PORTI A CASA",
-      "titolo": "Non solo metà prezzo.",
+      "titolo": "Il regalo più utile\nche ti fai quest’anno.",
       "voci": [
         [
-          "Tornare solo quando fa male",
-          "Non aspettare di stare male.",
-          "Le visite sono già pagate:\nvieni prima che il dolore torni."
+          "",
+          "Continua il lavoro iniziato.",
+          "Ti prendi cura del tuo problema\nfino in fondo, ed eviti\nche torni nel tempo."
         ],
         [
-          "Fermarti a metà",
-          "«Meglio» non basta.",
-          "Il dolore è sceso, ma c’è ancora?\nCon dieci visite finisci il lavoro."
+          "",
+          "Prenditi cura di te\ntutto l’anno.",
+          "10 trattamenti da un’ora,\nda usare con la frequenza\nche preferisci, al prezzo\npiù economico di sempre."
         ],
         [
-          "Rinunciare per il dolore",
-          "Torna a dire di sì.",
-          "Alla cena, alla passeggiata,\nal weekend fuori."
-        ],
-        [
-          "Venire dopo tutto il resto",
-          "Smetti di metterti\nin fondo alla lista.",
-          "Bollette, spesa, affitto:\nvengono sempre prima.\nQuesta volta, prima ci sei tu."
+          "",
+          "Un momento solo per te.",
+          "Uno spazio per staccare\ndallo stress di tutti i giorni\ne pensare solo al tuo benessere."
         ]
       ]
     },
@@ -66,16 +57,16 @@
       "tipo": "elenco",
       "stile": "passi",
       "etichetta": "COSA FARE ADESSO",
-      "titolo": "Tre passi, e sono tue.",
+      "titolo": "Tre passi, e i trattamenti\nsono tuoi.",
       "voci": [
         "Clicca sul pulsante qui sotto.",
-        "Paghi 450€ online,\nuna volta sola.",
-        "Prenoti quando vuoi:\nda solo, oppure chiamando\nil +39 351 819 8457."
+        "Paghi 450€\nsul nostro sito web.",
+        "Ti contatteremo noi\nper prenotare i trattamenti\nquando preferisci."
       ]
     },
     {
       "tipo": "pulsante",
-      "testo": "Riserva le tue 10 visite a metà prezzo",
+      "testo": "Riserva i tuoi 10 trattamenti a metà prezzo",
       "link": "lp"
     },
     {
@@ -85,18 +76,19 @@
   ],
   "solo_testo": null,
   "testi_obbligatori": [
-    "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
+    "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
     "450€",
     "900€",
     "domenica 29 novembre",
     "23:59",
     "+39 351 819 8457",
     "utm_content=email_1",
-    "Riserva le tue 10 visite a metà prezzo",
+    "Riserva i tuoi 10 trattamenti a metà prezzo",
     "Studio Mobilitas"
   ],
   "testata": {
     "sfondo_foto": "https://www.studiomobilitas.it/home/web/home2-1600.jpg",
-    "sfondo_posizione": "70% center"
+    "sfondo_posizione": "70% center",
+    "dati": []
   }
 }

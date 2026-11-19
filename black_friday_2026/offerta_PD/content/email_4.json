@@ -5,7 +5,7 @@
   "tema": "bianco",
   "oggetto": "Ogni mese paghi tutto. Tranne te.",
   "oggetto_alternativo": "Quante volte hai pensato: il mese prossimo?",
-  "preheader": "Bollette, affitto, spesa. E tu, sempre in fondo alla lista. Oggi dieci visite costano la metà: 450€ invece di 900€.",
+  "preheader": "Bollette, affitto, spesa. E tu, sempre in fondo alla lista. Oggi dieci trattamenti costano la metà: 450€ invece di 900€.",
   "testata": {
     "variante": "banner",
     "banner": "calendario",
@@ -18,10 +18,7 @@
     ],
     "sopra_bf": "OGGI È IL",
     "titolo_bf": "Black Friday",
-    "dati_bf": [
-      "10 visite, ne paghi 5",
-      "Fino a domenica, ore 23:59"
-    ],
+    "dati_bf": [],
     "fascia": [
       "OGGI È IL BLACK FRIDAY",
       "−50%"
@@ -34,7 +31,7 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "quante volte hai pensato:\n**«Il mese prossimo**\n**prenoto un’altra visita»?**"
+      "testo": "quante volte hai pensato:\n**«Il mese prossimo**\n**prenoto un altro trattamento»?**"
     },
     {
       "tipo": "paragrafo",
@@ -54,11 +51,6 @@
       "testo": "Solo che **il dolore**\n**non aspetta il mese giusto.**\nE ogni volta che rimandi,\ngli lasci più spazio."
     },
     {
-      "tipo": "immagine",
-      "url": "https://www.studiomobilitas.it/trattamenti/og/spalla_scapola-decubito-laterale_05_orizzontale.jpg",
-      "alt": "Un'osteopata dello Studio Mobilitas durante un trattamento alla spalla"
-    },
-    {
       "tipo": "paragrafo",
       "testo": "Oggi è il Black Friday.\nE per una volta,\n**puoi pagare anche te**,\nsenza far saltare i conti del mese."
     },
@@ -68,17 +60,17 @@
       "prima": [
         "DI SOLITO",
         "900€",
-        "10 visite",
-        "90€ a visita"
+        "10 trattamenti",
+        "90€ l’uno"
       ],
       "dopo": [
         "BLACK FRIDAY",
         "450€",
-        "10 visite",
-        "45€ a visita"
+        "10 trattamenti",
+        "45€ l’uno"
       ],
       "striscia": [
-        "STESSE 10 VISITE",
+        "STESSI TRATTAMENTI",
         "METÀ PREZZO"
       ]
     },
@@ -87,19 +79,19 @@
       "etichetta": "COSA CAMBIA, DA OGGI",
       "voci": [
         [
-          "Il mese prossimo",
-          "Oggi.",
-          "Il mese prossimo arriverà\ncon le sue spese, come sempre.\nQuesto prezzo, invece, non torna."
+          "",
+          "Inizi da oggi.",
+          "Il mese prossimo arriverà\ncon le sue spese, come sempre.\nQuesto prezzo c’è solo adesso."
         ],
         [
-          "Dopo tutto il resto",
-          "Prima di tutto il resto.",
-          "Bollette, spesa, affitto:\nci saranno sempre.\nPer una volta, il primo sei tu."
+          "",
+          "Il primo della lista\nsei tu.",
+          "Bollette, spesa, affitto\nci saranno sempre.\nPer una volta, vieni prima tu."
         ],
         [
-          "Trovare 90€ ogni volta",
-          "Pagare una volta sola.",
-          "450€ e non ci pensi più:\nper dieci visite, niente conti\nda far quadrare ogni mese."
+          "",
+          "Paghi una volta sola.",
+          "450€, una volta sola:\ndieci trattamenti già pagati\ne un pensiero in meno ogni mese."
         ]
       ]
     },
@@ -115,48 +107,41 @@
         "IN OMAGGIO"
       ],
       "righe": [
-        "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
+        "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
         "450€ invece di 900€",
         "Fino a domenica 29 novembre, ore 23:59"
-      ]
+      ],
+      "sfondo_foto": "https://www.studiomobilitas.it/trattamenti/og/spalla_scapola-decubito-laterale_05_orizzontale.jpg"
     },
     {
       "tipo": "paragrafo",
-      "testo": "Lo fai adesso, in pochi minuti.\n**Le visite, poi, le prenoti con calma.**"
+      "testo": "Paghi adesso, in pochi minuti.\n**Per prenotare, ti contattiamo noi.**"
     },
     {
       "tipo": "pulsante",
-      "testo": "Riserva le tue 10 visite a metà prezzo",
+      "testo": "Riserva i tuoi 10 trattamenti a metà prezzo",
       "link": "lp"
     },
     {
       "tipo": "nota",
       "stile": "passi",
-      "testo": "Paghi online\nPrenoti le visite quando vuoi\nOppure ci chiami al +39 351 819 8457"
+      "testo": "Paghi sul nostro sito\nTi contattiamo noi per prenotare"
     },
     {
       "tipo": "chiusura",
       "testo": "Ci vediamo in studio."
-    },
-    {
-      "tipo": "firma",
-      "testo": "Studio Mobilitas"
-    },
-    {
-      "tipo": "ps",
-      "testo": "P.S. Il mese prossimo ci saranno\ndi nuovo bollette, spesa e affitto.\nLe dieci visite a 450€, no:\nfiniscono domenica 29 novembre."
     }
   ],
   "solo_testo": null,
   "testi_obbligatori": [
-    "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
+    "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
     "450€",
     "900€",
     "domenica 29 novembre",
     "23:59",
     "+39 351 819 8457",
     "utm_content=email_4",
-    "Riserva le tue 10 visite a metà prezzo",
+    "Riserva i tuoi 10 trattamenti a metà prezzo",
     "Studio Mobilitas",
     "una rata ancora da pagare"
   ]

@@ -3,9 +3,9 @@
   "data_invio": "2026-11-29",
   "ora_invio": "19:30",
   "tema": "centro",
-  "oggetto": "Ultime ore per le tue dieci visite a 450€",
+  "oggetto": "Ultime ore per i tuoi dieci trattamenti a 450€",
   "oggetto_alternativo": "È l’ultima email del nostro Black Friday",
-  "preheader": "Dopo stasera alle 23:59, le dieci visite a 450€ invece di 900€ non ci sono più.",
+  "preheader": "Dopo stasera alle 23:59, i dieci trattamenti a 450€ invece di 900€ non ci sono più.",
   "testata": {
     "variante": "banner",
     "banner": "orologio",
@@ -38,11 +38,6 @@
       "testo": "**Stasera alle 23:59 l’offerta finisce.**\nE non torna.\nDurante l’anno\nquesto pacchetto non esiste."
     },
     {
-      "tipo": "immagine",
-      "url": "https://www.studiomobilitas.it/trattamenti/og/collo_cervicale-e-spalle-supino_02_orizzontale.jpg",
-      "alt": "Un'osteopata dello Studio Mobilitas durante un trattamento al collo e alle spalle"
-    },
-    {
       "tipo": "paragrafo",
       "stile": "evidenza",
       "testo": "Ti abbiamo scritto\nper tre motivi.\nForse uno è il tuo."
@@ -52,14 +47,14 @@
       "stile": "motivi",
       "etichetta": "TRE MOTIVI, UNO È IL TUO",
       "voci": [
-        "**Se oggi stai bene:**\nper giocare d’anticipo\ne non ricominciare da capo.",
-        "**Se stai meglio,**\n**ma non del tutto:**\nper arrivare in fondo,\nsenza fermarti a metà.",
+        "**Se oggi stai bene:**\nper giocare d’anticipo\ne restare così.",
+        "**Se stai meglio,**\n**ma non del tutto:**\nper arrivare in fondo.",
         "**Se rimandi sempre:**\nper una volta,\npensa prima a te."
       ]
     },
     {
       "tipo": "paragrafo",
-      "testo": "**Dieci visite. Ne paghi cinque.**\nLe riservi stasera,\nle usi con calma, quando ti servono.\nDa domani, le stesse dieci visite\ncostano il doppio."
+      "testo": "**Dieci trattamenti.**\n**Ne paghi cinque.**\nLi riservi stasera,\nli usi con calma, quando ti servono.\nDa domani, gli stessi trattamenti\ncostano il doppio."
     },
     {
       "tipo": "riquadro",
@@ -73,10 +68,11 @@
         "IN OMAGGIO"
       ],
       "righe": [
-        "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
+        "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
         "450€ invece di 900€",
         "Fino a stasera alle 23:59\ndomenica 29 novembre"
-      ]
+      ],
+      "sfondo_foto": "https://www.studiomobilitas.it/trattamenti/og/collo_cervicale-e-spalle-supino_02_orizzontale.jpg"
     },
     {
       "tipo": "paragrafo",
@@ -84,36 +80,28 @@
     },
     {
       "tipo": "pulsante",
-      "testo": "Riserva le tue 10 visite a metà prezzo",
+      "testo": "Riserva i tuoi 10 trattamenti a metà prezzo",
       "link": "lp"
     },
     {
       "tipo": "nota",
       "stile": "passi",
-      "testo": "Paghi online\nPrenoti le visite da solo, anche stasera"
+      "testo": "Paghi sul nostro sito, anche stasera\nTi contattiamo noi per prenotare"
     },
     {
       "tipo": "chiusura",
       "testo": "Ci vediamo in studio da Mobilitas!"
-    },
-    {
-      "tipo": "firma",
-      "testo": "Studio Mobilitas"
-    },
-    {
-      "tipo": "ps",
-      "testo": "P.S. Domani mattina\nquesta offerta non c’è più.\nLa scelta è tua.\nMa va fatta stasera."
     }
   ],
   "solo_testo": null,
   "testi_obbligatori": [
-    "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
+    "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
     "450€",
     "900€",
     "domenica 29 novembre",
     "23:59",
     "utm_content=email_5",
-    "Riserva le tue 10 visite a metà prezzo",
+    "Riserva i tuoi 10 trattamenti a metà prezzo",
     "Studio Mobilitas",
     "Stasera alle 23:59 l’offerta finisce."
   ]

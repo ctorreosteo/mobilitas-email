@@ -4,16 +4,12 @@
   "ora_invio": "19:30",
   "oggetto": "Stai bene. Ed è proprio questo il problema.",
   "oggetto_alternativo": "Ti ricordi com'era prima?",
-  "preheader": "Quando si sta bene, si smette. Dieci visite per non ricominciare da capo, a metà prezzo fino a domenica 29 novembre.",
+  "preheader": "Quando si sta bene, si smette. Dieci trattamenti per non ricominciare da capo, a metà prezzo fino a domenica 29 novembre.",
   "testata": {
     "variante": "banner",
     "banner": "nero",
     "titolo_bf": "Black Friday",
-    "dati_bf": [
-      "10 visite, ne paghi 5",
-      "450€ invece di 900€",
-      "Fino al 29.11, ore 23:59"
-    ],
+    "dati_bf": [],
     "titolo": "Stai bene.|Ed è proprio questo il problema.",
     "sfondo_foto": "https://www.studiomobilitas.it/trattamenti/web/schiena_lombare-prono_14_orizzontale-1600.jpg",
     "sfondo_posizione": "65% center"
@@ -45,44 +41,39 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "Ma c'è un modo semplice\nper **non ricominciare da capo**.\nPer il Black Friday,\nabbiamo pensato proprio a te:\n**dieci visite al prezzo di cinque.**"
-    },
-    {
-      "tipo": "immagine",
-      "url": "https://www.studiomobilitas.it/trattamenti/og/collo_presa-cervicale-supino_26_orizzontale.jpg",
-      "alt": "Trattamento osteopatico al collo nello Studio Mobilitas"
+      "testo": "Ma c'è un modo semplice\nper **non ricominciare da capo**.\nPer il Black Friday,\nabbiamo pensato proprio a te:\n**dieci trattamenti al prezzo di cinque.**"
     },
     {
       "tipo": "box",
       "etichetta": "PENSA AL TAGLIANDO",
-      "testo": "Lo so: quando stai bene,\ndieci visite possono sembrare tante.\n\nMa pensa al **tagliando della macchina**.\nNon lo fai perché è rotta.\nLo fai proprio perché va bene,\ne vuoi che continui così\nper tanti chilometri.\n\n**Con il tuo corpo è lo stesso.**"
+      "testo": "Lo so: quando stai bene,\ndieci trattamenti possono sembrare tanti.\n\nMa pensa al **tagliando della macchina**.\nNon lo fai perché è rotta.\nLo fai proprio perché va bene,\ne vuoi che continui così\nper tanti chilometri.\n\n**Con il tuo corpo è lo stesso.**"
     },
     {
       "tipo": "paragrafo",
-      "testo": "Con dieci visite già pagate,\n**il lavoro fatto non va perso.**"
+      "testo": "Con dieci trattamenti già pagati,\n**il lavoro fatto non va perso.**"
     },
     {
       "tipo": "paragrafo",
-      "testo": "Non aspetti più di stare male:\nal primo segnale, la visita è già lì.\nE intanto continui a dire di sì."
+      "testo": "Non aspetti più di stare male:\nal primo segnale,\nil trattamento è già lì.\nE intanto continui a dire di sì."
     },
     {
       "tipo": "benefici",
       "etichetta": "COSA CAMBIA, SE GIOCHI D'ANTICIPO",
       "voci": [
         [
-          "Aspettare che il dolore torni",
-          "Giocare d'anticipo.",
-          "Ci lavori quando stai bene,\nnon quando fa già male."
+          "",
+          "Ti prendi cura di te\nmentre stai bene.",
+          "Lavori sul tuo corpo con calma,\nquando sei tu a deciderlo."
         ],
         [
-          "Ricominciare da capo",
-          "Ripartire da dove siamo arrivati.",
-          "Non si torna indietro:\nsi parte dal lavoro fatto insieme."
+          "",
+          "Riparti da dove\nsiamo arrivati.",
+          "Si continua dal lavoro\nfatto insieme, un passo\ndopo l’altro."
         ],
         [
-          "Tornare a dire di no",
-          "Continuare a dire di sì.",
-          "Alla cena con gli amici, alla passeggiata,\nal weekend fuori.\nA decidere sei tu, non il dolore."
+          "",
+          "Continui a dire di sì.",
+          "Alla cena con gli amici,\nalla passeggiata,\nal weekend fuori."
         ]
       ]
     },
@@ -98,11 +89,11 @@
         "IN OMAGGIO"
       ],
       "righe": [
-        "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
+        "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
         "450€ invece di 900€",
         "Fino a domenica 29 novembre, ore 23:59"
       ],
-      "stile": "chiaro"
+      "sfondo_foto": "https://www.studiomobilitas.it/trattamenti/og/collo_presa-cervicale-supino_26_orizzontale.jpg"
     },
     {
       "tipo": "paragrafo",
@@ -110,37 +101,29 @@
     },
     {
       "tipo": "pulsante",
-      "testo": "Riserva le tue 10 visite a metà prezzo",
+      "testo": "Riserva i tuoi 10 trattamenti a metà prezzo",
       "link": "lp"
     },
     {
       "tipo": "nota",
-      "testo": "Paghi online\nPrenoti le visite quando vuoi\nOppure ci chiami al +39 351 819 8457",
+      "testo": "Paghi sul nostro sito\nTi contattiamo noi per prenotare",
       "stile": "passi"
     },
     {
       "tipo": "chiusura",
       "testo": "Ti aspettiamo in studio!"
-    },
-    {
-      "tipo": "firma",
-      "testo": "Studio Mobilitas"
-    },
-    {
-      "tipo": "ps",
-      "testo": "P.S. Il tagliando si fa quando\nla macchina va bene.\nQuesto pacchetto, invece,\nfinisce domenica 29 novembre."
     }
   ],
   "solo_testo": null,
   "testi_obbligatori": [
-    "10 visite: ne paghi 5, le altre 5 sono in omaggio.",
+    "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
     "450€",
     "900€",
     "domenica 29 novembre",
     "23:59",
     "+39 351 819 8457",
     "utm_content=email_2",
-    "Riserva le tue 10 visite a metà prezzo",
+    "Riserva i tuoi 10 trattamenti a metà prezzo",
     "Studio Mobilitas"
   ],
   "tema": "bianco"

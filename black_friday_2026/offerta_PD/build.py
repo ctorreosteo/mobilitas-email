@@ -7,7 +7,7 @@ Nessuna dipendenza esterna (solo libreria standard, Python 3.7+).
 Uso:  python3 build.py <numero>
 
 Legge config.json, template/base.html e content/email_<numero>.json,
-scrive emails/BF2026_email_<numero>_<AAAA-MM-GG>.html e .txt, fa i controlli
+scrive emails/BF2026_email_<numero>.html e .txt, fa i controlli
 descritti nel CLAUDE.md e stampa il report OK / AVVISO / ERRORE e il
 riepilogo per la piattaforma. Esce con codice 1 se c'è almeno un ERRORE.
 
@@ -136,6 +136,9 @@ PAROLE_VIETATE = [
     ("app", r"(?<!\w)app(?!\w)"),
     ("11 visite", r"(?<!\d)11\s+visite"),
     ("visita in più", r"visita\s+in\s+più"),
+    ("11 trattamenti", r"(?<!\d)11\s+trattamenti"),
+    ("trattamento in più", r"trattamento\s+in\s+più"),
+    ("visita/visite (si dice trattamenti)", r"(?<!\w)visit[ae](?!\w)"),
     ("percorso", r"percorso"),
     ("garantit", r"garantit"),
     ("guarigione", r"guarigione"),
@@ -405,7 +408,7 @@ def testata_html(t):
         '<div style="border-top:1px solid rgba(255,255,255,0.14); height:0; line-height:0; font-size:0;">&nbsp;</div>'
         '</td></tr></table>'
         '<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>%s</tr></table>'
-    ) % (TABELLA, "".join(celle))
+    ) % (TABELLA, "".join(celle)) if celle else ""  # "dati": [] nel file di contenuto toglie la riga
 
     # Striscia finale
     pallino = ('<span style="display:inline-block; width:5px; height:5px; border-radius:50%%; background-color:%s; '
@@ -692,16 +695,26 @@ def b_riquadro(b, ctx):
     fondo = ("background-color:%s; background-image:"
              "radial-gradient(circle at 100%% 0%%, rgba(114,250,147,0.20) 0%%, rgba(114,250,147,0) 46%%), "
              "linear-gradient(165deg, %s 0%%, %s 100%%);" % (C["C_NOTTE"], C["C_NERO"], C["C_NOTTE"]))
+    foto = b.get("sfondo_foto")
+    if foto:
+        # Foto del trattamento in alto, che sfuma nel blu notte sotto il testo
+        fondo = ("background-color:%s; background-image:"
+                 "linear-gradient(180deg, rgba(0,15,43,0) 0px, rgba(0,15,43,0.1) 120px, "
+                 "rgba(0,15,43,0.7) 175px, %s 205px), "
+                 "url(%s); background-size:100%% 100%%, %s; background-position:0 0, %s; background-repeat:no-repeat;"
+                 % (C["C_NERO"], C["C_NERO"], foto, b.get("sfondo_dimensione", "115% auto"),
+                    b.get("sfondo_posizione", "30% -100px")))
     h = (
-        '<table role="presentation" class="cp-top" width="100%%" cellpadding="0" cellspacing="0" border="0" bgcolor="%s" '
+        '<table role="presentation" class="cp-top%s" width="100%%" cellpadding="0" cellspacing="0" border="0" bgcolor="%s" '
         'style="width:100%%; border-radius:22px; border:1px solid rgba(114,250,147,0.22); '
         'box-shadow:0 24px 48px -20px rgba(0,37,82,0.55); %s">'
-        '<tr><td class="cp" style="padding:26px 28px 22px 28px;">%s</td></tr>'
+        '<tr><td class="cp%s" style="padding:%s 28px 22px 28px;">%s</td></tr>'
         '<tr><td class="cp" style="padding:4px 28px;"><div style="border-top:2px dashed rgba(255,255,255,0.22); '
         'height:0; line-height:0; font-size:0;">&nbsp;</div></td></tr>'
         '<tr><td class="cp" style="padding:16px 28px 22px 28px;">%s</td></tr>'
         '</table>'
-    ) % (C["C_NOTTE"], fondo, "".join(sopra), "".join(sotto))
+    ) % (" cp-foto-t" if foto else "", C["C_NERO"] if foto else C["C_NOTTE"], fondo, " cp-foto" if foto else "", "215px" if foto else "26px",
+         "".join(sopra), "".join(sotto))
     txt = "\n".join(inline_txt(r, ctx) for r in righe)
     return h, txt, [testo_puro(r) for r in righe]
 
@@ -742,8 +755,8 @@ def b_pulsante(b, ctx):
         '<table role="presentation" width="100%%" cellpadding="0" cellspacing="0" border="0"><tr>'
         '<td class="btn-txt" valign="middle" align="left" style="padding-right:18px; text-align:left;">'
         '%(etichetta)s'
-        '<span style="display:block; margin-top:3px; font-family:%(font)s; font-size:17px; line-height:21px; font-weight:800; '
-        'letter-spacing:-0.2px; color:%(n)s;">%(testo)s</span></td>'
+        '<span class="btn-t" style="display:block; margin-top:3px; font-family:%(font)s; font-size:17px; line-height:21px; font-weight:800; '
+        'letter-spacing:-0.2px; color:%(n)s;">%(testo_html)s</span></td>'
         '<td valign="middle" align="right" width="48" style="width:48px;">'
         '<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>'
         '<td align="center" valign="middle" width="48" height="48" bgcolor="%(n)s" style="width:48px; height:48px; '
@@ -763,8 +776,21 @@ def b_pulsante(b, ctx):
         '<!--<![endif]-->'
         '</td></tr></table>'
     ) % {"url": attr(url), "alt": alt, "w": w, "v": v, "n": n, "nero": NERO_BF,
-         "font": FONT, "testo": esc(testo), "etichetta": etichetta_html}
+         "font": FONT, "testo": esc(testo), "testo_html": testo_pulsante_html(testo), "etichetta": etichetta_html}
     return h, "%s\n%s" % (testo, url), [testo]
+
+
+def testo_pulsante_html(testo):
+    """Testo del pulsante che va a capo bene: su telefono «a metà prezzo» scende sulla seconda riga
+    (classe btn-l2), e «10 trattamenti» resta sempre unito."""
+    coda = " a metà prezzo"
+    if not testo.endswith(coda):
+        return esc(testo)
+    testa = esc(testo[:-len(coda)])
+    i = testa.rfind(" ")
+    if i > 0:
+        testa = testa[:i] + "&nbsp;" + testa[i + 1:]
+    return '%s <span class="btn-l2">a&nbsp;metà&nbsp;prezzo</span>' % testa
 
 
 def nota_passi(b, ctx):
@@ -1030,11 +1056,25 @@ def n_riquadro(b, ctx):
             '<p style="%s"><span style="display:inline-block; width:8px; height:8px; border-radius:50%%; background-color:%s; '
             'vertical-align:middle; margin-right:10px; box-shadow:0 0 0 4px rgba(114,250,147,0.22);"></span>%s</p>'
             '</td></tr></table>' % (stile(14, "1.4", v, "font-weight:800;"), v, inline(r, ctx)))
-    h = ('<table %s><tr><td class="cp-n" align="center" bgcolor="%s" style="padding:34px 26px 34px 26px; background-color:%s; '
-         'background-image:radial-gradient(circle at 50%% 0%%, rgba(114,250,147,0.22) 0%%, rgba(114,250,147,0) 55%%), '
-         'linear-gradient(180deg, #06204A 0%%, %s 100%%); border:1px solid rgba(114,250,147,0.35); border-radius:28px; '
-         'box-shadow:0 30px 60px -30px rgba(114,250,147,0.45);">%s</td></tr></table>'
-         % (TABELLA, C["C_NOTTE"], C["C_NOTTE"], C["C_NERO"], "".join(parti)))
+    foto = b.get("sfondo_foto")
+    if foto:
+        # Come nell'email 1: foto del trattamento in alto che sfuma nel blu notte sotto il testo
+        fondo = ("background-color:%s; background-image:"
+                 "linear-gradient(180deg, rgba(0,15,43,0) 0px, rgba(0,15,43,0.1) 105px, "
+                 "rgba(0,15,43,0.6) 160px, rgba(0,15,43,0.93) 200px, %s 222px), "
+                 "url(%s); background-size:100%% 100%%, %s; background-position:0 0, %s; background-repeat:no-repeat;"
+                 % (C["C_NERO"], C["C_NERO"], foto, b.get("sfondo_dimensione", "115% auto"),
+                    b.get("sfondo_posizione", "30% -90px")))
+        h = ('<table %s><tr><td class="cp-n cp-foto cp-foto-t" align="center" bgcolor="%s" style="padding:232px 26px 34px 26px; %s '
+             'border:1px solid rgba(114,250,147,0.35); border-radius:28px; '
+             'box-shadow:0 30px 60px -30px rgba(114,250,147,0.45);">%s</td></tr></table>'
+             % (TABELLA, C["C_NERO"], fondo, "".join(parti)))
+    else:
+        h = ('<table %s><tr><td class="cp-n" align="center" bgcolor="%s" style="padding:34px 26px 34px 26px; background-color:%s; '
+             'background-image:radial-gradient(circle at 50%% 0%%, rgba(114,250,147,0.22) 0%%, rgba(114,250,147,0) 55%%), '
+             'linear-gradient(180deg, #06204A 0%%, %s 100%%); border:1px solid rgba(114,250,147,0.35); border-radius:28px; '
+             'box-shadow:0 30px 60px -30px rgba(114,250,147,0.45);">%s</td></tr></table>'
+             % (TABELLA, C["C_NOTTE"], C["C_NOTTE"], C["C_NERO"], "".join(parti)))
     txt = "\n".join(inline_txt(r, ctx) for r in righe)
     return h, txt, [testo_puro(r) for r in righe]
 
@@ -1410,14 +1450,16 @@ def banner_verde_html(t):
         '<td valign="middle"><span class="bn-wm" style="display:block; font-family:%s; font-size:66px; line-height:60px; font-weight:900; '
         'letter-spacing:-2.6px; color:%s; ' + RILIEVO_NERO + '">%s<br>%s</span></td>'
         '<td class="bn-bc" valign="middle" width="130" style="width:130px;">%s</td></tr></table>'
-        '<table %s style="margin-top:20px;"><tr><td style="border-top:1px solid rgba(0,37,82,0.18); font-size:0; line-height:0; height:1px;">&nbsp;</td></tr></table>'
-        '<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>%s</tr></table>'
+        '%s'
         '</td></tr>%s</table>'
     ) % (TABELLA.replace(' style="width:100%;"', ' width="100%"'), v, v, v,
          con_foto(t, "linear-gradient(100deg, rgba(114,250,147,0.97) 0%, rgba(114,250,147,0.90) 45%, rgba(150,255,180,0.66) 100%)"),
          TABELLA, FONT, NERO_BF, esc(parole[0]),
          esc(parole[1] if len(parole) > 1 else ""), bollino,
-         TABELLA.replace(' style="width:100%;"', ""), dati, _ticker(t, NERO_BF, "#FFFFFF", v))
+         ('<table %s style="margin-top:20px;"><tr><td style="border-top:1px solid rgba(0,37,82,0.18); font-size:0; line-height:0; height:1px;">&nbsp;</td></tr></table>'
+          '<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>%s</tr></table>'
+          % (TABELLA.replace(' style="width:100%;"', ""), dati))
+         if t["dati_bf"] else "", _ticker(t, NERO_BF, "#FFFFFF", v))
 
 
 def testata_banner_html(t):
@@ -1690,18 +1732,20 @@ def b_benefici(b, ctx):
         txt.append(testo_puro(b["titolo"]))
     righe = []
     for k, (no, si, spieg) in enumerate(b["voci"]):
+        # "no" vuoto: niente riga barrata, solo il beneficio in positivo
         sep = "" if k == 0 else " border-top:1px solid %s;" % C["C_BORDO"]
+        barrato = ('<p class="t-sec" style="%s">%s</p>' % (
+            stile(13, "1.4", "#8FA3BD", "font-weight:700; text-decoration:line-through;"), inline(no, ctx))) if no else ""
         righe.append(
-            '<tr><td class="sep" style="padding:16px 0;%s">'
-            '<p class="t-sec" style="%s">%s</p>'
+            '<tr><td class="sep" style="padding:16px 0;%s">%s'
             '<p class="t-main" style="%s"><span style="%s">%s</span></p>'
             '<p class="t-main" style="%s">%s</p></td></tr>'
-            % (sep,
-               stile(13, "1.4", "#8FA3BD", "font-weight:700; text-decoration:line-through;"), inline(no, ctx),
-               stile(19, "1.35", n, "font-weight:900; letter-spacing:-0.4px; margin-top:4px;"), EVIDENZIATORE, inline(si, ctx),
+            % (sep, barrato,
+               stile(19, "1.35", n, "font-weight:900; letter-spacing:-0.4px;" + (" margin-top:4px;" if no else "")),
+               EVIDENZIATORE, inline(si, ctx),
                stile(15, "1.55", n, "margin-top:6px;"), inline(spieg, ctx)))
-        attesi += [testo_puro(no), testo_puro(si), testo_puro(spieg)]
-        txt += ["", testo_puro(no) + " → " + testo_puro(si), inline_txt(spieg, ctx)]
+        attesi += ([testo_puro(no)] if no else []) + [testo_puro(si), testo_puro(spieg)]
+        txt += ["", (testo_puro(no) + " → " if no else "") + testo_puro(si), inline_txt(spieg, ctx)]
     parti.append('<table %s style="margin-top:6px;">%s</table>' % (TABELLA.replace(' style="width:100%;"', ""), "".join(righe)))
     h = ('<table %s><tr><td class="card-motivi" bgcolor="#FFFFFF" style="padding:24px 26px 10px 26px; background-color:#FFFFFF; '
          'border:1px solid %s; border-radius:22px; box-shadow:0 18px 40px -28px rgba(0,37,82,0.45);">%s</td></tr></table>'
@@ -2155,7 +2199,7 @@ def main():
 
     out_html, out_txt, attesi, errori, ctx = componi(cfg, cont, numero)
     (BASE / "emails").mkdir(exist_ok=True)
-    nome = "BF2026_email_%d_%s" % (numero, cont["data_invio"])
+    nome = "BF2026_email_%d" % numero
     p_html = BASE / "emails" / (nome + ".html")
     p_txt = BASE / "emails" / (nome + ".txt")
     p_html.write_text(out_html, encoding="utf-8")
