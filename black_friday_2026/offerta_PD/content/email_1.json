@@ -2,60 +2,21 @@
   "numero": 1,
   "data_invio": "2026-11-19",
   "ora_invio": "19:30",
-  "oggetto": "Per il Black Friday abbiamo pensato a te",
-  "oggetto_alternativo": "Dieci visite, ma ne paghi solo cinque",
-  "preheader": "Dieci visite, ma ne paghi solo cinque: per una volta, al Black Friday, qualcosa che ti serve davvero. Fino a domenica 29 novembre.",
+  "oggetto": "10 visite al prezzo di 5. Fino a domenica.",
+  "oggetto_alternativo": "Per chi ci conosce già: 10 visite, ne paghi 5",
+  "preheader": "Per chi è già stato da noi: 10 visite a 450€ invece di 900€. Le altre cinque te le regaliamo noi. Fino a domenica 29 novembre.",
   "blocchi": [
     {
       "tipo": "saluto"
     },
     {
       "tipo": "paragrafo",
-      "testo": "torni a casa dopo il lavoro,\napri la posta, ed è piena\ndi **sconti del Black Friday**."
-    },
-    {
-      "tipo": "paragrafo",
-      "testo": "Telefoni, vestiti,\nl'ennesima friggitrice ad aria.\nCose che tra un mese\nfiniscono in un cassetto."
-    },
-    {
-      "tipo": "paragrafo",
-      "stile": "evidenza",
-      "testo": "Al Black Friday, di solito,\nti vendono cose inutili.\nNoi vogliamo darti tempo\nper prenderti cura di te."
+      "testo": "questa è l’offerta Black Friday\nche abbiamo pensato per te.\nPer chi ci conosce già,\n**dieci visite a metà prezzo.**"
     },
     {
       "tipo": "immagine",
       "url": "https://www.studiomobilitas.it/trattamenti/og/collo_presa-cervicale-supino_18_orizzontale.jpg",
       "alt": "Un'osteopata dello Studio Mobilitas durante un trattamento"
-    },
-    {
-      "tipo": "paragrafo",
-      "testo": "Per questo abbiamo pensato a te,\nche ci conosci già:\n**dieci visite,**\n**ma ne paghi solo cinque.**\nLe altre cinque te le regaliamo noi."
-    },
-    {
-      "tipo": "paragrafo",
-      "testo": "Di solito, dieci visite costano 900€.\nPer il Black Friday,\nle paghi **450€. La metà.**\nGli altri 450€ restano a te."
-    },
-    {
-      "tipo": "benefici",
-      "etichetta": "COSA TI PORTI A CASA",
-      "titolo": "Non l’ennesimo oggetto.\nUn regalo che ti fai\ndieci volte.",
-      "voci": [
-        [
-          "Un oggetto che finisce in un cassetto",
-          "Qualcosa che usi davvero.",
-          "Dieci visite da usare\nquando ne hai bisogno.\nNon restano lì a prendere polvere."
-        ],
-        [
-          "Ricominciare con chi non ti conosce",
-          "Continuare con chi\nti conosce già.",
-          "Il tuo osteopata sa già\nda dove siamo partiti.\nSi va avanti da lì."
-        ],
-        [
-          "Lo sconto su cose che non ti servono",
-          "La metà su qualcosa\nche ti fa stare bene.",
-          "Le stesse visite di sempre,\na 450€ invece di 900€."
-        ]
-      ]
     },
     {
       "tipo": "riquadro",
@@ -75,6 +36,33 @@
       ]
     },
     {
+      "tipo": "benefici",
+      "etichetta": "COSA TI PORTI A CASA",
+      "titolo": "Non solo metà prezzo.",
+      "voci": [
+        [
+          "Tornare solo quando fa male",
+          "Non aspettare di stare male.",
+          "Le visite sono già pagate:\nvieni prima che il dolore torni."
+        ],
+        [
+          "Fermarti a metà",
+          "«Meglio» non basta.",
+          "Il dolore è sceso, ma c’è ancora?\nCon dieci visite finisci il lavoro."
+        ],
+        [
+          "Rinunciare per il dolore",
+          "Torna a dire di sì.",
+          "Alla cena, alla passeggiata,\nal weekend fuori."
+        ],
+        [
+          "Venire dopo tutto il resto",
+          "Smetti di metterti\nin fondo alla lista.",
+          "Bollette, spesa, affitto:\nvengono sempre prima.\nQuesta volta, prima ci sei tu."
+        ]
+      ]
+    },
+    {
       "tipo": "elenco",
       "stile": "passi",
       "etichetta": "COSA FARE ADESSO",
@@ -91,20 +79,8 @@
       "link": "lp"
     },
     {
-      "tipo": "nota",
-      "testo": "Hai tempo fino a domenica 29 novembre,\nore 23:59."
-    },
-    {
       "tipo": "chiusura",
-      "testo": "Ci vediamo in studio da Mobilitas!"
-    },
-    {
-      "tipo": "firma",
-      "testo": "Studio Mobilitas"
-    },
-    {
-      "tipo": "ps",
-      "testo": "P.S. Durante l'anno,\ndieci visite costano 900€.\nQuesto pacchetto esiste solo\nfino a domenica 29 novembre."
+      "testo": "Ci vediamo in studio!"
     }
   ],
   "solo_testo": null,

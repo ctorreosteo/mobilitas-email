@@ -156,7 +156,7 @@ FOOTER_DISISCRIZIONE = ("Non vuoi più ricevere le nostre email? ", "Disiscrivit
 
 # Spazio (sopra, sotto) in px di ogni blocco: tra due blocchi vale il maggiore.
 SPAZI = {
-    "saluto": (0, 18), "paragrafo": (0, 18), "evidenza": (14, 28), "chiusura": (0, 18),
+    "saluto": (0, 18), "paragrafo": (0, 18), "evidenza": (14, 28), "chiusura": (28, 18),
     "firma": (8, 18), "nota": (0, 18), "nota_passi": (14, 24), "riquadro": (30, 30), "pulsante": (30, 14), "ps": (30, 0),
     "elenco": (30, 30), "confronto": (24, 30), "box": (30, 30), "immagine": (28, 28), "benefici": (30, 30),
     "conto": (24, 30),
