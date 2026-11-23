@@ -3,9 +3,9 @@
   "data_invio": "2026-11-27",
   "ora_invio": "19:30",
   "tema": "bianco",
-  "oggetto": "Ogni mese paghi tutto. Tranne te.",
-  "oggetto_alternativo": "Quante volte hai pensato: il mese prossimo?",
-  "preheader": "Bollette, affitto, spesa. E tu, sempre in fondo alla lista. Oggi dieci trattamenti costano la metà: 450€ invece di 900€.",
+  "oggetto": "Oggi il regalo è per te",
+  "oggetto_alternativo": "Un’ora al mese in cui nessuno ti cerca",
+  "preheader": "Niente lavoro, niente telefono, niente da gestire. 10 trattamenti a metà prezzo.",
   "testata": {
     "variante": "banner",
     "banner": "calendario",
@@ -23,7 +23,7 @@
       "OGGI È IL BLACK FRIDAY",
       "−50%"
     ],
-    "titolo": "Ogni mese paghi tutto.|Tranne te."
+    "titolo": ""
   },
   "blocchi": [
     {
@@ -31,69 +31,15 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "quante volte hai pensato:\n**«Il mese prossimo**\n**prenoto un altro trattamento»?**"
+      "testo": "la riunione spostata.\n37 messaggi nei gruppi WhatsApp.\nUn’email di lavoro urgente.\n**E tu, quando vieni?**"
     },
     {
       "tipo": "paragrafo",
-      "testo": "E poi il mese prossimo arrivava.\nCon una rata ancora da pagare,\nle bollette, la spesa, l’affitto.\nE per te, alla fine,\n**non restava niente.**"
+      "testo": "Oggi è il Black Friday.\nSi fanno regali a tutti\ne si riempie il carrello\ndi cose che non servono.\nE a te, alla fine,\n**chi ci pensa?**"
     },
     {
       "tipo": "paragrafo",
-      "stile": "evidenza",
-      "testo": "E tu, come sempre,\nvenivi dopo\ntutto il resto."
-    },
-    {
-      "tipo": "paragrafo",
-      "testo": "Non perché non ci tenevi.\nMa perché c’era sempre qualcosa\nche **sembrava più importante**."
-    },
-    {
-      "tipo": "paragrafo",
-      "testo": "Solo che **il dolore**\n**non aspetta il mese giusto.**\nE ogni volta che rimandi,\ngli lasci più spazio."
-    },
-    {
-      "tipo": "paragrafo",
-      "testo": "Oggi è il Black Friday.\nE per una volta,\n**puoi pagare anche te**,\nsenza far saltare i conti del mese."
-    },
-    {
-      "tipo": "conto",
-      "etichetta": "IL CONTO DEL BLACK FRIDAY",
-      "prima": [
-        "DI SOLITO",
-        "900€",
-        "10 trattamenti",
-        "90€ l’uno"
-      ],
-      "dopo": [
-        "BLACK FRIDAY",
-        "450€",
-        "10 trattamenti",
-        "45€ l’uno"
-      ],
-      "striscia": [
-        "STESSI TRATTAMENTI",
-        "METÀ PREZZO"
-      ]
-    },
-    {
-      "tipo": "benefici",
-      "etichetta": "COSA CAMBIA, DA OGGI",
-      "voci": [
-        [
-          "",
-          "Inizi da oggi.",
-          "Il mese prossimo arriverà\ncon le sue spese, come sempre.\nQuesto prezzo c’è solo adesso."
-        ],
-        [
-          "",
-          "Il primo della lista\nsei tu.",
-          "Bollette, spesa, affitto\nci saranno sempre.\nPer una volta, vieni prima tu."
-        ],
-        [
-          "",
-          "Paghi una volta sola.",
-          "450€, una volta sola:\ndieci trattamenti già pagati\ne un pensiero in meno ogni mese."
-        ]
-      ]
+      "testo": "Per una volta,\n**la priorità sei tu**:\ndieci ore solo per te,\na metà prezzo."
     },
     {
       "tipo": "riquadro",
@@ -107,7 +53,7 @@
         "IN OMAGGIO"
       ],
       "righe": [
-        "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
+        "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
         "450€ invece di 900€",
         "Fino a domenica 29 novembre, ore 23:59"
       ],
@@ -115,7 +61,86 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "Paghi adesso, in pochi minuti.\n**Per prenotare, ti contattiamo noi.**"
+      "testo": "Lo sappiamo:\nc’è sempre qualcosa\nche viene prima.\nE il tempo per te\n**resta l’ultimo della lista.**"
+    },
+    {
+      "tipo": "notifiche",
+      "etichetta": "LA TUA GIORNATA",
+      "notifiche": [
+        [
+          "CALENDARIO",
+          "ora",
+          "La riunione è stata spostata.",
+          "calendario"
+        ],
+        [
+          "WHATSAPP",
+          "2 min",
+          "37 nuovi messaggi da 4 gruppi.",
+          "chat"
+        ],
+        [
+          "EMAIL DI LAVORO",
+          "5 min",
+          "Mi rispondi? È urgente.",
+          "posta"
+        ],
+        [
+          "PROMEMORIA",
+          "8 min",
+          "Comprare i regali per tutti.",
+          "lista"
+        ]
+      ],
+      "etichetta_ora": "LA TUA ORA",
+      "non_disturbare": [
+        "Non disturbare",
+        "Attivo"
+      ],
+      "testo_ora": "Per un’ora nessuno ti cerca.\nNiente lavoro, niente telefono,\nniente da gestire."
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Magari adesso stai pensando:\n«Non ho tempo»."
+    },
+    {
+      "tipo": "paragrafo",
+      "stile": "evidenza",
+      "testo": "Proprio per questo.\nDecidi tu il ritmo,\nal resto pensiamo noi."
+    },
+    {
+      "tipo": "benefici",
+      "stile": "intestati",
+      "etichetta": "COSA TI REGALI",
+      "titolo": "Oggi il regalo\nè per te.",
+      "voci": [
+        [
+          "",
+          "Un’ora tutta tua.",
+          "Il telefono resta in silenzio,\ntutto il resto può aspettare:\npensi solo a stare bene."
+        ],
+        [
+          "",
+          "Niente da organizzare.",
+          "Ci dici quando ti va bene,\nnoi troviamo l’orario:\nuna cosa in meno da gestire."
+        ],
+        [
+          "",
+          "Vieni quando\nti è più comodo.",
+          "Una volta al mese o più spesso:\ni trattamenti restano tuoi,\nanche nelle settimane piene."
+        ]
+      ]
+    },
+    {
+      "tipo": "elenco",
+      "stile": "passi_notifiche",
+      "etichetta": "COSA FARE ADESSO",
+      "titolo": "Ti bastano\npochi minuti.",
+      "voci": [
+        "Clicca sul pulsante qui sotto.",
+        "Paghi 450€ sul nostro sito.",
+        "Ti contattiamo noi\nper prenotare\nil primo trattamento."
+      ]
     },
     {
       "tipo": "pulsante",
@@ -124,12 +149,11 @@
     },
     {
       "tipo": "nota",
-      "stile": "passi",
-      "testo": "Paghi sul nostro sito\nTi contattiamo noi per prenotare"
+      "testo": "Mancano due giorni:\npaghi entro domenica 29,\npoi ogni trattamento torna a 90€."
     },
     {
       "tipo": "chiusura",
-      "testo": "Ci vediamo in studio."
+      "testo": "Buon Black Friday,\ne a presto in studio!"
     }
   ],
   "solo_testo": null,
@@ -137,12 +161,12 @@
     "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
     "450€",
     "900€",
+    "90€",
     "domenica 29 novembre",
     "23:59",
-    "+39 351 819 8457",
     "utm_content=email_4",
     "Riserva i tuoi 10 trattamenti a metà prezzo",
     "Studio Mobilitas",
-    "una rata ancora da pagare"
+    "Non disturbare"
   ]
 }

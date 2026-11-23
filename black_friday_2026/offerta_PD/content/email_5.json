@@ -3,9 +3,9 @@
   "data_invio": "2026-11-29",
   "ora_invio": "19:30",
   "tema": "centro",
-  "oggetto": "Ultime ore per i tuoi dieci trattamenti a 450€",
+  "oggetto": "Stasera alle 23:59 finisce",
   "oggetto_alternativo": "È l’ultima email del nostro Black Friday",
-  "preheader": "Dopo stasera alle 23:59, i dieci trattamenti a 450€ invece di 900€ non ci sono più.",
+  "preheader": "Dopo stasera, ogni trattamento torna a 90€. Fino alle 23:59: 45€.",
   "testata": {
     "variante": "banner",
     "banner": "orologio",
@@ -23,7 +23,7 @@
       "BLACK FRIDAY",
       "−50%"
     ],
-    "titolo": "Ultime ore.|Alle 23:59 finisce."
+    "titolo": ""
   },
   "blocchi": [
     {
@@ -31,30 +31,11 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "questa è l’ultima email\nche ti scriviamo per il Black Friday."
+      "testo": "oggi è l’ultimo giorno\ndel Black Friday da Mobilitas.\nE questa è l’ultima email\nche ti scriviamo."
     },
     {
       "tipo": "paragrafo",
-      "testo": "**Stasera alle 23:59 l’offerta finisce.**\nE non torna.\nDurante l’anno\nquesto pacchetto non esiste."
-    },
-    {
-      "tipo": "paragrafo",
-      "stile": "evidenza",
-      "testo": "Ti abbiamo scritto\nper tre motivi.\nForse uno è il tuo."
-    },
-    {
-      "tipo": "elenco",
-      "stile": "motivi",
-      "etichetta": "TRE MOTIVI, UNO È IL TUO",
-      "voci": [
-        "**Se oggi stai bene:**\nper giocare d’anticipo\ne restare così.",
-        "**Se stai meglio,**\n**ma non del tutto:**\nper arrivare in fondo.",
-        "**Se rimandi sempre:**\nper una volta,\npensa prima a te."
-      ]
-    },
-    {
-      "tipo": "paragrafo",
-      "testo": "**Dieci trattamenti.**\n**Ne paghi cinque.**\nLi riservi stasera,\nli usi con calma, quando ti servono.\nDa domani, gli stessi trattamenti\ncostano il doppio."
+      "testo": "Ancora per qualche ora,\n**l’offerta è tua**:"
     },
     {
       "tipo": "riquadro",
@@ -68,15 +49,56 @@
         "IN OMAGGIO"
       ],
       "righe": [
-        "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
+        "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
         "450€ invece di 900€",
-        "Fino a stasera alle 23:59\ndomenica 29 novembre"
+        "Fino a domenica 29 novembre, ore 23:59"
       ],
       "sfondo_foto": "https://www.studiomobilitas.it/trattamenti/og/collo_cervicale-e-spalle-supino_02_orizzontale.jpg"
     },
     {
+      "tipo": "leve",
+      "etichetta": "IN QUESTI GIORNI",
+      "titolo": "Ti abbiamo scritto\nper tre motivi.\nForse uno parla di te.",
+      "voci": [
+        [
+          "IL TUO PROBLEMA",
+          "Se il dolore\nva e viene.",
+          "Stavolta arrivi\nfino in fondo, con noi.",
+          "lp#problema",
+          "giro"
+        ],
+        [
+          "LA PREVENZIONE",
+          "Se oggi stai bene.",
+          "È il momento giusto\nper restarci.",
+          "lp#prevenzione",
+          "stagioni"
+        ],
+        [
+          "IL TUO TEMPO",
+          "Se pensi sempre\nprima agli altri.",
+          "Per una volta,\nun’ora è tutta per te.",
+          "lp#tempo",
+          "tempo"
+        ]
+      ],
+      "nota": "Tocca quello in cui ti riconosci."
+    },
+    {
       "tipo": "paragrafo",
-      "testo": "Se ci stavi pensando,\n**è il momento di decidere.**"
+      "stile": "evidenza",
+      "testo": "Stasera alle 23:59 finisce.\nDopo, ogni trattamento\ntorna a 90€."
+    },
+    {
+      "tipo": "elenco",
+      "stile": "passi",
+      "etichetta": "COSA FARE ADESSO",
+      "titolo": "Si fa tutto online,\nanche di domenica.",
+      "voci": [
+        "Clicca sul pulsante qui sotto.",
+        "Paghi 450€ sul nostro sito,\nentro le 23:59.",
+        "Da domani ti contattiamo\nper prenotare\nil primo trattamento."
+      ]
     },
     {
       "tipo": "pulsante",
@@ -84,13 +106,8 @@
       "link": "lp"
     },
     {
-      "tipo": "nota",
-      "stile": "passi",
-      "testo": "Paghi sul nostro sito, anche stasera\nTi contattiamo noi per prenotare"
-    },
-    {
       "tipo": "chiusura",
-      "testo": "Ci vediamo in studio da Mobilitas!"
+      "testo": "Grazie di averci letto,\ne a presto in studio!"
     }
   ],
   "solo_testo": null,
@@ -98,11 +115,16 @@
     "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
     "450€",
     "900€",
+    "90€",
     "domenica 29 novembre",
     "23:59",
     "utm_content=email_5",
+    "utm_content=email_5#problema",
+    "utm_content=email_5#prevenzione",
+    "utm_content=email_5#tempo",
     "Riserva i tuoi 10 trattamenti a metà prezzo",
     "Studio Mobilitas",
-    "Stasera alle 23:59 l’offerta finisce."
+    "Stasera alle 23:59 finisce.",
+    "Dopo, ogni trattamento torna a 90€."
   ]
 }

@@ -112,7 +112,7 @@ def con_foto(t, velo):
 EVIDENZIATORE = ("background-image:linear-gradient(100deg, rgba(114,250,147,0.9) 10%, rgba(56,189,248,0.55) 95%); "
                  "background-size:100% 36%; background-position:0 90%; background-repeat:no-repeat;")
 
-CALENDARIO = {1: "2026-11-19", 2: "2026-11-23", 3: "2026-11-25", 4: "2026-11-27", 5: "2026-11-29"}
+CALENDARIO = {1: "2026-11-19", 2: "2026-11-23", 3: "2026-11-26", 4: "2026-11-27", 5: "2026-11-29"}
 ORA_INVIO = "19:30"
 GIORNI = ["lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato", "domenica"]
 MESI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio",
@@ -238,6 +238,8 @@ class Ctx:
     def risolvi(self, dest):
         if dest == "lp":
             return self.lp
+        if dest.startswith("lp#"):
+            return self.lp + dest[2:]  # una carta della LP (es. "lp#problema", email 5)
         if dest == "tel":
             return self.cfg["telefono_link"]
         if dest == "email":
@@ -479,7 +481,10 @@ def b_firma(b, ctx):
 def b_elenco(b, ctx):
     """Card con occhiello, titolo e voci numerate.
     stile "motivi": card bianca, numeri grandi chiari (01, 02...).
-    stile "passi":  card crema, numeri in cerchi blu notte con cifra verde."""
+    stile "passi":  card crema, numeri in cerchi blu notte con cifra verde.
+    stile "passi_scuro": card scura, numeri verdi uniti da una linea (email 2)."""
+    if b.get("stile") == "passi_scuro":
+        return b_passi_scuro(b, ctx)
     passi = b.get("stile") == "passi"
     voci = b["voci"]
     parti = [occhiello(b["etichetta"], C["C_NOTTE"], C["C_VERDE"], "t-main")]
@@ -1467,6 +1472,8 @@ def testata_banner_html(t):
     banner = (banner_verde_html(t) if t.get("banner") == "verde" else
               banner_calendario_html(t) if t.get("banner") == "calendario" else
               banner_orologio_html(t) if t.get("banner") == "orologio" else banner_nero_html(t))
+    if not t.get("titolo"):
+        return banner  # senza titolo: dopo il banner si passa subito al saluto (email 2)
     centrata = t.get("allinea") == "centro"
     n = C["C_NOTTE"]
     righe = t["titolo"].split("|")
@@ -1720,7 +1727,10 @@ BLOCCHI_NOTTE["riquadro"] = lambda b, ctx: n_riquadro_prezzi(b, ctx) if b.get("s
 # --------------------------------------------------------------------------
 def b_benefici(b, ctx):
     """Benefici polarizzanti: per ogni voce [no, si, spiegazione] -> "no" barrato in grigio, "si" in grassetto
-    con evidenziatore verde, spiegazione sotto. Card bianca con bordo sottile."""
+    con evidenziatore verde, spiegazione sotto. Card bianca con bordo sottile.
+    "stile": "tessere" = una card per beneficio (email 2)."""
+    if b.get("stile") == "tessere":
+        return b_benefici_tessere(b, ctx)
     n, v = C["C_NOTTE"], C["C_VERDE"]
     parti = [occhiello(b["etichetta"], n, v, "t-main")]
     attesi = [b["etichetta"]]
@@ -1868,7 +1878,686 @@ def b_conto(b, ctx):
 
 
 BLOCCHI["conto"] = b_conto
+
+
+# --------------------------------------------------------------------------
+# Email 2 (leva "il tuo problema"): il giro contro i 10 di fila, benefici a tessere, passi su card scura
+# --------------------------------------------------------------------------
+TABELLA_NS = TABELLA.replace(' style="width:100%;"', ' width="100%"')
+
+
+def _freccia_dx(colore, asta=5, punta=5, alt=4):
+    """Freccia piccola verso destra disegnata con le forme (asta + punta a triangolo)."""
+    return ('<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center"><tr>'
+            '<td style="font-size:0; line-height:0;"><div style="width:%dpx; height:2px; background-color:%s; font-size:0; line-height:0;"></div></td>'
+            '<td style="font-size:0; line-height:0;"><div style="width:0; height:0; border-top:%dpx solid transparent; '
+            'border-bottom:%dpx solid transparent; border-left:%dpx solid %s; font-size:0; line-height:0;"></div></td>'
+            '</tr></table>' % (asta, colore, alt, alt, punta, colore))
+
+
+def b_giro(b, ctx):
+    """Il giro in quattro passi (sopra, chiaro e spento, con la linea che torna all'inizio)
+    contro una sola linea verde "10 di fila" (sotto, scura e luminosa). Come il grafico della LP.
+    Campi: etichetta, passi [4], ritorno, etichetta_fila, testo_fila."""
+    n, v = C["C_NOTTE"], C["C_VERDE"]
+    grigio, linea = "#8FA3BD", "#B8C4D4"
+    passi = b["passi"]
+    celle = []
+    for i, p in enumerate(passi, 1):
+        if i > 1:
+            celle.append('<td class="gr-fr" width="14" valign="top" style="width:14px; padding-top:17px; font-size:0; line-height:0;">%s</td>'
+                         % _freccia_dx(linea))
+        celle.append(
+            '<td class="gr-s" valign="top" align="center" width="22%%" style="width:22%%; text-align:center;">'
+            '<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center"><tr>'
+            '<td align="center" valign="middle" width="36" height="36" bgcolor="#FFFFFF" style="width:36px; height:36px; '
+            'border-radius:50%%; background-color:#FFFFFF; border:2px solid #D3DDE9; font-family:%s; font-size:13px; '
+            'line-height:36px; font-weight:900; color:%s; text-align:center; box-shadow:0 8px 16px -10px rgba(0,37,82,0.45);">%d</td>'
+            '</tr></table>'
+            '<p class="gr-l" style="margin:9px 0 0 0; font-family:%s; font-size:12px; line-height:15px; font-weight:800; '
+            'letter-spacing:-0.1px; color:%s;">%s</p></td>'
+            % (FONT, grigio, i, FONT, C["C_SECONDARIO"], esc(p)))
+    ritorno = (
+        '<table %s style="width:100%%; margin-top:8px;"><tr>'
+        '<td width="11%%" style="width:11%%; font-size:0; line-height:0;">&nbsp;</td>'
+        '<td style="font-size:0; line-height:0;">'
+        '<div style="width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; '
+        'border-bottom:7px solid %s; margin-left:-4px; font-size:0; line-height:0;"></div>'
+        '<div style="height:18px; border:2px dashed %s; border-top:0; border-radius:0 0 18px 18px; font-size:0; line-height:0;">&nbsp;</div>'
+        '</td>'
+        '<td width="11%%" style="width:11%%; font-size:0; line-height:0;">&nbsp;</td>'
+        '</tr></table>'
+        '<p style="%s">%s</p>'
+    ) % (TABELLA_NS, linea, linea,
+         stile(13, "1.4", C["C_SECONDARIO"], "font-weight:800; text-align:center; margin-top:10px; letter-spacing:-0.1px;"),
+         inline(b["ritorno"], ctx))
+    sopra = (
+        '%s<table %s style="width:100%%; margin-top:20px;"><tr>%s</tr></table>%s'
+        % (occhiello(b["etichetta"], C["C_SECONDARIO"], linea), TABELLA_NS, "".join(celle), ritorno))
+
+    # Una sola linea: dieci punti verdi luminosi uniti, che finisce in una freccia
+    punto = ('<td width="12" style="width:12px; font-size:0; line-height:0;"><div style="width:12px; height:12px; border-radius:50%%; '
+             'background-color:%s; box-shadow:0 0 0 3px rgba(114,250,147,0.16), 0 0 12px rgba(114,250,147,0.7); '
+             'font-size:0; line-height:0;">&nbsp;</div></td>' % v)
+    tratto = ('<td style="font-size:0; line-height:0;"><div style="height:2px; background-color:%s; '
+              'box-shadow:0 0 8px rgba(114,250,147,0.6); font-size:0; line-height:0;">&nbsp;</div></td>' % v)
+    fila = (tratto.join([punto] * 10) + tratto +
+            '<td width="9" style="width:9px; font-size:0; line-height:0;"><div style="width:0; height:0; border-top:6px solid transparent; '
+            'border-bottom:6px solid transparent; border-left:9px solid %s; font-size:0; line-height:0;"></div></td>' % v)
+    sotto = (
+        '%s<table %s style="width:100%%; margin-top:20px;"><tr>%s</tr></table>'
+        '<p style="%s">%s</p>'
+        % (occhiello(b["etichetta_fila"], v, v), TABELLA_NS, fila,
+           stile(16, "1.55", "#FFFFFF", "font-weight:700; margin-top:18px;"), inline(b["testo_fila"], ctx)))
+
+    h = (
+        '<table %s style="border-radius:24px; box-shadow:0 26px 50px -28px rgba(0,37,82,0.55);">'
+        '<tr><td class="gr-p" bgcolor="#F5F7FA" style="padding:24px 26px 22px 26px; background-color:#F5F7FA; '
+        'border:1px solid %s; border-bottom:0; border-radius:24px 24px 0 0;">%s</td></tr>'
+        '<tr><td class="gr-p" bgcolor="%s" style="padding:24px 26px 26px 26px; border-radius:0 0 24px 24px; background-color:%s; '
+        'background-image:radial-gradient(circle at 100%% 100%%, rgba(114,250,147,0.22) 0%%, rgba(114,250,147,0) 50%%), '
+        'linear-gradient(160deg, %s 0%%, %s 100%%);">%s</td></tr>'
+        '</table>'
+    ) % (TABELLA.replace(' style="width:100%;"', ' width="100%"'), C["C_BORDO"], sopra,
+         C["C_NERO"], C["C_NERO"], NERO_BF, C["C_NOTTE"], sotto)
+    txt = "%s\n%s\n%s\n\n%s\n%s" % (b["etichetta"], " → ".join(passi), testo_puro(b["ritorno"]),
+                                    b["etichetta_fila"], inline_txt(b["testo_fila"], ctx))
+    return h, txt, [b["etichetta"]] + passi + [testo_puro(b["ritorno"]), b["etichetta_fila"], testo_puro(b["testo_fila"])]
+
+
+def b_benefici_tessere(b, ctx):
+    """Benefici come tessere separate: card bianche in rilievo, trattino verde, titolo con evidenziatore."""
+    n, v = C["C_NOTTE"], C["C_VERDE"]
+    parti = [occhiello(b["etichetta"], n, v, "t-main")]
+    attesi, txt = [b["etichetta"]], [b["etichetta"]]
+    if b.get("titolo"):
+        parti.append('<p style="%s">%s</p>' % (
+            stile(24, "1.25", n, "font-weight:900; letter-spacing:-0.6px; margin-top:12px;"), inline(b["titolo"], ctx)))
+        attesi.append(testo_puro(b["titolo"]))
+        txt.append(testo_puro(b["titolo"]))
+    for k, (_, si, spieg) in enumerate(b["voci"], 1):
+        parti.append(
+            '<table %s style="width:100%%; margin-top:%dpx;"><tr><td class="bt-p" bgcolor="#FFFFFF" style="padding:20px 22px 20px 22px; '
+            'background-color:#FFFFFF; border:1px solid %s; border-radius:20px; '
+            'box-shadow:0 18px 34px -24px rgba(0,37,82,0.55), inset 0 1px 0 #FFFFFF;">'
+            '<table %s><tr>'
+            '<td valign="top" width="44" style="width:44px; padding-right:14px;">'
+            '<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>'
+            '<td align="center" valign="middle" width="44" height="44" bgcolor="%s" style="width:44px; height:44px; border-radius:14px; '
+            'background-color:%s; background-image:linear-gradient(145deg, #0B3366 0%%, %s 100%%); font-family:%s; font-size:15px; '
+            'line-height:44px; font-weight:900; color:%s; text-align:center; '
+            'box-shadow:inset 0 1px 0 rgba(255,255,255,0.16), 0 10px 18px -10px rgba(0,6,17,0.8);">%02d</td>'
+            '</tr></table></td>'
+            '<td valign="top"><p style="%s"><span style="%s">%s</span></p><p style="%s">%s</p></td>'
+            '</tr></table></td></tr></table>'
+            % (TABELLA_NS, 22 if k == 1 else 12, C["C_BORDO"], TABELLA, n, n, NERO_BF, FONT, v, k,
+               stile(18, "1.3", n, "font-weight:900; letter-spacing:-0.4px;"), EVIDENZIATORE, inline(si, ctx),
+               stile(15, "1.55", n, "margin-top:6px;"), inline(spieg, ctx)))
+        attesi += [testo_puro(si), testo_puro(spieg)]
+        txt += ["", testo_puro(si), inline_txt(spieg, ctx)]
+    return "".join(parti), "\n".join(txt), attesi
+
+
+def b_passi_scuro(b, ctx):
+    """Passi su card scura: numeri verdi luminosi uniti da una linea verde (la continuità), testo bianco."""
+    v = C["C_VERDE"]
+    voci = b["voci"]
+    parti = [occhiello(b["etichetta"], v, v)]
+    attesi = [b["etichetta"]]
+    if b.get("titolo"):
+        parti.append('<p style="%s">%s</p>' % (
+            stile(22, "1.3", "#FFFFFF", "font-weight:900; letter-spacing:-0.5px; margin-top:12px;"), inline(b["titolo"], ctx)))
+        attesi.append(testo_puro(b["titolo"]))
+    righe = []
+    ultimo = len(voci)
+    for i, t in enumerate(voci, 1):
+        # Linea verticale dietro i numeri: dal numero in giù (prima voce), intera (centrali), fino al numero (ultima)
+        if ultimo == 1:
+            filo = ""
+        else:
+            alto = "16px" if i == 1 else "0"
+            dim = "2px 100%" if i < ultimo else "2px 16px"
+            filo = (" background-image:linear-gradient(rgba(114,250,147,0.55), rgba(114,250,147,0.55)); "
+                    "background-size:%s; background-position:17px %s; background-repeat:no-repeat;" % (dim, alto))
+        sep = "" if i == 1 else " border-top:1px solid rgba(255,255,255,0.10);"
+        righe.append(
+            '<tr><td valign="top" width="50" style="width:50px; padding:0;%s">'
+            '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:%dpx; margin-bottom:%dpx;"><tr>'
+            '<td align="center" valign="middle" width="36" height="36" bgcolor="%s" style="width:36px; height:36px; border-radius:50%%; '
+            'background-color:%s; background-image:linear-gradient(180deg, #A6FFBE 0%%, %s 60%%, #58E57F 100%%); font-family:%s; '
+            'font-size:15px; line-height:36px; font-weight:900; color:%s; text-align:center; '
+            'box-shadow:0 0 0 5px rgba(114,250,147,0.12), 0 0 18px rgba(114,250,147,0.5), inset 0 2px 0 rgba(255,255,255,0.6);">%d</td>'
+            '</tr></table></td>'
+            '<td valign="middle" style="padding:16px 0;%s"><p style="%s">%s</p></td></tr>'
+            % (filo, 16 if i == 1 else 14, 14 if i < ultimo else 16, v, v, v, FONT, NERO_BF, i,
+               sep, stile(15, "1.5", "#FFFFFF", "font-weight:700;"), inline(t, ctx)))
+        attesi.append(testo_puro(t))
+    parti.append('<table %s style="width:100%%; margin-top:8px;">%s</table>' % (TABELLA.replace(' style="width:100%;"', ""), "".join(righe)))
+    h = ('<table %s><tr><td class="ps-dk" bgcolor="%s" style="padding:24px 26px 12px 26px; border-radius:24px; background-color:%s; '
+         'background-image:radial-gradient(circle at 100%% 0%%, rgba(114,250,147,0.22) 0%%, rgba(114,250,147,0) 48%%), '
+         'linear-gradient(165deg, %s 0%%, %s 100%%); border:1px solid rgba(114,250,147,0.22); '
+         'box-shadow:0 26px 50px -26px rgba(0,37,82,0.6);">%s</td></tr></table>'
+         % (TABELLA, C["C_NERO"], C["C_NERO"], NERO_BF, C["C_NOTTE"], "".join(parti)))
+    txt = "\n".join([b["etichetta"]] + ([testo_puro(b["titolo"])] if b.get("titolo") else []) + [""] +
+                    ["%d. %s" % (i, inline_txt(t, ctx)) for i, t in enumerate(voci, 1)])
+    return h, txt, attesi
+
+
+BLOCCHI["giro"] = b_giro
+SPAZI["giro"] = (30, 30)
 BLOCCHI_NOTTE["conto"] = b_conto
+
+
+# --------------------------------------------------------------------------
+# Email 3 (leva "la prevenzione"): le quattro stagioni, benefici centrati, passi in riga
+# --------------------------------------------------------------------------
+def _centrato(contenuto):
+    return ('<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto;">'
+            '<tr><td align="center">%s</td></tr></table>' % contenuto)
+
+
+def b_stagioni(b, ctx):
+    """Il tagliando del corpo: sopra, card chiara con le quattro stagioni (2×2) e i 10 trattamenti numerati
+    distribuiti nell'anno (vicini in inverno per ripartire, poi più distanziati per mantenerti: anche la distanza
+    tra i pallini lo mostra); sotto, fascia scura con il prezzo a trattamento (45€ invece di 90€) e una frase.
+    Campi: etichetta, titolo, stagioni [[nome, mesi, quanti, nota] ×4], nota_griglia (facoltativa),
+    etichetta_prezzo, prezzo, testo_prezzo."""
+    n, v = C["C_NOTTE"], C["C_VERDE"]
+    st = b["stagioni"]
+    contatore = [0]
+
+    def pallini(quanti, vicini):
+        celle = []
+        for k in range(quanti):
+            contatore[0] += 1
+            if k:
+                gap = 3 if vicini else 16
+                celle.append('<td width="%d" style="width:%dpx; font-size:0; line-height:0;">'
+                             '<div style="height:2px; background-color:%s; font-size:0; line-height:0;">&nbsp;</div></td>'
+                             % (gap, gap, "transparent" if vicini else C["C_VERDE_BORDO"]))
+            celle.append('<td align="center" valign="middle" width="22" height="22" bgcolor="%s" style="width:22px; height:22px; '
+                         'border-radius:50%%; background-color:%s; background-image:linear-gradient(180deg, #A6FFBE 0%%, %s 60%%, #58E57F 100%%); '
+                         'font-family:%s; font-size:10px; line-height:22px; font-weight:900; color:%s; text-align:center; '
+                         'box-shadow:0 4px 10px -2px rgba(46,170,90,0.55), inset 0 1px 0 rgba(255,255,255,0.6);">%d</td>'
+                         % (v, v, v, FONT, NERO_BF, contatore[0]))
+        return ('<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:12px auto 0 auto;">'
+                '<tr>%s</tr></table>' % "".join(celle))
+
+    def tessera(nome, mesi, quanti, nota):
+        return (
+            '<td class="st-t" align="center" valign="top" width="50%%" bgcolor="#FFFFFF" style="width:50%%; padding:18px 10px 16px 10px; '
+            'background-color:#FFFFFF; border:1px solid %s; border-radius:18px; text-align:center; '
+            'box-shadow:0 16px 30px -24px rgba(0,37,82,0.6), inset 0 1px 0 #FFFFFF;">'
+            '<p class="st-n" style="%s">%s</p>'
+            '<p style="%s">%s</p>%s'
+            '<p style="%s"><span style="%s">%s</span></p></td>'
+            % (C["C_BORDO"],
+               stile(14, "1.3", n, "font-weight:900; letter-spacing:2px; text-align:center;"), esc(nome),
+               stile(12, "1.4", C["C_SECONDARIO"], "font-weight:700; text-align:center; margin-top:3px;"), esc(mesi),
+               pallini(quanti, quanti > 2),
+               stile(13, "1.3", n, "font-weight:800; text-align:center; margin-top:12px;"), EVIDENZIATORE, esc(nota)))
+
+    spazio = '<td width="12" style="width:12px; font-size:0; line-height:0;">&nbsp;</td>'
+    griglia = (
+        '<table %s style="width:100%%; margin-top:20px;">'
+        '<tr>%s%s%s</tr>'
+        '<tr><td colspan="3" height="12" style="height:12px; font-size:0; line-height:0;">&nbsp;</td></tr>'
+        '<tr>%s%s%s</tr></table>'
+        % (TABELLA_NS, tessera(*st[0]), spazio, tessera(*st[1]), tessera(*st[2]), spazio, tessera(*st[3])))
+    nota_g = ('<p style="%s">%s</p>' % (stile(13, "1.4", C["C_SECONDARIO"], "font-weight:700; text-align:center; margin-top:14px;"),
+                                       inline(b["nota_griglia"], ctx))) if b.get("nota_griglia") else ""
+    sopra = (
+        '%s<p style="%s">%s</p>%s%s'
+        % (_centrato(occhiello(b["etichetta"], n, v)),
+           stile(22, "1.3", n, "font-weight:900; letter-spacing:-0.5px; text-align:center; margin-top:12px;"),
+           inline(b["titolo"], ctx), griglia, nota_g))
+
+    m = PREZZO.match(b["prezzo"])
+    prezzo = (
+        '<p style="%s"><span class="st-pz" style="font-size:58px; line-height:62px; font-weight:900; letter-spacing:-2.5px; color:#FFFFFF; %s">%s</span> '
+        '<span style="white-space:nowrap; padding-left:4px;"><span style="font-size:16px; font-weight:700; color:%s;">%s</span>'
+        '<span style="font-size:20px; font-weight:800; color:%s; text-decoration:line-through;">%s</span>'
+        '<span style="font-size:16px; color:%s;">%s</span></span></p>'
+        % (stile(16, "1.1", "#FFFFFF", "text-align:center; margin-top:12px;"),
+           "text-shadow:0 0 30px rgba(114,250,147,0.35);", esc(m.group(1)),
+           C["C_SU_SCURO"], esc(m.group(2).lstrip()), C["C_SU_SCURO"], esc(m.group(3)), C["C_SU_SCURO"], esc(m.group(4))))
+    sotto = (
+        '%s%s<p style="%s">%s</p>'
+        % (_centrato(occhiello(b["etichetta_prezzo"], v, v)), prezzo,
+           stile(16, "1.55", "#FFFFFF", "font-weight:700; text-align:center; margin-top:16px;"), inline(b["testo_prezzo"], ctx)))
+
+    h = (
+        '<table %s style="border-radius:24px; box-shadow:0 26px 50px -28px rgba(0,37,82,0.55);">'
+        '<tr><td class="st-p" bgcolor="%s" style="padding:26px 24px 24px 24px; background-color:%s; '
+        'background-image:linear-gradient(180deg, #F4F8FC 0%%, #EAF1F8 100%%); '
+        'border:1px solid %s; border-bottom:0; border-radius:24px 24px 0 0;">%s</td></tr>'
+        '<tr><td class="st-p" align="center" bgcolor="%s" style="padding:26px 24px 28px 24px; border-radius:0 0 24px 24px; background-color:%s; '
+        'background-image:radial-gradient(circle at 50%% 0%%, rgba(114,250,147,0.24) 0%%, rgba(114,250,147,0) 55%%), '
+        'linear-gradient(170deg, %s 0%%, %s 100%%); text-align:center;">%s</td></tr>'
+        '</table>'
+    ) % (TABELLA_NS, C["C_CHIARO"], C["C_CHIARO"], C["C_BORDO"], sopra,
+         C["C_NERO"], C["C_NERO"], NERO_BF, C["C_NOTTE"], sotto)
+    righe_txt = ["%s (%s): %d %s, %s" % (nome, mesi, q, "trattamenti" if q > 1 else "trattamento", nota)
+                 for nome, mesi, q, nota in st]
+    if b.get("nota_griglia"):
+        righe_txt.append(testo_puro(b["nota_griglia"]))
+    txt = "%s\n%s\n\n%s\n\n%s\n%s\n%s" % (b["etichetta"], testo_puro(b["titolo"]), "\n".join(righe_txt),
+                                          b["etichetta_prezzo"], b["prezzo"], inline_txt(b["testo_prezzo"], ctx))
+    attesi = ([b["etichetta"], testo_puro(b["titolo"])] + [x for nome, mesi, q, nota in st for x in (nome, mesi, nota)] +
+              ([testo_puro(b["nota_griglia"])] if b.get("nota_griglia") else []) +
+              [b["etichetta_prezzo"], testo_puro(b["testo_prezzo"])])
+    if sum(s[2] for s in st) != 10:
+        raise ValueError("Blocco stagioni: i trattamenti devono essere 10 in tutto")
+    return h, txt, attesi
+
+
+def b_benefici_centrati(b, ctx):
+    """Benefici tutti centrati (tema "centro"): card chiara, per ogni voce un bollino verde numerato,
+    titolo con evidenziatore e spiegazione; tra una voce e l'altra un trattino verde."""
+    n, v = C["C_NOTTE"], C["C_VERDE"]
+    parti = [_centrato(occhiello(b["etichetta"], n, v))]
+    attesi, txt = [b["etichetta"]], [b["etichetta"]]
+    if b.get("titolo"):
+        parti.append('<p style="%s">%s</p>' % (
+            stile(24, "1.25", n, "font-weight:900; letter-spacing:-0.6px; text-align:center; margin-top:12px;"), inline(b["titolo"], ctx)))
+        attesi.append(testo_puro(b["titolo"]))
+        txt.append(testo_puro(b["titolo"]))
+    for k, (_, si, spieg) in enumerate(b["voci"], 1):
+        if k > 1:
+            parti.append('<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:22px auto 0 auto;">'
+                         '<tr><td width="36" height="3" bgcolor="%s" style="width:36px; height:3px; border-radius:3px; background-color:%s; '
+                         'font-size:0; line-height:0;">&nbsp;</td></tr></table>' % (C["C_VERDE_BORDO"], C["C_VERDE_BORDO"]))
+        parti.append(
+            '<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:22px auto 0 auto;"><tr>'
+            '<td align="center" valign="middle" width="40" height="40" bgcolor="%s" style="width:40px; height:40px; border-radius:50%%; '
+            'background-color:%s; background-image:linear-gradient(180deg, #A6FFBE 0%%, %s 60%%, #58E57F 100%%); font-family:%s; '
+            'font-size:14px; line-height:40px; font-weight:900; color:%s; text-align:center; '
+            'box-shadow:0 0 0 6px rgba(114,250,147,0.16), 0 10px 18px -8px rgba(46,170,90,0.7), inset 0 2px 0 rgba(255,255,255,0.6);">%02d</td>'
+            '</tr></table>'
+            '<p style="%s"><span style="%s">%s</span></p><p style="%s">%s</p>'
+            % (v, v, v, FONT, NERO_BF, k,
+               stile(19, "1.35", n, "font-weight:900; letter-spacing:-0.4px; text-align:center; margin-top:14px;"), EVIDENZIATORE, inline(si, ctx),
+               stile(15, "1.55", n, "text-align:center; margin-top:6px;"), inline(spieg, ctx)))
+        attesi += [testo_puro(si), testo_puro(spieg)]
+        txt += ["", testo_puro(si), inline_txt(spieg, ctx)]
+    h = ('<table %s><tr><td class="st-p" bgcolor="#FFFFFF" style="padding:28px 26px 30px 26px; background-color:#FFFFFF; '
+         'border:1px solid %s; border-top:4px solid %s; border-radius:24px; box-shadow:0 22px 44px -30px rgba(0,37,82,0.5);">%s</td></tr></table>'
+         % (TABELLA_NS, C["C_BORDO"], v, "".join(parti)))
+    return h, "\n".join(txt), attesi
+
+
+def b_passi_riga(b, ctx):
+    """Passi in riga (tema "centro"): card crema, tre cerchi blu notte con la cifra verde
+    uniti da una linea tratteggiata, testo breve sotto ogni cerchio."""
+    n, v = C["C_NOTTE"], C["C_VERDE"]
+    voci = b["voci"]
+    parti = [_centrato(occhiello(b["etichetta"], n, v))]
+    attesi = [b["etichetta"]]
+    if b.get("titolo"):
+        parti.append('<p style="%s">%s</p>' % (
+            stile(22, "1.3", n, "font-weight:900; letter-spacing:-0.5px; text-align:center; margin-top:12px;"), inline(b["titolo"], ctx)))
+        attesi.append(testo_puro(b["titolo"]))
+    celle = []
+    larg = "%d%%" % (100 // len(voci))
+    # Ogni passo: mezza linea a sinistra, cerchio, mezza linea a destra (la prima e l'ultima metà restano vuote):
+    # insieme fanno una linea continua che unisce i tre cerchi, a qualsiasi larghezza.
+    def mezza(piena):
+        if not piena:
+            return '<td style="font-size:0; line-height:0;">&nbsp;</td>'
+        return ('<td valign="middle" style="font-size:0; line-height:0;"><div style="height:2px; background-color:#C3CFDD; '
+                'font-size:0; line-height:0;">&nbsp;</div></td>')
+    for i, t in enumerate(voci, 1):
+        celle.append(
+            '<td valign="top" align="center" width="%s" style="width:%s; text-align:center;">'
+            '<table %s><tr>%s'
+            '<td align="center" valign="middle" width="40" height="40" bgcolor="%s" style="width:40px; height:40px; border-radius:50%%; '
+            'background-color:%s; background-image:linear-gradient(145deg, #0B3366 0%%, %s 100%%); font-family:%s; font-size:16px; '
+            'line-height:40px; font-weight:900; color:%s; text-align:center; '
+            'box-shadow:0 0 0 5px %s, 0 12px 20px -10px rgba(0,6,17,0.7);">%d</td>%s</tr></table>'
+            '<p class="pr-t" style="%s">%s</p></td>'
+            % (larg, larg, TABELLA_NS, mezza(i > 1), n, n, NERO_BF, FONT, v, C["C_CREMA"], i, mezza(i < len(voci)),
+               stile(14, "1.4", n, "font-weight:800; text-align:center; margin-top:14px;"), inline(t, ctx)))
+        attesi.append(testo_puro(t))
+    parti.append('<table %s style="width:100%%; margin-top:22px;"><tr>%s</tr></table>' % (TABELLA_NS, "".join(celle)))
+    h = ('<table %s><tr><td class="st-p" bgcolor="%s" style="padding:26px 22px 26px 22px; background-color:%s; border-radius:24px;">%s</td></tr></table>'
+         % (TABELLA_NS, C["C_CREMA"], C["C_CREMA"], "".join(parti)))
+    txt = "\n".join([b["etichetta"]] + ([testo_puro(b["titolo"])] if b.get("titolo") else []) + [""] +
+                    ["%d. %s" % (i, testo_puro(t).replace("\n", " ")) for i, t in enumerate(voci, 1)])
+    return h, txt, attesi
+
+
+BLOCCHI["stagioni"] = b_stagioni
+SPAZI["stagioni"] = (30, 30)
+_benefici_prec = BLOCCHI["benefici"]
+BLOCCHI["benefici"] = lambda b, ctx: b_benefici_centrati(b, ctx) if b.get("stile") == "centrati" else _benefici_prec(b, ctx)
+_elenco_prec = BLOCCHI["elenco"]
+BLOCCHI["elenco"] = lambda b, ctx: b_passi_riga(b, ctx) if b.get("stile") == "passi_riga" else _elenco_prec(b, ctx)
+
+
+# --------------------------------------------------------------------------
+# Email 4 (leva "il tuo tempo", il giorno del Black Friday): le notifiche che finiscono in
+# "Non disturbare", benefici con intestazione scura, passi a forma di notifica
+# --------------------------------------------------------------------------
+def _notifica(icona, sfondo_icona, colore_icona, fonte, ora, messaggio, ctx, ultima=False, icona_html=None):
+    """Una notifica del telefono: icona quadrata arrotondata, fonte e ora sopra, messaggio sotto."""
+    n = C["C_NOTTE"]
+    testa = ""
+    if fonte:
+        testa = ('<table %s><tr>'
+                 '<td valign="middle" style="font-family:%s; font-size:10px; line-height:13px; font-weight:800; letter-spacing:1.6px; color:%s;">%s</td>'
+                 '<td valign="middle" align="right" style="text-align:right; font-family:%s; font-size:11px; line-height:13px; font-weight:700; color:#8FA3BD; white-space:nowrap;">%s</td>'
+                 '</tr></table>' % (TABELLA_NS, FONT, C["C_SECONDARIO"], esc(fonte), FONT, esc(ora)))
+    corpo = ('<p class="nt-m" style="%s">%s</p>'
+             % (stile(14 if fonte else 15, "1.4", n, "font-weight:700;" + (" margin-top:3px;" if fonte else "")), inline(messaggio, ctx)))
+    pila = ""
+    if ultima:
+        # Altre notifiche impilate sotto l'ultima: due bordi sempre più stretti
+        pila = "".join(
+            '<table %s><tr><td style="padding:0 %dpx;"><div style="height:6px; background-color:#FFFFFF; border:1px solid %s; '
+            'border-top:0; border-radius:0 0 12px 12px; opacity:%s; font-size:0; line-height:0;">&nbsp;</div></td></tr></table>'
+            % (TABELLA_NS, pad, C["C_BORDO"], op) for pad, op in ((12, "0.9"), (26, "0.6")))
+    if icona_html is None:
+        icona_html = (
+            '<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>'
+            '<td align="center" valign="middle" width="34" height="34" bgcolor="%s" style="width:34px; height:34px; border-radius:10px; '
+            'background-color:%s; font-family:%s; font-size:14px; line-height:34px; font-weight:900; color:%s; text-align:center; '
+            'box-shadow:inset 0 1px 0 rgba(255,255,255,0.25);">%s</td></tr></table>'
+            % (sfondo_icona, sfondo_icona, FONT, colore_icona, esc(icona)))
+    return (
+        '<table %s><tr><td class="nt-c" bgcolor="#FFFFFF" style="padding:12px 14px; background-color:#FFFFFF; border:1px solid %s; '
+        'border-radius:16px; box-shadow:0 12px 24px -18px rgba(0,37,82,0.55);">'
+        '<table %s><tr>'
+        '<td valign="%s" width="34" style="width:34px; padding-right:12px;">%s</td>'
+        '<td valign="middle">%s%s</td>'
+        '</tr></table></td></tr></table>%s'
+    ) % (TABELLA_NS, C["C_BORDO"], TABELLA_NS, "top" if fonte else "middle", icona_html, testa, corpo, pila)
+
+
+# Icone delle notifiche disegnate con le forme (niente immagini, niente caratteri speciali): 34×34, angoli 10px
+def _tessera_icona(sfondo, gradiente, contenuto):
+    return ('<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>'
+            '<td align="center" valign="middle" width="34" height="34" bgcolor="%s" style="width:34px; height:34px; border-radius:10px; '
+            'background-color:%s; background-image:%s; text-align:center; font-size:0; line-height:0; '
+            'box-shadow:0 6px 12px -6px rgba(0,37,82,0.55), inset 0 1px 0 rgba(255,255,255,0.3);">%s</td></tr></table>'
+            % (sfondo, sfondo, gradiente, contenuto))
+
+
+def _ico_calendario(giorno):
+    """Foglietto di calendario: fascia verde in alto, giorno in blu notte sotto."""
+    v = C["C_VERDE"]
+    return ('<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="34" style="width:34px; border-radius:10px; '
+            'box-shadow:0 6px 12px -6px rgba(0,37,82,0.55), 0 0 0 1px %s;">'
+            '<tr><td height="10" bgcolor="%s" style="height:10px; border-radius:10px 10px 0 0; background-color:%s; '
+            'background-image:linear-gradient(180deg, #A6FFBE 0%%, %s 100%%); font-size:0; line-height:0;">&nbsp;</td></tr>'
+            '<tr><td align="center" height="24" bgcolor="#FFFFFF" style="height:24px; border-radius:0 0 10px 10px; background-color:#FFFFFF; '
+            'font-family:%s; font-size:13px; line-height:24px; font-weight:900; letter-spacing:-0.5px; color:%s; text-align:center;">%s</td></tr>'
+            '</table>' % (C["C_BORDO"], v, v, v, FONT, C["C_NOTTE"], esc(giorno)))
+
+
+def _ico_chat():
+    """Fumetto scuro con i tre puntini di chi sta scrivendo, su tessera verde."""
+    v = C["C_VERDE"]
+    punto = ('<span style="display:inline-block; width:3px; height:3px; border-radius:50%%; background-color:%s; '
+             'margin:0 1px; vertical-align:middle;"></span>' % v)
+    fumetto = ('<div style="width:20px; height:15px; margin:0 auto; border-radius:8px 8px 8px 2px; background-color:%s; '
+               'font-size:0; line-height:15px; text-align:center;">%s</div>' % (NERO_BF, punto * 3))
+    return _tessera_icona(v, "linear-gradient(180deg, #A6FFBE 0%%, %s 60%%, #58E57F 100%%)" % v, fumetto)
+
+
+def _ico_posta():
+    """Busta bianca con il lembo, su tessera blu notte."""
+    busta = ('<div style="width:20px; height:14px; margin:0 auto; border-radius:3px; background-color:#FFFFFF; font-size:0; line-height:0;">'
+             '<div style="width:0; height:0; margin:0 auto; border-left:10px solid transparent; border-right:10px solid transparent; '
+             'border-top:8px solid %s; font-size:0; line-height:0;"></div></div>' % C["C_SU_SCURO"])
+    return _tessera_icona(C["C_NOTTE"], "linear-gradient(145deg, #0B3366 0%%, %s 100%%)" % NERO_BF, busta)
+
+
+def _ico_lista():
+    """Lista delle cose da fare: tre righe con il pallino (due spuntati in verde, una ancora da fare)."""
+    v = C["C_VERDE"]
+    righe = []
+    for k in range(3):
+        pallino = ('background-color:%s;' % v) if k < 2 else 'border:1px solid #FFFFFF; width:3px; height:3px;'
+        righe.append('<tr><td style="padding:1px 0; font-size:0; line-height:0;"><div style="width:5px; height:5px; border-radius:50%%; %s '
+                     'font-size:0; line-height:0;"></div></td><td style="padding:1px 0 1px 3px; font-size:0; line-height:0;">'
+                     '<div style="width:%dpx; height:2px; border-radius:1px; background-color:#FFFFFF; opacity:%s; font-size:0; line-height:0;"></div></td></tr>'
+                     % (pallino, (12, 10, 12)[k], "0.55" if k < 2 else "1"))
+    lista = ('<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto;">%s</table>'
+             % "".join(righe))
+    return _tessera_icona(NERO_BF, "linear-gradient(145deg, #0B3366 0%%, %s 100%%)" % NERO_BF, lista)
+
+
+ICONE_NOTIFICA = {"calendario": _ico_calendario, "chat": _ico_chat, "posta": _ico_posta, "lista": _ico_lista}
+
+
+def b_notifiche(b, ctx):
+    """La giornata piena (sopra, chiaro): notifiche una sopra l'altra, con la pila di quelle che arrivano ancora.
+    L'ora per te (sotto, scuro): l'interruttore "Non disturbare" acceso e una frase.
+    Campi: etichetta, notifiche [[fonte, ora, messaggio] ...], etichetta_ora, non_disturbare [scritta, stato], testo_ora."""
+    v = C["C_VERDE"]
+    linea = "#B8C4D4"
+    icone = [(C["C_NOTTE"], v), ("#4A5F7A", "#FFFFFF"), (NERO_BF, "#FFFFFF"), ("#0B3366", v)]
+    notifiche = b["notifiche"]
+    pezzi = []
+    for k, nt in enumerate(notifiche):
+        fonte, ora, msg = nt[:3]
+        sf, col = icone[k % len(icone)]
+        ico = None
+        if len(nt) > 3:
+            nome = nt[3]
+            ico = (ICONE_NOTIFICA["calendario"](ctx.testata.get("calendario", ["", "27"])[1]) if nome == "calendario"
+                   else ICONE_NOTIFICA[nome]())
+        pezzi.append('<table %s style="width:100%%; margin-top:%dpx;"><tr><td>%s</td></tr></table>'
+                     % (TABELLA_NS, 18 if k == 0 else 8,
+                        _notifica(fonte[0], sf, col, fonte, ora, msg, ctx, ultima=(k == len(notifiche) - 1), icona_html=ico)))
+    sopra = occhiello(b["etichetta"], C["C_SECONDARIO"], linea) + "".join(pezzi)
+
+    scritta, stato = b["non_disturbare"]
+    # Interruttore acceso: pillola verde con il pallino bianco a destra
+    interruttore = (
+        '<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="right"><tr>'
+        '<td width="54" height="30" bgcolor="%s" style="width:54px; height:30px; padding:0 3px; border-radius:999px; background-color:%s; '
+        'background-image:linear-gradient(180deg, #A6FFBE 0%%, %s 60%%, #58E57F 100%%); '
+        'box-shadow:0 0 0 4px rgba(114,250,147,0.14), 0 0 18px rgba(114,250,147,0.45);">'
+        '<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="right"><tr>'
+        '<td width="24" height="24" bgcolor="#FFFFFF" style="width:24px; height:24px; border-radius:50%%; background-color:#FFFFFF; '
+        'font-size:0; line-height:0; box-shadow:0 2px 5px rgba(0,6,17,0.35);">&nbsp;</td></tr></table>'
+        '</td></tr></table>' % (v, v, v))
+    # Luna disegnata con le forme: cerchio verde con un cerchio scuro sovrapposto (ombra interna)
+    luna = ('<td valign="middle" width="34" style="width:34px; padding-right:12px;">'
+            '<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>'
+            '<td align="center" valign="middle" width="34" height="34" bgcolor="%s" style="width:34px; height:34px; border-radius:10px; '
+            'background-color:%s; font-size:0; line-height:0;">'
+            '<div style="width:16px; height:16px; margin:0 auto; border-radius:50%%; box-shadow:inset -5px -3px 0 0 %s; '
+            'font-size:0; line-height:0;"></div></td></tr></table></td>' % ("#0B3366", "#0B3366", v))
+    riga_dnd = (
+        '<table %s style="width:100%%; margin-top:18px;"><tr><td class="nt-c" style="padding:14px 16px; border-radius:16px; '
+        'background-color:rgba(255,255,255,0.06); border:1px solid rgba(114,250,147,0.35);">'
+        '<table %s><tr>%s'
+        '<td valign="middle"><span style="display:block; font-family:%s; font-size:16px; line-height:20px; font-weight:800; color:#FFFFFF;">%s</span>'
+        '<span style="display:block; margin-top:2px; font-family:%s; font-size:10px; line-height:13px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:%s;">%s</span></td>'
+        '<td valign="middle" width="60" style="width:60px;">%s</td>'
+        '</tr></table></td></tr></table>'
+    ) % (TABELLA_NS, TABELLA_NS, luna, FONT, esc(scritta), FONT, v, esc(stato), interruttore)
+    sotto = (
+        '%s%s<p style="%s">%s</p>'
+        % (occhiello(b["etichetta_ora"], v, v), riga_dnd,
+           stile(16, "1.55", "#FFFFFF", "font-weight:700; margin-top:18px;"), inline(b["testo_ora"], ctx)))
+
+    h = (
+        '<table %s style="border-radius:24px; box-shadow:0 26px 50px -28px rgba(0,37,82,0.55);">'
+        '<tr><td class="gr-p" bgcolor="#F5F7FA" style="padding:24px 22px 24px 22px; background-color:#F5F7FA; '
+        'border:1px solid %s; border-bottom:0; border-radius:24px 24px 0 0;">%s</td></tr>'
+        '<tr><td class="gr-p" bgcolor="%s" style="padding:24px 22px 26px 22px; border-radius:0 0 24px 24px; background-color:%s; '
+        'background-image:radial-gradient(circle at 100%% 100%%, rgba(114,250,147,0.22) 0%%, rgba(114,250,147,0) 50%%), '
+        'linear-gradient(160deg, %s 0%%, %s 100%%);">%s</td></tr>'
+        '</table>'
+    ) % (TABELLA_NS, C["C_BORDO"], sopra, C["C_NERO"], C["C_NERO"], NERO_BF, C["C_NOTTE"], sotto)
+    txt = "%s\n%s\n\n%s\n%s: %s\n%s" % (
+        b["etichetta"], "\n".join("%s (%s): %s" % (nt[0], nt[1], testo_puro(nt[2])) for nt in notifiche),
+        b["etichetta_ora"], scritta, stato, inline_txt(b["testo_ora"], ctx))
+    attesi = ([b["etichetta"]] + [x for nt in notifiche for x in (nt[0], nt[1], testo_puro(nt[2]))] +
+              [b["etichetta_ora"], scritta, stato, testo_puro(b["testo_ora"])])
+    return h, txt, attesi
+
+
+def b_benefici_intestati(b, ctx):
+    """Benefici con intestazione scura (etichetta verde e titolo bianco) e voci sul bianco,
+    ognuna con la barra verde a sinistra e il titolo con l'evidenziatore."""
+    n, v = C["C_NOTTE"], C["C_VERDE"]
+    testa = occhiello(b["etichetta"], v, v)
+    attesi, txt = [b["etichetta"]], [b["etichetta"]]
+    if b.get("titolo"):
+        testa += '<p style="%s">%s</p>' % (
+            stile(24, "1.25", "#FFFFFF", "font-weight:900; letter-spacing:-0.6px; margin-top:12px;"), inline(b["titolo"], ctx))
+        attesi.append(testo_puro(b["titolo"]))
+        txt.append(testo_puro(b["titolo"]))
+    righe = []
+    for k, (_, si, spieg) in enumerate(b["voci"]):
+        righe.append(
+            '<table %s style="width:100%%; margin-top:%dpx;"><tr>'
+            '<td width="4" bgcolor="%s" style="width:4px; background-color:%s; border-radius:4px; font-size:0; line-height:0;">&nbsp;</td>'
+            '<td style="padding:2px 0 2px 18px;"><p style="%s"><span style="%s">%s</span></p><p style="%s">%s</p></td>'
+            '</tr></table>'
+            % (TABELLA_NS, 0 if k == 0 else 22, v, v,
+               stile(19, "1.35", n, "font-weight:900; letter-spacing:-0.4px;"), EVIDENZIATORE, inline(si, ctx),
+               stile(15, "1.55", n, "margin-top:6px;"), inline(spieg, ctx)))
+        attesi += [testo_puro(si), testo_puro(spieg)]
+        txt += ["", testo_puro(si), inline_txt(spieg, ctx)]
+    h = (
+        '<table %s style="border-radius:24px; box-shadow:0 22px 44px -30px rgba(0,37,82,0.5);">'
+        '<tr><td class="bt-p" bgcolor="%s" style="padding:24px 26px 22px 26px; border-radius:24px 24px 0 0; background-color:%s; '
+        'background-image:radial-gradient(circle at 100%% 0%%, rgba(114,250,147,0.24) 0%%, rgba(114,250,147,0) 50%%), '
+        'linear-gradient(160deg, %s 0%%, %s 100%%);">%s</td></tr>'
+        '<tr><td class="bt-p" bgcolor="#FFFFFF" style="padding:26px 26px 26px 26px; background-color:#FFFFFF; '
+        'border:1px solid %s; border-top:0; border-radius:0 0 24px 24px;">%s</td></tr>'
+        '</table>'
+    ) % (TABELLA_NS, C["C_NERO"], C["C_NERO"], NERO_BF, C["C_NOTTE"], testa, C["C_BORDO"], "".join(righe))
+    return h, "\n".join(txt), attesi
+
+
+def b_passi_notifiche(b, ctx):
+    """Passi come notifiche (email 4): card crema, ogni passo è una notifica bianca con il numero su icona verde."""
+    n, v = C["C_NOTTE"], C["C_VERDE"]
+    voci = b["voci"]
+    parti = [occhiello(b["etichetta"], n, v)]
+    attesi = [b["etichetta"]]
+    if b.get("titolo"):
+        parti.append('<p style="%s">%s</p>' % (
+            stile(22, "1.3", n, "font-weight:900; letter-spacing:-0.5px; margin-top:12px;"), inline(b["titolo"], ctx)))
+        attesi.append(testo_puro(b["titolo"]))
+    for i, t in enumerate(voci, 1):
+        parti.append('<table %s style="width:100%%; margin-top:%dpx;"><tr><td>%s</td></tr></table>'
+                     % (TABELLA_NS, 18 if i == 1 else 10, _notifica(str(i), v, NERO_BF, "", "", t, ctx)))
+        attesi.append(testo_puro(t))
+    h = ('<table %s><tr><td class="bt-p" bgcolor="%s" style="padding:24px 22px 24px 22px; background-color:%s; border-radius:24px;">%s</td></tr></table>'
+         % (TABELLA_NS, C["C_CREMA"], C["C_CREMA"], "".join(parti)))
+    txt = "\n".join([b["etichetta"]] + ([testo_puro(b["titolo"])] if b.get("titolo") else []) + [""] +
+                    ["%d. %s" % (i, testo_puro(t).replace("\n", " ")) for i, t in enumerate(voci, 1)])
+    return h, txt, attesi
+
+
+BLOCCHI["notifiche"] = b_notifiche
+SPAZI["notifiche"] = (30, 30)
+_benefici_prec2 = BLOCCHI["benefici"]
+BLOCCHI["benefici"] = lambda b, ctx: b_benefici_intestati(b, ctx) if b.get("stile") == "intestati" else _benefici_prec2(b, ctx)
+_elenco_prec2 = BLOCCHI["elenco"]
+BLOCCHI["elenco"] = lambda b, ctx: b_passi_notifiche(b, ctx) if b.get("stile") == "passi_notifiche" else _elenco_prec2(b, ctx)
+
+
+# --------------------------------------------------------------------------
+# Email 5 (ultime ore): le tre leve delle email 2-4 in tre righe, ognuna col link alla sua carta della LP
+# --------------------------------------------------------------------------
+def _leva_icona(tipo):
+    """Tessera 44px con i colori della carta della LP e un disegno che richiama la grafica della sua email:
+    "giro" (email 2, carta blu: anello tratteggiato) · "stagioni" (email 3, carta verde: 2×2 quadratini) ·
+    "tempo" (email 4, carta notte: interruttore «Non disturbare» acceso)."""
+    n, v = C["C_NOTTE"], C["C_VERDE"]
+    if tipo == "giro":
+        fondo, grad = n, "linear-gradient(145deg, #0B3366 0%%, %s 100%%)" % n
+        disegno = ('<div style="width:14px; height:14px; border:2px dashed %s; border-radius:50%%; font-size:0; line-height:0;">&nbsp;</div>' % v)
+    elif tipo == "stagioni":
+        fondo, grad = v, "linear-gradient(180deg, #A6FFBE 0%%, %s 60%%, #58E57F 100%%)" % v
+        q = '<td style="width:7px; height:7px; border-radius:2px; background-color:%s; font-size:0; line-height:0;">&nbsp;</td>' % n
+        s = '<td style="width:3px; font-size:0; line-height:0;">&nbsp;</td>'
+        disegno = ('<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>%s%s%s</tr>'
+                   '<tr><td colspan="3" style="height:3px; font-size:0; line-height:0;">&nbsp;</td></tr><tr>%s%s%s</tr></table>'
+                   % (q, s, q, q, s, q))
+    else:
+        fondo, grad = NERO_BF, "linear-gradient(145deg, #0B1A33 0%%, %s 100%%)" % NERO_BF
+        disegno = ('<div style="width:24px; height:14px; border-radius:7px; background-color:%s; text-align:right; font-size:0; line-height:0; '
+                   'box-shadow:0 0 10px rgba(114,250,147,0.55);"><div style="display:inline-block; width:10px; height:10px; margin:2px; '
+                   'border-radius:50%%; background-color:#FFFFFF; font-size:0; line-height:0;">&nbsp;</div></div>' % v)
+    return ('<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>'
+            '<td align="center" valign="middle" width="44" height="44" bgcolor="%s" style="width:44px; height:44px; border-radius:14px; '
+            'background-color:%s; background-image:%s; box-shadow:inset 0 1px 0 rgba(255,255,255,0.2), 0 10px 18px -10px rgba(0,6,17,0.7);">'
+            '<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto;"><tr>'
+            '<td align="center" valign="middle">%s</td></tr></table></td></tr></table>' % (fondo, fondo, grad, disegno))
+
+
+def _freccia_tonda(lato=30):
+    """Cerchio blu notte con la freccia verde, come quello del pulsante ma piccolo."""
+    n, v = C["C_NOTTE"], C["C_VERDE"]
+    return ('<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>'
+            '<td align="center" valign="middle" width="%d" height="%d" bgcolor="%s" style="width:%dpx; height:%dpx; border-radius:50%%; '
+            'background-color:%s; background-image:linear-gradient(145deg, #0B3366 0%%, %s 100%%); font-size:0; line-height:0;">'
+            '<table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;"><tr>'
+            '<td valign="middle" style="font-size:0; line-height:0;"><div style="width:8px; height:3px; border-radius:2px 0 0 2px; '
+            'background-color:%s; font-size:0; line-height:0;">&nbsp;</div></td>'
+            '<td valign="middle" style="font-size:0; line-height:0;"><div style="width:0; height:0; border-top:5px solid transparent; '
+            'border-bottom:5px solid transparent; border-left:7px solid %s; font-size:0; line-height:0;"></div></td>'
+            '</tr></table></td></tr></table>' % (lato, lato, n, lato, lato, n, NERO_BF, v, v))
+
+
+def b_leve(b, ctx):
+    """Le tre leve in tre righe (email 5): card bianca centrata, poi una riga-tessera per leva
+    [etichetta, frase, (testo), link, icona]: tessera colorata come la sua carta della LP, etichetta piccola, frase in grassetto,
+    cerchio con la freccia. Ogni riga porta alla sua carta della LP ("lp#problema" ...). "nota": riga piccola sotto."""
+    n, v = C["C_NOTTE"], C["C_VERDE"]
+    parti = [_centrato(occhiello(b["etichetta"], n, v))]
+    attesi, txt = [b["etichetta"]], [b["etichetta"]]
+    if b.get("titolo"):
+        parti.append('<p style="%s">%s</p>' % (
+            stile(24, "1.25", n, "font-weight:900; letter-spacing:-0.6px; text-align:center; margin-top:12px;"), inline(b["titolo"], ctx)))
+        attesi.append(testo_puro(b["titolo"]))
+        txt.append(testo_puro(b["titolo"]))
+    for k, voce in enumerate(b["voci"], 1):
+        # [etichetta, frase, link, icona] oppure [etichetta, frase, testo, link, icona] (testo piccolo sotto la frase)
+        tag, frase, testo, dest, icona = voce if len(voce) == 5 else (voce[0], voce[1], "", voce[2], voce[3])
+        url = attr(ctx.risolvi(dest))
+        a = '<a href="%s" target="_blank" style="display:block; text-decoration:none; color:%s;">%%s</a>' % (url, n)
+        parti.append(
+            '<table %s style="width:100%%; margin-top:%dpx;"><tr><td class="lv-r" bgcolor="#F5F8FC" style="padding:12px 14px 12px 12px; '
+            'background-color:#F5F8FC; border:1px solid %s; border-radius:18px;">'
+            '<table %s><tr>'
+            '<td valign="middle" width="44" style="width:44px;">%s</td>'
+            '<td valign="middle" style="padding:0 10px 0 14px;">%s</td>'
+            '<td valign="middle" align="right" width="30" style="width:30px;">%s</td>'
+            '</tr></table></td></tr></table>'
+            % (TABELLA_NS, 22 if k == 1 else 10, C["C_BORDO"], TABELLA_NS,
+               a % _leva_icona(icona),
+               a % ('<span style="display:block; font-family:%s; font-size:10px; line-height:13px; font-weight:800; letter-spacing:2px; '
+                    'color:%s;">%s</span><span style="display:block; margin-top:4px; font-family:%s; font-size:17px; line-height:22px; '
+                    'font-weight:900; letter-spacing:-0.3px; color:%s;">%s</span>%s'
+                    % (FONT, C["C_SECONDARIO"], esc(tag), FONT, n, inline(frase, ctx),
+                       ('<span style="display:block; margin-top:5px; font-family:%s; font-size:14px; line-height:20px; '
+                        'font-weight:400; color:%s;">%s</span>' % (FONT, n, inline(testo, ctx))) if testo else "")),
+               a % _freccia_tonda()))
+        attesi += [tag, testo_puro(frase)] + ([testo_puro(testo)] if testo else [])
+        txt += ["", tag, testo_puro(frase)] + ([testo_puro(testo)] if testo else []) + [ctx.risolvi(dest)]
+    if b.get("nota"):
+        parti.append('<p style="%s">%s</p>' % (
+            stile(13, "1.5", C["C_SECONDARIO"], "font-weight:700; text-align:center; margin-top:16px;"), inline(b["nota"], ctx)))
+        attesi.append(testo_puro(b["nota"]))
+        txt += ["", testo_puro(b["nota"])]
+    h = ('<table %s><tr><td class="st-p" bgcolor="#FFFFFF" style="padding:26px 20px 22px 20px; background-color:#FFFFFF; '
+         'border:1px solid %s; border-top:4px solid %s; border-radius:24px; box-shadow:0 22px 44px -30px rgba(0,37,82,0.5);">%s</td></tr></table>'
+         % (TABELLA_NS, C["C_BORDO"], v, "".join(parti)))
+    return h, "\n".join(txt), attesi
+
+
+BLOCCHI["leve"] = b_leve
+SPAZI["leve"] = (30, 30)
 
 
 # --------------------------------------------------------------------------

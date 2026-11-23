@@ -1,18 +1,18 @@
 {
   "numero": 3,
-  "data_invio": "2026-11-25",
+  "data_invio": "2026-11-26",
   "ora_invio": "19:30",
   "tema": "centro",
-  "oggetto": "Stai meglio. Ma non del tutto.",
-  "oggetto_alternativo": "Il dolore è sceso. Ma c'è ancora.",
-  "preheader": "Se ti fermi a metà, il corpo riprende l'abitudine di prima. Fino a domenica 29 novembre puoi arrivare in fondo, a metà prezzo.",
+  "oggetto": "Stai bene? Restaci.",
+  "oggetto_alternativo": "Il tagliando che rimandi sempre",
+  "preheader": "Il prezzo lo blocchi ora, il quando lo decidi tu: 45€ a trattamento invece di 90€.",
   "testata": {
     "variante": "banner",
     "banner": "verde",
     "allinea": "centro",
     "titolo_bf": "Black Friday",
     "dati_bf": [],
-    "titolo": "Stai meglio.|Ma non del tutto.",
+    "titolo": "",
     "sfondo_foto": "https://www.studiomobilitas.it/trattamenti/web/schiena_lombare-supino_01_orizzontale-1600.jpg",
     "sfondo_posizione": "center center"
   },
@@ -22,61 +22,15 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "il dolore è sceso.\nNon è più quello di prima.\n**Ma c’è ancora.**"
+      "testo": "il tagliando alla macchina\nlo fai anche quando va benissimo.\nNon aspetti che si rompa:\nlo fai perché vada avanti\nsenza sorprese."
     },
     {
       "tipo": "paragrafo",
-      "testo": "Te ne accorgi la mattina,\nquando ti alzi dal letto.\nO la sera, dopo una giornata lunga.\nNon ti blocca più, **ma è lì**."
+      "testo": "E il tuo corpo?\n**Quando gli hai fatto**\n**l’ultimo tagliando?**"
     },
     {
       "tipo": "paragrafo",
-      "stile": "evidenza",
-      "testo": "E magari hai pensato:\nper adesso va bene così."
-    },
-    {
-      "tipo": "paragrafo",
-      "testo": "Non hai sbagliato tu.\nMa c’è una cosa che forse\n**nessuno ti ha mai spiegato.**"
-    },
-    {
-      "tipo": "box",
-      "stile": "spiegazione",
-      "etichetta": "PERCHÉ IL DOLORE TORNA",
-      "testo": "Se hai avuto male a lungo,\n**il corpo impara a stare teso.**\nDiventa un’abitudine.\nE non la cambi in un giorno.\n\nSe ti fermi a metà,\nil corpo torna\nall’abitudine di prima.\nE con lei, il dolore."
-    },
-    {
-      "tipo": "box",
-      "stile": "bastone",
-      "etichetta": "PENSA A UNA PIANTA",
-      "testo": "Una pianta storta\nsi lega a un bastone.\n\nSe lo togli troppo presto,\nsi piega di nuovo.\n\nSe aspetti,\nimpara a stare\ndritta da sola.\n\nIl tuo corpo\nfa la stessa cosa."
-    },
-    {
-      "tipo": "benefici",
-      "etichetta": "COSA CAMBIA, FINO IN FONDO",
-      "voci": [
-        [
-          "",
-          "Arrivi in fondo.",
-          "Dieci trattamenti per dare\nal corpo il tempo\ndi cambiare abitudine."
-        ],
-        [
-          "",
-          "Vieni quando il corpo\nte lo chiede.",
-          "I trattamenti sono già pagati:\nogni volta che serve,\nsono lì per te."
-        ],
-        [
-          "",
-          "Punti a stare bene davvero.",
-          "«Meglio» è un buon inizio.\nAdesso puntiamo a «bene»."
-        ]
-      ]
-    },
-    {
-      "tipo": "paragrafo",
-      "testo": "Il Black Friday è l’occasione\nper **finire il lavoro iniziato**.\nNe paghi cinque, e ne fai dieci."
-    },
-    {
-      "tipo": "paragrafo",
-      "testo": "**L’obiettivo è arrivare in fondo.**\nE far sì che il risultato duri."
+      "testo": "Per il Black Friday\nil tuo tagliando costa la metà.\n**Ne paghi cinque, e ne fai dieci**:"
     },
     {
       "tipo": "riquadro",
@@ -90,7 +44,7 @@
         "IN OMAGGIO"
       ],
       "righe": [
-        "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
+        "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
         "450€ invece di 900€",
         "Fino a domenica 29 novembre, ore 23:59"
       ],
@@ -98,7 +52,84 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "Per prenotare, ti contattiamo noi.\n**Basta deciderlo entro domenica.**"
+      "testo": "Eppure, con il corpo,\nfacciamo quasi tutti il contrario.\nFinché stai bene, non ci pensi:\nnon c’è fretta, si può rimandare.\nE torni in studio\n**solo quando fa di nuovo male.**"
+    },
+    {
+      "tipo": "stagioni",
+      "etichetta": "IL TAGLIANDO DEL TUO CORPO",
+      "titolo": "Un anno di cura,\na metà prezzo.",
+      "stagioni": [
+        [
+          "INVERNO",
+          "dic · feb",
+          4,
+          "per ripartire"
+        ],
+        [
+          "PRIMAVERA",
+          "mar · mag",
+          2,
+          "per mantenerti"
+        ],
+        [
+          "ESTATE",
+          "giu · ago",
+          2,
+          "per mantenerti"
+        ],
+        [
+          "AUTUNNO",
+          "set · nov",
+          2,
+          "per mantenerti"
+        ]
+      ],
+      "nota_griglia": "È solo un esempio: il ritmo lo scegli tu.",
+      "etichetta_prezzo": "A TRATTAMENTO",
+      "prezzo": "45€ invece di 90€",
+      "testo_prezzo": "I trattamenti non scadono:\nbasta bloccare il prezzo\nentro il 29 novembre."
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Magari adesso stai pensando:\n«Sto bene, perché spendere adesso?»"
+    },
+    {
+      "tipo": "paragrafo",
+      "stile": "evidenza",
+      "testo": "Perché adesso\ncosta la metà.\nE il quando\nlo decidi tu."
+    },
+    {
+      "tipo": "benefici",
+      "stile": "centrati",
+      "etichetta": "PERCHÉ FARLO ORA",
+      "titolo": "Ti prendi cura di te\nmentre stai bene.",
+      "voci": [
+        [
+          "",
+          "Mantieni i progressi.",
+          "Riparti ogni volta\nda dove siamo arrivati,\ne resti come stai adesso."
+        ],
+        [
+          "",
+          "Blocchi il prezzo più basso.",
+          "45€ a trattamento invece di 90€:\nil prezzo più basso di sempre."
+        ],
+        [
+          "",
+          "Scegli tu il quando.",
+          "Ogni quanto venire\nlo decidi tu, con calma:\ni trattamenti restano tuoi."
+        ]
+      ]
+    },
+    {
+      "tipo": "elenco",
+      "stile": "passi_riga",
+      "etichetta": "COSA FARE ADESSO",
+      "voci": [
+        "Clicca\nil pulsante.",
+        "Paghi 450€\nsul sito.",
+        "Ti chiamiamo\nper fissare\nil primo."
+      ]
     },
     {
       "tipo": "pulsante",
@@ -106,13 +137,8 @@
       "link": "lp"
     },
     {
-      "tipo": "nota",
-      "testo": "Paghi sul nostro sito\nTi contattiamo noi per prenotare",
-      "stile": "passi"
-    },
-    {
       "tipo": "chiusura",
-      "testo": "Ci vediamo in studio.\nQuesta volta, fino in fondo."
+      "testo": "A presto in studio!"
     }
   ],
   "solo_testo": null,
@@ -120,9 +146,9 @@
     "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
     "450€",
     "900€",
+    "45€ invece di 90€",
     "domenica 29 novembre",
     "23:59",
-    "+39 351 819 8457",
     "utm_content=email_3",
     "Riserva i tuoi 10 trattamenti a metà prezzo",
     "Studio Mobilitas"

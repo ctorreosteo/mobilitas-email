@@ -1,18 +1,19 @@
 {
   "numero": 2,
-  "data_invio": "2026-11-23",
+  "data_invio": "2026-11-24",
   "ora_invio": "19:30",
-  "oggetto": "Stai bene. Ed è proprio questo il problema.",
-  "oggetto_alternativo": "Ti ricordi com'era prima?",
-  "preheader": "Quando si sta bene, si smette. Dieci trattamenti per non ricominciare da capo, a metà prezzo fino a domenica 29 novembre.",
+  "oggetto": "Non ricominciare da capo",
+  "oggetto_alternativo": "Ti fa male, prenoti, smetti. E poi?",
+  "preheader": "Lavori sulla causa, con l'osteopata che conosce già la tua storia. 450€ invece di 900€.",
+  "tema": "bianco",
   "testata": {
     "variante": "banner",
     "banner": "nero",
     "titolo_bf": "Black Friday",
     "dati_bf": [],
-    "titolo": "Stai bene.|Ed è proprio questo il problema.",
     "sfondo_foto": "https://www.studiomobilitas.it/trattamenti/web/schiena_lombare-prono_14_orizzontale-1600.jpg",
-    "sfondo_posizione": "65% center"
+    "sfondo_posizione": "65% center",
+    "titolo": ""
   },
   "blocchi": [
     {
@@ -20,62 +21,15 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "se oggi stai bene,\nè perché insieme abbiamo fatto\n**un ottimo lavoro.**\nO lo stiamo ancora facendo."
+      "testo": "quando il dolore passa,\nè normale pensare\ndi aver chiuso la questione."
     },
     {
       "tipo": "paragrafo",
-      "testo": "Il problema è proprio questo:\n**quando si sta bene, si smette.**\nE ci si dimentica di com'era prima."
+      "testo": "Poi, dopo qualche mese,\nqualcosa torna a farsi sentire.\nE **il dolore è di nuovo lì**."
     },
     {
       "tipo": "paragrafo",
-      "stile": "evidenza",
-      "testo": "Ma ti ricordi com'era prima?"
-    },
-    {
-      "tipo": "paragrafo",
-      "testo": "Quando ti svegliavi al mattino\ne **il dolore era già lì**.\nQuando decideva lui al posto tuo:\nno alla cena con gli amici,\nno alla passeggiata,\nno al weekend fuori."
-    },
-    {
-      "tipo": "paragrafo",
-      "testo": "Ecco: quel dolore può tornare.\n**E spesso torna più forte di prima.**"
-    },
-    {
-      "tipo": "paragrafo",
-      "testo": "Ma c'è un modo semplice\nper **non ricominciare da capo**.\nPer il Black Friday,\nabbiamo pensato proprio a te:\n**dieci trattamenti al prezzo di cinque.**"
-    },
-    {
-      "tipo": "box",
-      "etichetta": "PENSA AL TAGLIANDO",
-      "testo": "Lo so: quando stai bene,\ndieci trattamenti possono sembrare tanti.\n\nMa pensa al **tagliando della macchina**.\nNon lo fai perché è rotta.\nLo fai proprio perché va bene,\ne vuoi che continui così\nper tanti chilometri.\n\n**Con il tuo corpo è lo stesso.**"
-    },
-    {
-      "tipo": "paragrafo",
-      "testo": "Con dieci trattamenti già pagati,\n**il lavoro fatto non va perso.**"
-    },
-    {
-      "tipo": "paragrafo",
-      "testo": "Non aspetti più di stare male:\nal primo segnale,\nil trattamento è già lì.\nE intanto continui a dire di sì."
-    },
-    {
-      "tipo": "benefici",
-      "etichetta": "COSA CAMBIA, SE GIOCHI D'ANTICIPO",
-      "voci": [
-        [
-          "",
-          "Ti prendi cura di te\nmentre stai bene.",
-          "Lavori sul tuo corpo con calma,\nquando sei tu a deciderlo."
-        ],
-        [
-          "",
-          "Riparti da dove\nsiamo arrivati.",
-          "Si continua dal lavoro\nfatto insieme, un passo\ndopo l’altro."
-        ],
-        [
-          "",
-          "Continui a dire di sì.",
-          "Alla cena con gli amici,\nalla passeggiata,\nal weekend fuori."
-        ]
-      ]
+      "testo": "Per questo, per il Black Friday,\nabbiamo pensato a un modo\nper affrontarlo alla radice\ne tenerlo lontano nel tempo:\n**dieci trattamenti**\n**al prezzo di cinque**."
     },
     {
       "tipo": "riquadro",
@@ -89,7 +43,7 @@
         "IN OMAGGIO"
       ],
       "righe": [
-        "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
+        "10 trattamenti: ne paghi 5, gli altri 5 sono in omaggio.",
         "450€ invece di 900€",
         "Fino a domenica 29 novembre, ore 23:59"
       ],
@@ -97,17 +51,67 @@
     },
     {
       "tipo": "paragrafo",
-      "testo": "Vuoi che il lavoro fatto insieme duri?\n**Farlo adesso costa la metà.**"
+      "testo": "Perché succede?\nSpesso perché si prenota\nsolo quando fa male,\ne ci si ferma appena passa.\nCosì il dolore ha tutto il tempo\ndi ripresentarsi."
+    },
+    {
+      "tipo": "giro",
+      "etichetta": "IL GIRO CHE SI RIPETE",
+      "passi": [
+        "Ti fa male",
+        "Prenoti",
+        "Stai meglio",
+        "Smetti"
+      ],
+      "ritorno": "e si ricomincia da capo",
+      "etichetta_fila": "10 DI FILA",
+      "testo_fila": "Una linea sola, dal primo\nal decimo trattamento.\nSenza ripartire ogni volta da zero."
+    },
+    {
+      "tipo": "paragrafo",
+      "testo": "Magari adesso stai pensando:\n«Ma io sto già meglio»."
+    },
+    {
+      "tipo": "paragrafo",
+      "stile": "evidenza",
+      "testo": "È proprio il momento\nin cui ci si ferma.\nE il giro ricomincia:\ndi nuovo con il dolore."
+    },
+    {
+      "tipo": "benefici",
+      "stile": "tessere",
+      "etichetta": "PERCHÉ 10 TRATTAMENTI DI FILA",
+      "voci": [
+        [
+          "",
+          "Lavori sulla causa.",
+          "Quasi mai il dolore parte\nda dove fa male: con dieci\ntrattamenti di fila c’è il tempo\nper arrivarci."
+        ],
+        [
+          "",
+          "Scegli tu il tuo osteopata.",
+          "Puoi continuare con l’osteopata\nche ti ha già seguito\ne conosce la tua storia.\nOppure, se preferisci,\nprovare con un altro\ndei nostri specialisti."
+        ],
+        [
+          "",
+          "Decidi tu la frequenza.",
+          "I trattamenti sono già tuoi:\nli prenoti quando vuoi,\nogni settimana o ogni mese,\ncome ti è più comodo."
+        ]
+      ]
+    },
+    {
+      "tipo": "elenco",
+      "stile": "passi_scuro",
+      "etichetta": "COME FUNZIONA",
+      "titolo": "I prossimi tre step\ne i 10 trattamenti\nsono tuoi.",
+      "voci": [
+        "Clicca sul pulsante qui sotto.",
+        "Paghi 450€ sul nostro sito.",
+        "Una volta pagato,\nti contattiamo noi\nper prenotare\nil primo trattamento."
+      ]
     },
     {
       "tipo": "pulsante",
       "testo": "Riserva i tuoi 10 trattamenti a metà prezzo",
       "link": "lp"
-    },
-    {
-      "tipo": "nota",
-      "testo": "Paghi sul nostro sito\nTi contattiamo noi per prenotare",
-      "stile": "passi"
     },
     {
       "tipo": "chiusura",
@@ -121,10 +125,8 @@
     "900€",
     "domenica 29 novembre",
     "23:59",
-    "+39 351 819 8457",
     "utm_content=email_2",
     "Riserva i tuoi 10 trattamenti a metà prezzo",
     "Studio Mobilitas"
-  ],
-  "tema": "bianco"
+  ]
 }
